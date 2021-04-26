@@ -3,7 +3,6 @@
     padding: 0;
 }
 
-
 .info{
     padding: 20px;
     height: max-content;
@@ -313,3 +312,7 @@
         "footer footer";
     } 
   }
+
+body{
+    background-color: #181818;
+}
