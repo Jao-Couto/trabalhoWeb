@@ -1,13 +1,13 @@
 console.log("Hello World!")
+console.log("Hello World!")
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 function openNav() {
     if(window.screen.width > 600){
         document.getElementById("sidenav").style.width = "250px";
         document.getElementById("main").style.marginLeft = "250px";
-        setTimeout(function(){ 
             document.getElementById("main").style.width = "calc(100% - 250px)";
-        }, 450);
+
     }else{
         console.log("Tela de dispositivo mobile!");
         document.getElementById("sidenav").style.width = "100%";
