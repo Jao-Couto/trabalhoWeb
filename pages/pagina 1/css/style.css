@@ -1,0 +1,11 @@
+.main{
+    min-width: 350px;
+    overflow-x: hidden;
+    min-height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("/images/background.jpg");
+    background-repeat: repeat;
+  }
