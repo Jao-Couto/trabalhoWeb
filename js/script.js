@@ -1,19 +1,18 @@
-console.log("Hello World!")
-console.log("Hello World!")
 
 let opened = false
 
 function openNav() {
     
     if(window.screen.width > 600){
-        document.getElementById("sidenav").style.width = "250px";
+        document.getElementById("sidenav").style.width = "25%";
         document.getElementById("main").animate([
             // keyframes
             { opacity: '100%' },
-            { opacity: '50%', transform: blur(200)}
+            { opacity: '50%', filter: 'blur(.1vh)'}
           ], {
             // timing options
             duration: 300,
+            easing: "ease",
             fill: "forwards"
           })
     }else{
@@ -31,8 +30,8 @@ function closeNav() {
     if( document.getElementById("sidenav").style.width != "100%" )
         document.getElementById("main").animate([
             // keyframes
-            { opacity: '50%', transform: blur(2) },
-            { opacity: '100%', transform: blur(0) }
+            { opacity: '50%', filter: 'blur(.1vh)' },
+            { opacity: '100%', filter: 'blur(0)' }
         ], {
             // timing options
             duration: 300,
@@ -41,9 +40,6 @@ function closeNav() {
 } 
 
 document.body.addEventListener("click", function(e){
-    console.log(opened);
-    console.log(e.target.id != "sidenav");
-    console.log(e.target.parentElement.id != "sidenav");
     if (opened && e.target.id != "sidenav" && e.target.parentElement.id != "sidenav")
         closeNav()
 })

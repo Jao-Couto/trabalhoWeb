@@ -1,12 +1,12 @@
 * {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
     max-width: 100%;
 }
 
-
 .main{
-    min-width: 350px;
+    min-width: 300px;
     overflow-x: hidden;
     display: grid;
     grid-template-columns:10% 80% 10%;
@@ -20,50 +20,41 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-image: url("/images/background.jpg");
-    background-repeat: repeat;
-}
-
-.wrapAround{
-    height: fit-content;
-    width: fit-content;
-    z-index: 2;
 }
 
 .sidebar {
-    height: 100%; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
+  height: 100%; 
+  width: 0; 
+  position: fixed;
+  z-index: 1;
+  top: 0;
   left: 0;
-  background-color: #111; /* Black*/
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 10vh; 
+  transition: 0.5s;
 }
 
 .sidebar a {
-    padding: 8px 8px 8px 32px;
+    padding: 1vh 3vw 1vh 3vw;
     text-decoration: none;
     z-index: 3;
-    font-size: 25px;
+    font-size: 4.5vh;
     color: #818181;
     display: block;
     transition: 0.3s;
 }
 
 .sidebar a:hover {
-color: #f1f1f1;
+    color: #f1f1f1;
 }
 
 .sidebar .closebtn {
     z-index: 3;
     position: absolute;
     top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
+    right: 0vw;
+    font-size: 4vw;
 }
 
 #main {
@@ -71,18 +62,23 @@ color: #f1f1f1;
 }
 
 .header{
+    pointer-events: stroke;
     grid-area: header;
     position: absolute;
+    display: grid;
+    justify-content: center;
+    align-content: center;
     width: 100%;
     height: 100%;
     background-color: rgb(10, 10, 63);
 }
 
 .footer{
+    pointer-events: none;
     grid-area: footer;
     position: absolute;
     bottom: 0;
-    display: flex;
+    display: grid;
     align-content: flex-end;
     justify-content: center;
     width: 100%;
@@ -91,32 +87,118 @@ color: #f1f1f1;
 }
 
 .footer p{
-    font-size: 15px;
+    font-size: 1.5vh;
 }
 
 .titulo{
     color: white;
-    margin-top: 20px;
     font-weight: bold;
-    font-size: 30px;
-    display: flex;
-    justify-content: center;
+    font-size: 5vh;
 }
 
 .abrirSide {
-    width: 50px;
+    width: 5vh;
     height: auto;
-    filter:invert(100%);
+    margin-left: 1vw;
     position: absolute;
-    left: 20px;
-    top: 10px;
+    display: grid;
+    justify-self: flex-start;
+    align-self: center;
 }
 
-.abrirSide:hover{
+.abrirSide img{
+    filter:invert(100%);
+}
+
+.abrirSide img:hover{
     filter:invert(70%);
+}
+
+.content{
+    grid-area: main;
+    align-self: center;
+    justify-self: center;
+    width: max-content;
+    position: relative;
+    overflow-x: hidden;
+    height: auto;
+    align-self: flex-start;
+    background-color: white;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    padding-top: 10vh;
+    max-width: 100%;
+    min-height: 70vw;
+}
+
+.maxContent{
+    display: inline-flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    height: max-content;
+    min-width: min-content;
+}
+
+.innerContent{
+    min-width: 25vh;
+    min-height: 36vh;
+    max-width: 25vh;
+    max-height: 36vh;
+    padding: 1.5vh;
+    background-color: white;
+    border: 0;
+    border-right: 1px solid rgb(207, 207, 207);
+    border-bottom: 1px solid rgb(207, 207, 207);
+    display: grid;
+    align-content: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    width: max-content;
+    height: max-content;
+    font-size: 2vh;
+}
+
+.innerContent .image{
+    min-width: 25vh;
+    min-height: 30vh;
+    max-width: 25vh;
+    max-height: 30vh;
+    background-color: rgb(255, 255, 255);
 }
 
 body{
     background-color: #181818;
-    max-width: 100%;
+}
+
+@media screen and (max-width: 350px){
+    .titulo{
+        font-size: 200%;
+    }
+}
+
+@media screen and (max-width: 600px){
+  
+  .sidebar a {
+      padding: 5% 6% 0 10%;
+      text-decoration: none;
+      z-index: 3;
+      font-size: 4.5vh;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+  }
+  
+  .sidebar .closebtn{
+      padding: 0;
+      z-index: 3;
+      position: absolute;
+      top: 0;
+      right: 0vw;
+      font-size: 50px; 
+      width: 15%;
+      height: 10%;
+  }
 }
