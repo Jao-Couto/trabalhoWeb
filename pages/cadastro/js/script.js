@@ -1,4 +1,4 @@
-console.log("Hello");
+
 
 let options = {
     translation: {
@@ -35,5 +35,19 @@ function ocultaSenha(){
     document.querySelector('#mostra').type = "button"
     
 }
+
+
+$(document).ready(function(){
+    $('#form_cadastro').on("submit", function(event){
+        event.preventDefault();
+
+        var dados= $("#form_cadastro").serialize();
+/*
+        $.post("", dados, function(retorno){
+            console.log(retorno);
+        });*/
+        alert(dados);
+    })
+});
 
 
