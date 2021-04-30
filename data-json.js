@@ -3,6 +3,7 @@ let prod1 ={
     marca: "Saga",
     categoria: "HD/SSD",
     preco: "",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     img: "",
 };
 
@@ -11,6 +12,7 @@ let prod2={
     marca: "Gigabyte",
     categoria: "Placa de video",
     preco: "",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     img: "",
 };
 
@@ -19,6 +21,7 @@ let prod3={
     marca: "Sharkoon",
     categoria: "Gabinete",
     preco: "",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     img: "",
 };
 
@@ -27,6 +30,7 @@ let prod4={
     marca: "Acer",
     categoria: "Monitor",
     preco: "",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     img: "",
 };
 
@@ -35,6 +39,7 @@ let prod5={
     marca: "Intel",
     categoria: "Processador",
     preco: "",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     img: "",
 };
 
@@ -43,6 +48,7 @@ let prod6={
     marca: "Gigabyte",
     categoria: "Placa-mae",
     preco: "",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     img: "",
 };
 
@@ -51,6 +57,7 @@ let prod7={
     marca: "HyperX",
     categoria: "Memoria RAM",
     preco: "",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     img: "",
 };
 
@@ -59,6 +66,7 @@ let prod8={
     marca: "Redragon",
     categoria: "Perifericos",
     preco: "",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     img: "",
 };
 
@@ -67,6 +75,7 @@ let prod9={
     marca: "Logitech",
     categoria: "Perifericos",
     preco: "",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     img: "",
 };
 
@@ -75,5 +84,33 @@ let prod10={
     marca: "Corsair",
     categoria: "Fonte",
     preco: "",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     img: "",
 };
+
+let produtos = [
+    prod1,
+    prod2,
+    prod3,
+    prod4,
+    prod5,
+    prod6,
+    prod7,
+    prod8,
+    prod9,
+    prod10
+]
+let contador = 0
+
+$(document).ready(function(){
+    function addConteudo(){
+        document.getElementById('conteudo').innerHTML += ' <div class="innerContent"> <div class="image"><img src="images/test.png" alt="" srcset=""> </div> <div class="text">'+ produtos[contador].nome +' <br> <p> '+ produtos[contador].marca +' </p> <br> <p style="font-size: 1.8vh"> '+ produtos[contador].desc+' </p></div></div>'
+        document.getElementById('qtd').innerHTML = ++contador + ' Produtos'
+    }
+    
+    for (let i = 0; i < produtos.length; i++) {
+        addConteudo();
+    }
+})
+
+

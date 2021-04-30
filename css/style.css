@@ -274,7 +274,6 @@ img{
     min-width: 25vh;
     min-height: 36vh;
     max-width: 25vh;
-    max-height: 36vh;
     padding: 1.5vh;
     margin: 1.5vh;
     background-color: white;
@@ -286,6 +285,7 @@ img{
     width: max-content;
     height: max-content;
     font-size: 2vh;
+    font-weight: 600;
 }
 
 .innerContent .image{
@@ -301,6 +301,15 @@ img{
     min-height: 30vh;
     max-width: 25vh;
     max-height: 30vh;
+}
+
+.innerContent p{
+    font-weight: 500;
+    font-size: 2vh;
+}
+
+.innerContent .botao{
+
 }
 
 body{
