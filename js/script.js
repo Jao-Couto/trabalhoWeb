@@ -1,5 +1,7 @@
-
+let contador = 0
 let opened = false
+
+
 
 function openNav() {
     
@@ -39,7 +41,25 @@ function closeNav() {
         })
 } 
 
+function addCategoria(){
+    document.getElementById('listCategoria').innerHTML +=   '<a href="">'+
+                                                                '<li>'+
+                                                                    'Entre Aqui!'+
+                                                                '</li>'+
+                                                            '</a>'
+}
+
+function addConteudo(){
+    document.getElementById('qtd').innerHTML = ++contador + ' Produtos'
+    document.getElementById('conteudo').innerHTML += ' <div class="innerContent"> <div class="image"><img src="images/test.png" alt="" srcset=""> </div> <div class="text"> lorem ipsilum</div></div>'
+}
+
+for (let i = 0; i < 5; i++) {
+    addConteudo();
+}
+
 document.body.addEventListener("click", function(e){
+    
     if (opened && e.target.id != "sidenav" && e.target.parentElement.id != "sidenav")
         closeNav()
 })

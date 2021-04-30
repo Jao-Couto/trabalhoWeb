@@ -17,64 +17,72 @@
     
     <main class="main" id="main">
         <header class="header" id="header">
+            
             <div class="abrirSide">
                 <img src="images/sidenav.png" alt="" class="abrirSide" onclick="openNav()">
             </div>
+            <div class="cadastro">
+                <button class="quadradinho" onclick="addCategoria()">
+
+                </button>
+                <button class="quadradinho" onclick="addConteudo()">
+                    <img src="images/carrinho.png" alt="">
+                </button>
+                <a href="pages/cadastro/cadastro.html">
+                    <div class="bolinha">
+                        <img src="images/cadastro.png" alt="" href=>
+                    </div>
+                </a>
+                
+            </div>
+            
             <div class="titulo">
                 Compra aqui
             </div>
-            <a href="pages/cadastro/cadastro.html">Cadastro</a>
+            
+            
         </header>
-        
-        <div class="content"> 
-            <div class="maxContent">
-                <div class="innerContent">
-                    <div class="image">
-                        <img src="images/test.png" alt="" srcset="">
-                    </div>
-                    <div class="text">
-                        lorem ipsilum
-                    </div>
+        <div class="categoria">
+            <h3>Categorias</h3>
+            <div class="grupoCat">
+                <ul id="listCategoria">
+                    <a href="">
+                        <li>
+                            Entre Aqui!
+                        </li>
+                    </a>
+                    <a href="">
+                        <li>
+                            Entre Aqui!
+                        </li>
+                    </a><a href="">
+                        <li>
+                            Entre Aqui!
+                        </li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content" > 
+                
+            <div class="topContent">
+                <div class="qtd" id="qtd">
+                    Quantidade
                 </div>
-                <div class="innerContent">
-                    <div class="image">
-                        <img src="images/test.png" alt="" srcset="">
-                    </div>
-                    <div class="text">
-                        lorem ipsilum
-                    </div>
+                <div class="maisVend">
+                    <select name="maisVendidos" id="maisVend" class="select">
+                        <option value="">Mais Vendidos</option>
+                        <option value="">Menores Preços</option>
+                        <option value="">Maiores Preços</option>
+                        <option value="">Mais Relevantes</option>
+                    </select>
+                    
                 </div>
-                <div class="innerContent">
-                    <div class="image">
-                        <img src="images/test.png" alt="" srcset="">
-                    </div>
-                    <div class="text">
-                        lorem ipsilum
-                    </div>
-                </div>
-                <div class="innerContent">
-                    <div class="image">
-                        <img src="images/test.png" alt="" srcset="">
-                    </div>
-                    <div class="text">
-                        lorem ipsilum
-                    </div>
-                </div><div class="innerContent">
-                    <div class="image">
-                        <img src="images/test.png" alt="" srcset="">
-                    </div>
-                    <div class="text">
-                        lorem ipsilum
-                    </div>
-                </div>
-                <div class="innerContent">
-                    <div class="image">
-                        <img src="images/test.png" alt="" srcset="">
-                    </div>
-                    <div class="text">
-                        lorem ipsilum
-                    </div>
-                </div>
+            </div>
+
+            <div class="maxContent" id="conteudo">
+
             </div>
         </div>
         
