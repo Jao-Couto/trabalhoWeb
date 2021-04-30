@@ -42,11 +42,10 @@ $(document).ready(function(){
         event.preventDefault();
 
         var dados= $("#form_cadastro").serialize();
-/*
-        $.post("", dados, function(retorno){
+                /*
+        $.post("../cadastro/data-json.js", dados, function(retorno){
             console.log(retorno);
         });*/
-        alert(dados);
     })
 });
 
