@@ -1,3 +1,13 @@
+export function getProdutos(){
+    return produtos;
+}
+
+export function setProdutos(produtoSet){
+    produtos = produtosSet
+}
+
+
+
 let prod1 ={
     nome: "Saga 2TB",
     marca: "Saga",
@@ -103,11 +113,4 @@ let produtos = [
 let contador = 0
 
 
-export function getProdutos(){
-    return produtos;
-}
-
-export function setProdutos(produtoSet){
-    produtos = produtosSet
-}
 

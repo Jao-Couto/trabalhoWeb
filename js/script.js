@@ -1,7 +1,8 @@
+import { getProdutos, setProdutos} from "../data-json.js";
 
 let opened = false
 
-import 
+let produtos = getProdutos()
 
 function openNav() {
     
@@ -53,6 +54,8 @@ function addCategoria(){
 function addCarrinho(prod){
     console.log(prod);
 }
+
+let contador = 0
 
 $(document).ready(function(){
     function addConteudo(){
