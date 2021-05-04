@@ -308,8 +308,27 @@ img{
     font-size: 2vh;
 }
 
-.innerContent .botao{
+.innerContent .comprar{
+    width: 4vh;
+    height: 3vh;
+    display: grid;
+    background-color: rgb(50, 110, 50);
+    justify-self: flex-end;
+    align-self: center;
+    margin: 2vh;
+    margin-right: 0;
+    border: black solid 2px;
+    border-radius: 3px;
+}
 
+.innerContent .comprar:hover{
+    background-color: rgb(51, 107, 51);
+}
+
+.innerContent .comprar:active{
+    background-color: rgb(51, 100, 51);
+    border-bottom: black solid 1px;
+    margin-top: calc(2vh + 1px);
 }
 
 body{

@@ -102,15 +102,12 @@ let produtos = [
 ]
 let contador = 0
 
-$(document).ready(function(){
-    function addConteudo(){
-        document.getElementById('conteudo').innerHTML += ' <div class="innerContent"> <div class="image"><img src="images/test.png" alt="" srcset=""> </div> <div class="text">'+ produtos[contador].nome +' <br> <p> '+ produtos[contador].marca +' </p> <br> <p style="font-size: 1.8vh"> '+ produtos[contador].desc+' </p></div></div>'
-        document.getElementById('qtd').innerHTML = ++contador + ' Produtos'
-    }
-    
-    for (let i = 0; i < produtos.length; i++) {
-        addConteudo();
-    }
-})
 
+export function getProdutos(){
+    return produtos;
+}
+
+export function setProdutos(produtoSet){
+    produtos = produtosSet
+}
 
