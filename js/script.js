@@ -97,3 +97,22 @@ document.body.addEventListener("click", function(e){
     if (opened && e.target.id != "sidenav" && e.target.parentElement.id != "sidenav")
         closeNav()
 })
+
+
+// 'data' contém os dados importados do arquivo data/data.js
+console.log('meus dados:');
+console.log(produtos);
+
+
+
+// selecionando dados
+let dados_selecionados = [];
+dados_selecionados.push(produtos[0]);
+dados_selecionados.push(produtos[2]);
+
+
+// armazenando na seção
+let para_enviar = JSON.stringify(dados_selecionados);
+sessionStorage.setItem('meus_dados', para_enviar);
+
+// agora podemos recuperar esses dados em 'tela_produto.html'
