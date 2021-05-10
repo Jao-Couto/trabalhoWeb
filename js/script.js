@@ -75,16 +75,6 @@ $(document).ready(function(){
             }
 
         });
-        $elem = event.target
-        $elem.animate({ width: '1vh' }, 300).then(function(){
-            $elem.animate({width: '10vh' },500).then(function(){
-                $elem.animate({ width: '10vh' },500).then(function(){
-                    $elem.animate({ width: '1vh' },300 ) 
-                })
-            })
-        });
-        
-        
         
     })
 })
