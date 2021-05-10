@@ -4,6 +4,8 @@ let opened = false
 
 let produtos = getProdutos()
 
+let dados_selecionados = [];
+
 function openNav() {
     
     if(window.screen.width > 600){
@@ -96,8 +98,10 @@ console.log(produtos);
 
 
 // selecionando dados
-let dados_selecionados = [];
-dados_selecionados.push(produtos[0]);
+function addCarrinho(produto) {
+    dados_selecionados.push(produto);
+}
+
 dados_selecionados.push(produtos[2]);
 
 
