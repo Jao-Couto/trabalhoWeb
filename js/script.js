@@ -54,7 +54,7 @@ function addCategoria(){
 
 
 function addCarrinho(prod){
-    console.log(prod);
+    dados_selecionados.push(prod);
 }
 
 let contador = 0
@@ -97,12 +97,8 @@ console.log(produtos);
 
 
 
-// selecionando dados
-function addCarrinho(produto) {
-    dados_selecionados.push(produto);
-}
 
-dados_selecionados.push(produtos[2]);
+addCarrinho(produtos[2]);
 
 
 // armazenando na seção
