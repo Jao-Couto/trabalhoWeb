@@ -1,11 +1,235 @@
-.main{
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+main {
+  min-width: 350px;
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-template-rows: 10vh auto 5vh;
+  grid-template-areas:
+    "header header header"
+    ". main ."
+    "footer footer footer";
+  overflow-x: hidden;
+  min-height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #181818;
+  background-image: url("/pages/cadastro/images/background.jpg");
+  background-repeat: repeat;
+}
+
+.header {
+  grid-area: header;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(151, 13, 13, 0.5);
+}
+
+.elemento{
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 80% 20%;
+  grid-template-areas:
+    "imag texto"
+    "imag botao";
+  overflow-x: hidden;
+}
+
+.text{
+  grid-area: texto;
+}
+
+.titulo {
+  color: white;
+  font-weight: bold;
+  font-size: 5vh;
+  display: flex;
+}
+
+section {
+  grid-area: main;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  margin: 5vh;
+  background-color: white;
+  border-radius: 0.5vh;
+}
+
+
+section div {
+  width: 80%;
+  margin: 2vh;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(226, 226, 226);
+  padding: 2vh;
+  border-radius: 0.5vh;
+}
+
+section div label {
+  font-size: 2.5vh;
+  font-weight: bold;
+  color: rgb(158, 163, 79);
+  margin-bottom: 1vh;
+}
+
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  padding: 0;
+  width: 100%;
+}
+
+.dentroRow {
+  margin: 0;
+  padding: 0;
+}
+
+.botao {
+  color: white;
+  font-size: 1.5vh;
+  background-color: blue;
+  border: solid black 1px;
+  border-radius: 5px;
+  padding: 0.2vh;
+}
+
+
+.image{
+  grid-area: imag;
+  background-color: rgb(255, 255, 255);
+  margin: 0;
+}
+
+
+.row p{
+  font-weight: 500;
+  font-size: 2vh;
+}
+
+.row .comprar{
+  grid-area: botao;
+  width: auto;
+  height: 3vh;
+  background-color: rgb(168, 43, 43);
+  justify-content: center;
+  align-self: flex-end;
+  margin: 2vh;
+  margin-right: 0;
+  border: black solid 2px;
+  border-radius: 3px;
+  padding: 1vh;
+  color: white;
+}
+
+.row .comprar:hover{
+  background-color: rgb(51, 107, 51);
+}
+
+.row .comprar:active{
+  background-color: rgb(51, 100, 51);
+  border-bottom: black solid 1px;
+  margin-top: calc(2vh + 1px);
+}
+
+
+.footer {
+  grid-area: footer;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(37, 37, 37, 0.8);
+}
+
+.footer p {
+  color: white;
+  font-size: 2vh;
+}
+
+@media screen and (max-width: 600px) {
+  main {
     min-width: 350px;
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-rows: 10vh auto 5vh;
+    grid-template-areas:
+      "header header header"
+      "main main main"
+      "footer footer footer";
     overflow-x: hidden;
     min-height: 100%;
     width: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    background-image: url("/images/background.jpg");
+    background-color: #181818;
+    background-image: url("/pages/cadastro/images/background.jpg");
     background-repeat: repeat;
   }
+
+  section div {
+    width: 100%;
+    margin: 2vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(226, 226, 226);
+    padding: 2vh;
+    border-radius: 1vh;
+  }
+
+  section{
+    grid-area: main;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 3vh;
+    background-color: transparent;
+  }
+  section  div .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 0;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+
+    padding: 0;
+  }
+
+
+  section div .row .botao {
+    color: white;
+    font-size: 1.5vh;
+    background-color: blue;
+    border: solid black 1px;
+    width: 10vw;
+    border-radius: 5px;
+    padding: 0.2vh;
+  }
+}

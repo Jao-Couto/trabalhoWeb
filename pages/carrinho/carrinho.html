@@ -5,11 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript" src="js/script.js"></script>
+
     <title>Document</title>
 </head>
 <body>
     <main>
-        
+        <header class="header" id="header">
+            <div class="titulo">
+                Carrinho
+            </div>
+        </header>
+        <section>
+                <div>
+                    <label>Endereço de entrega:</label>
+                    <p> CEP: 19067-090 <br>
+                        Endereço: 
+                        Rua Kenji Sato Miura, 324 - Parque Cedral - Presidente Prudente - SP - Brasil
+                    </p>
+                </div> 
+                <div>
+                    <div class="row">
+                        <label>Produtos adicionados ao carrinho </label>
+                        <input type="button" value="REMOVER TODOS OS PRODUTOS" id="remove" class="botao" onclick="console.log('ola')" />
+                    </div>
+                    <div class="elemento">
+                         <div class="image">
+                             <img src="/images/test.png" alt="" srcset=""> 
+                        </div> 
+                        <div class="text" id="text">Saga 2TB <br> <p> Saga </p> <br> <p style="font-size: 1.8vh"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p></div>
+                        <div class="comprar">Remover</div> 
+                    </div>
+                </div>
+        </section>
+        <footer class="footer" id="footer">
+            <p>Desenvolvido por João Vitor Couto Oliveira e Rafael Nogueira Correia</p>
+        </footer>
     </main>
 </body>
 </html>
