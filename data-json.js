@@ -8,90 +8,90 @@ export function setProdutos(produtoSet){
 
 let produtos = [
     {
-        nome: "Saga 2TB",
+        nome: "HD 2TB 7200RPM",
         marca: "Saga",
         categoria: "HD/SSD",
-        preco: "",
+        preco: 499.19,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         img: "",
     },
     
     {
-        nome: "RTX 3060 12GB",
+        nome: "Placa de Vídeo RTX 3060 12GB",
         marca: "Gigabyte",
         categoria: "Placa de video",
-        preco: "",
+        preco: 12999.90,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         img: "",
     },
     
     {
-        nome: "Gabinete Gamer Sharkoon TG4 Blue",
+        nome: "Gabinete TG4 Blue",
         marca: "Sharkoon",
         categoria: "Gabinete",
-        preco: "",
+        preco: 159.80,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         img: "",
     },
     
     {
-        nome: "Monitor Gamer Acer Aopen 27´",
+        nome: "Monitor Aopen 27´",
         marca: "Acer",
         categoria: "Monitor",
-        preco: "",
+        preco: 1999.80,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         img: "",
     },
     {
-        nome: "Intel i9-10800kfjy",
+        nome: "Processador i9-10800kfjy",
         marca: "Intel",
         categoria: "Processador",
-        preco: "",
+        preco: 15899.80,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         img: "",
     },
     
     {
-        nome: "Placa-Mãe Gigabyte GA-AB350M-DS3H",
+        nome: "Placa-Mãe GA-AB350M-DS3H",
         marca: "Gigabyte",
         categoria: "Placa-mae",
-        preco: "",
+        preco: 689.80,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         img: "",
     },
     
     {
-        nome: "Memória HyperX Fury, 8GB, 2666MHz, DDR4",
+        nome: "Memória RAM Fury, 8GB, 2666MHz, DDR4",
         marca: "HyperX",
         categoria: "Memoria RAM",
-        preco: "",
+        preco: 329.70,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         img: "",
     },
     
     {
-        nome: "Mouse Gamer Redragon Cobra",
+        nome: "Mouse Gamer Cobra",
         marca: "Redragon",
         categoria: "Perifericos",
-        preco: "",
+        preco: 149.00,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         img: "",
     },
     
     {
-        nome: "Teclado Gamer Logitech G213 Prodigy",
+        nome: "Teclado Gamer G213 Prodigy",
         marca: "Logitech",
         categoria: "Perifericos",
-        preco: "",
+        preco: 139.90,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         img: "",
     },
     
     {
-        nome: "Fonte Corsair 550W 80 Plus Bronze",
+        nome: "Fonte 550W 80 Plus Bronze",
         marca: "Corsair",
         categoria: "Fonte",
-        preco: "",
+        preco: 349.90,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         img: "",
     }

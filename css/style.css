@@ -11,7 +11,7 @@ img{
 }
 
 .main{
-    min-width: 300px;
+    min-width: 200px;
     overflow-x: hidden;
     display: grid;
     grid-template-columns:20% 80%;
@@ -26,6 +26,68 @@ img{
     top: 0;
     left: 0;
 }
+
+.cadastro{
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 8vw;
+    justify-self: flex-end;
+    align-self: center;
+    margin-right: 2vh;
+}
+
+.carrinho{
+    display: grid;
+    width: 3vw;
+    height: 3vw;
+    overflow: hidden;
+    border: .5vh solid black;
+    border-radius: 50%;
+}
+
+.quadradinho{
+    display: flex;
+    justify-content: center;
+    width: 5.5vh;
+    height: 4vh;
+    overflow: hidden;
+    border: .5vh solid black;
+    border-radius: .5vh;
+}
+
+.quadradinho img{
+    width: auto;
+    height: 3vw;
+}
+
+.bolinha{
+    display: grid;
+    width: 3vw;
+    height: 3vw;
+    overflow: hidden;
+    border: .5vh solid black;
+    border-radius: 50%;
+}
+
+.abrirSide {
+    width: 5vh;
+    height: auto;
+    margin-left: 1vw;
+    position: absolute;
+    display: grid;
+    justify-self: flex-start;
+    align-self: center;
+}
+
+.abrirSide img{
+    filter:invert(100%);
+}
+
+.abrirSide img:hover{
+    filter:invert(70%);
+}
+
 
 .sidebar {
   height: 100%; 
@@ -99,57 +161,6 @@ img{
     color: white;
     font-weight: bold;
     font-size: 5vh;
-}
-
-.cadastro{
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    width: 8vw;
-    justify-self: flex-end;
-    align-self: center;
-    margin-right: 2vh;
-}
-
-.quadradinho{
-    display: flex;
-    justify-content: center;
-    width: 5.5vh;
-    height: 4vh;
-    overflow: hidden;
-    border: .5vh solid black;
-    border-radius: .5vh;
-}
-
-.quadradinho img{
-    width: auto;
-    height: 3vw;
-}
-
-.bolinha{
-    width: 3vw;
-    height: 3vw;
-    overflow: hidden;
-    border: .5vh solid black;
-    border-radius: 50%;
-}
-
-.abrirSide {
-    width: 5vh;
-    height: auto;
-    margin-left: 1vw;
-    position: absolute;
-    display: grid;
-    justify-self: flex-start;
-    align-self: center;
-}
-
-.abrirSide img{
-    filter:invert(100%);
-}
-
-.abrirSide img:hover{
-    filter:invert(70%);
 }
 
 .categoria{
@@ -271,9 +282,13 @@ img{
 }
 
 .innerContent{
+    user-select: none;
     min-width: 25vh;
-    min-height: 36vh;
+    min-height: 60vh;
     max-width: 25vh;
+    max-height: 60vh;
+    width: 25vh;
+    height: 60vh;
     padding: 1.5vh;
     margin: 1.5vh;
     background-color: white;
@@ -282,8 +297,6 @@ img{
     align-content: flex-start;
     justify-content: flex-start;
     flex-direction: row;
-    width: max-content;
-    height: max-content;
     font-size: 2vh;
     font-weight: 600;
 }
@@ -308,18 +321,32 @@ img{
     font-size: 2vh;
 }
 
-.innerContent .comprar{
-    width: 4vh;
-    height: 3vh;
+.innerContent b{
+    font-size: 1.9vh;
+    font-weight: 600;
+}
+.innerContent .text{
     display: grid;
+    min-height: 100%;
+    width: 100%;
+}
+
+.innerContent .comprar{
+    display: grid;
+    font-size: 2vh;
+    padding: .5vh;
+    width: max-content;
+    height: max-content;
     background-color: rgb(50, 110, 50);
     justify-self: flex-end;
-    align-self: center;
+    align-self: flex-end;
     margin: 2vh;
     margin-right: 0;
+    margin-bottom: 0;
     border: black solid 2px;
     border-radius: 3px;
 }
+
 
 .innerContent .comprar:hover{
     background-color: rgb(51, 107, 51);
@@ -329,20 +356,88 @@ img{
     background-color: rgb(51, 100, 51);
     border-bottom: black solid 1px;
     margin-top: calc(2vh + 1px);
+
 }
 
 body{
     background-color: #181818;
 }
 
+@media screen and (max-width: 300px){
+    .content{
+        margin: 0;
+    }
+
+}
+
 @media screen and (max-width: 350px){
     .titulo{
         font-size: 200%;
+    }
+    .main{
+        grid-template-areas: 
+        "header header "
+        "main main"
+        "footer footer ";
+    }
+    .categoria{
+        display: none;
     }
 }
 
 @media screen and (max-width: 600px){
   
+    .titulo{
+        font-size: 150%;
+    }
+    
+    .carrinho{
+        display: grid;
+        justify-self: center;
+        align-self: center;
+        width: 80%; 
+        height: auto;
+    }
+
+    #carrinho{
+        display: grid;
+    }
+
+    .cadastro{
+        width: 18%;
+        justify-self: flex-end;
+        align-self: center;
+        margin-right: 2vh;
+    }
+
+    .quadradinho{
+        justify-content: center;
+        align-content: center;
+        width: 5.5vh;
+        height: 4vh;
+        border: .5px solid black;
+        border-radius: .5px;
+    }
+
+    .quadradinho img{
+        width: auto;
+        height: 3vw;
+    }
+
+    .bolinha{
+        display: grid;
+        width: 80%; 
+        height: auto;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .abrirSide{
+        width: 25%;
+        height: auto;
+        min-width: 30px;
+    }
+
   .sidebar a {
       padding: 5% 6% 0 10%;
       text-decoration: none;

@@ -55,13 +55,25 @@ function addCategoria(){
 
 function addCarrinho(prod){
     dados_selecionados.push(prod);
+    console.log(dados_selecionados);
+    // armazenando na seção
+    let para_enviar = JSON.stringify(dados_selecionados);
+    sessionStorage.setItem('meus_dados', para_enviar);
+    // agora podemos recuperar esses dados em 'tela_produto.html' 
 }
 
 let contador = 0
 
 $(document).ready(function(){
     function addConteudo(){
-        document.getElementById('conteudo').innerHTML += ' <div class="innerContent"> <div class="image"><img src="images/test.png" alt="" srcset=""> </div> <div class="text" id="text">'+ produtos[contador].nome +' <br> <p> '+ produtos[contador].marca +' </p> <br> <p style="font-size: 1.8vh"> '+ produtos[contador].desc+' </p> <div class="comprar"> </div> </div></div>'
+        document.getElementById('conteudo').innerHTML +='<div class="innerContent">'+
+                                                            '<div class="image"><img src="images/test.png" alt="" srcset=""> </div>'   + 
+                                                            '<div class="text" id="text">'+ produtos[contador].nome +' <br>' + 
+                                                                '<p> '+ produtos[contador].marca +' </p> <p><b> R$ '+produtos[contador].preco.toFixed(2) +'</p></b> <br>' +
+                                                                '<p style="font-size: 1.8vh"> '+ produtos[contador].desc+' </p> '+
+                                                                '<div class="comprar">Comprar</div>'+
+                                                            '</div>'+
+                                                        '</div>'
         document.getElementById('qtd').innerHTML = ++contador + ' Produtos'
     }
     
@@ -77,32 +89,12 @@ $(document).ready(function(){
             }
 
         });
-        
     })
+
+    document.body.addEventListener("click", function(e){
+        
+        if (opened && e.target.id != "sidenav" && e.target.parentElement.id != "sidenav")
+            closeNav()
+    })
+
 })
-
-
-
-
-document.body.addEventListener("click", function(e){
-    
-    if (opened && e.target.id != "sidenav" && e.target.parentElement.id != "sidenav")
-        closeNav()
-})
-
-
-// 'data' contém os dados importados do arquivo data/data.js
-console.log('meus dados:');
-console.log(produtos);
-
-
-
-
-addCarrinho(produtos[2]);
-
-
-// armazenando na seção
-let para_enviar = JSON.stringify(dados_selecionados);
-sessionStorage.setItem('meus_dados', para_enviar);
-
-// agora podemos recuperar esses dados em 'tela_produto.html'
