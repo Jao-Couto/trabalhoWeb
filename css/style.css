@@ -39,6 +39,8 @@ img{
 
 .carrinho{
     display: grid;
+    justify-self: center;
+    align-self: center;
     width: 3vw;
     height: 3vw;
     overflow: hidden;
@@ -47,13 +49,16 @@ img{
 }
 
 .quadradinho{
-    display: flex;
     justify-content: center;
-    width: 5.5vh;
-    height: 4vh;
     overflow: hidden;
-    border: .5vh solid black;
-    border-radius: .5vh;
+    display: grid;
+    justify-self: center;
+    align-self: center;
+    width: 150%;
+    height: fit-content;
+    border: .5px solid black;
+    border-radius: .5px;
+    padding: 5%;
 }
 
 .quadradinho img{
@@ -367,7 +372,6 @@ body{
     .content{
         margin: 0;
     }
-
 }
 
 @media screen and (max-width: 350px){
@@ -383,19 +387,48 @@ body{
     .categoria{
         display: none;
     }
+
+    .carrinho{
+        height: auto;
+        width: 120%;
+    }
+
+    .bolinha{
+        display: none;
+    }
+    .quadradinho{
+        display: none;
+    }
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 620px){
+    .carrinho{
+        height: auto;
+        width: 120%;
+    }
+
+    .bolinha{
+        height: auto;
+        width: 120%;
+    }
+    .quadradinho{
+        height: auto;
+        width: 120%;
+    }
+    .grupoCat{
+        font-size: 5%;
+    }
+
+}
+
+@media screen and (min-width: 620px){
   
     .titulo{
         font-size: 150%;
     }
     
     .carrinho{
-        display: grid;
-        justify-self: center;
-        align-self: center;
-        width: 80%; 
+        width: 60%;
         height: auto;
     }
 
@@ -411,12 +444,7 @@ body{
     }
 
     .quadradinho{
-        justify-content: center;
-        align-content: center;
-        width: 5.5vh;
-        height: 4vh;
-        border: .5px solid black;
-        border-radius: .5px;
+        height: fit-content;
     }
 
     .quadradinho img{
@@ -425,7 +453,6 @@ body{
     }
 
     .bolinha{
-        display: grid;
         width: 80%; 
         height: auto;
         align-self: center;
@@ -437,6 +464,8 @@ body{
         height: auto;
         min-width: 30px;
     }
+
+    
 
   .sidebar a {
       padding: 5% 6% 0 10%;
