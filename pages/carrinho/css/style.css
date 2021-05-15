@@ -42,11 +42,16 @@ main {
 .elemento{
   display: grid;
   grid-template-columns: 30% 70%;
-  grid-template-rows: 80% 20%;
+  grid-template-rows: 85% 15%;
   grid-template-areas:
     "imag texto"
-    "imag botao";
+    "imag remove";
   overflow-x: hidden;
+  width: 96%;
+  margin: 0;
+  margin-bottom: 2vh;
+  padding: 2%;
+  box-shadow: 1px 1px 1px 1px rgb(56, 53, 53);
 }
 
 .text{
@@ -67,7 +72,6 @@ section {
   align-items: center;
   flex-direction: column;
   margin: 5vh;
-  background-color: white;
   border-radius: 0.5vh;
 }
 
@@ -89,6 +93,37 @@ section div label {
   margin-bottom: 1vh;
 }
 
+.tot{
+  width: 90%;
+  margin: 0;
+  margin-bottom: 1vh;
+  color: rgb(102, 102, 102);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-shadow: 1px 1px 1px 1px rgb(56, 53, 53);
+  padding: 1vh;
+}
+
+.pag{
+  width: 90%;
+  margin: 0;
+  margin-bottom: 1vh;
+  color: rgb(102, 102, 102);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: 1px 1px 1px 1px rgb(56, 53, 53);
+  padding: 1vh;
+}
+
+.pag label{
+  margin: 0;
+  margin-left: 2px;
+  color: rgb(102, 102, 102);
+  font-size: 2vh;
+  font-weight: 500;
+}
 
 .row {
   display: flex;
@@ -104,22 +139,18 @@ section div label {
 .dentroRow {
   margin: 0;
   padding: 0;
-}
-
-.botao {
-  color: white;
-  font-size: 1.5vh;
-  background-color: blue;
-  border: solid black 1px;
-  border-radius: 5px;
-  padding: 0.2vh;
+  width: 50%;
 }
 
 
 .image{
   grid-area: imag;
-  background-color: rgb(255, 255, 255);
+  justify-content: center;
+  align-self: center;
   margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
 }
 
 
@@ -128,29 +159,40 @@ section div label {
   font-size: 2vh;
 }
 
-.row .comprar{
-  grid-area: botao;
+.comprar{
+  font-size: 2vh;
   width: auto;
-  height: 3vh;
-  background-color: rgb(168, 43, 43);
-  justify-content: center;
-  align-self: flex-end;
-  margin: 2vh;
-  margin-right: 0;
+  background-color: rgb(51, 100, 51);
+  justify-self: flex-end;
+  align-self: center;
+  margin: 0;
   border: black solid 2px;
   border-radius: 3px;
   padding: 1vh;
   color: white;
 }
 
-.row .comprar:hover{
-  background-color: rgb(51, 107, 51);
+.comprar:active{
+  border: solid 2px gray;
 }
 
-.row .comprar:active{
-  background-color: rgb(51, 100, 51);
-  border-bottom: black solid 1px;
-  margin-top: calc(2vh + 1px);
+.remove{
+  grid-area: remove;
+  font-size: 1.5vh;
+  width: auto;
+  background-color: rgb(168, 43, 43);
+  justify-self: flex-end;
+  align-self: center;
+  margin: 0;
+  margin-bottom: 1vh;
+  border: black solid 2px;
+  border-radius: 3px;
+  padding: 0.5vh;
+  color: white;
+}
+
+.remove:active{
+  border: solid 2px gray;
 }
 
 
@@ -192,15 +234,7 @@ section div label {
     background-repeat: repeat;
   }
 
-  section div {
-    width: 100%;
-    margin: 2vh;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(226, 226, 226);
-    padding: 2vh;
-    border-radius: 1vh;
-  }
+  
 
   section{
     grid-area: main;
@@ -211,25 +245,30 @@ section div label {
     margin: 3vh;
     background-color: transparent;
   }
-  section  div .row {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    margin: 0;
-    margin-top: 2vh;
-    margin-bottom: 2vh;
 
-    padding: 0;
+  section div {
+    width: 100%;
+    margin: 2vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(226, 226, 226);
+    padding: 2vh;
+    border-radius: 1vh;
   }
 
-
-  section div .row .botao {
-    color: white;
-    font-size: 1.5vh;
-    background-color: blue;
-    border: solid black 1px;
-    width: 10vw;
-    border-radius: 5px;
-    padding: 0.2vh;
+  .dentroRow label{
+    font-size: 12px;
+  }
+  
+  .pag{
+    width: 90%;
+    margin: 0;
+    margin-bottom: 1vh;
+    color: rgb(102, 102, 102);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-shadow: 1px 1px 1px 1px rgb(56, 53, 53);
+    padding: 1vh;
   }
 }
