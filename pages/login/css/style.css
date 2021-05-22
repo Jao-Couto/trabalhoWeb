@@ -11,7 +11,7 @@ body {
 main {
   min-width: 350px;
   display: grid;
-  grid-template-columns: 20% 60% 20%;
+  grid-template-columns: 10% 80% 10%;
   grid-template-rows: 10vh auto 5vh;
   grid-template-areas:
     "header header header"
@@ -39,25 +39,6 @@ main {
   background-color: rgba(151, 13, 13, 0.5);
 }
 
-.elemento{
-  display: grid;
-  grid-template-columns: 30% 70%;
-  grid-template-rows: 85% 15%;
-  grid-template-areas:
-    "imag texto"
-    "imag remove";
-  overflow-x: hidden;
-  width: 96%;
-  margin: 0;
-  margin-bottom: 2vh;
-  padding: 2%;
-  box-shadow: 1px 1px 1px 1px rgb(56, 53, 53);
-}
-
-.text{
-  grid-area: texto;
-}
-
 .titulo {
   color: white;
   font-weight: bold;
@@ -67,134 +48,93 @@ main {
 
 section {
   grid-area: main;
+}
+
+section form {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   margin: 5vh;
-  border-radius: 0.5vh;
 }
 
-
-section div {
-  width: 80%;
+section form div {
+  width: 60vh;
   margin: 2vh;
   display: flex;
   flex-direction: column;
   background-color: rgb(226, 226, 226);
   padding: 2vh;
-  border-radius: 0.5vh;
+  border-radius: 1vh;
 }
 
-section div label {
+section form div label {
   font-size: 2.5vh;
   font-weight: bold;
   color: rgb(158, 163, 79);
   margin-bottom: 1vh;
 }
 
-.tot{
-  width: 90%;
-  margin: 0;
-  margin-bottom: 1vh;
-  color: rgb(102, 102, 102);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  box-shadow: 1px 1px 1px 1px rgb(56, 53, 53);
-  padding: 1vh;
+input:focus {
+  box-shadow: 0 0 0 0;
+  border: transparent;
+  border-bottom: 2px solid;
+  outline: 0;
 }
 
-.pag{
-  width: 90%;
-  margin: 0;
-  margin-bottom: 1vh;
-  color: rgb(102, 102, 102);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  box-shadow: 1px 1px 1px 1px rgb(56, 53, 53);
-  padding: 1vh;
+section form div input {
+  width: 100%;
+  background-color: transparent;
+  border: transparent;
+  border-bottom: 2px solid;
+  font-size: 2.5vh;
+  border-radius: 1px;
+  box-sizing: inherit;
 }
 
-.pag label{
-  margin: 0;
-  margin-left: 2px;
-  color: rgb(102, 102, 102);
-  font-size: 2vh;
-  font-weight: 500;
-}
-
-.row {
+section form div .row {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin: 0;
   margin-top: 2vh;
   margin-bottom: 2vh;
   padding: 0;
-  width: 100%;
 }
 
-.dentroRow {
+section form div .dentroRow {
   margin: 0;
   padding: 0;
-  width: 50%;
 }
 
-
-.image{
-  grid-area: imag;
-  justify-content: center;
-  align-self: center;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-}
-
-
-.row p{
-  font-weight: 500;
-  font-size: 2vh;
-}
-
-.comprar{
-  font-size: 2vh;
-  width: auto;
-  background-color: rgb(51, 100, 51);
-  justify-self: flex-end;
-  align-self: center;
-  margin: 0;
-  border: black solid 2px;
-  border-radius: 3px;
-  padding: 1vh;
+section form div .row .botao {
   color: white;
-}
-
-.comprar:active{
-  border: solid 2px gray;
-}
-
-.remove{
-  grid-area: remove;
   font-size: 1.5vh;
-  width: auto;
-  background-color: rgb(168, 43, 43);
-  justify-self: flex-end;
-  align-self: center;
-  margin: 0;
-  margin-bottom: 1vh;
-  border: black solid 2px;
-  border-radius: 3px;
-  padding: 0.5vh;
+  background-color: blue;
+  border: solid black 1px;
+  width: 3.5vw;
+  border-radius: 5px;
+  padding: 0.2vh;
+}
+
+section form .send {
+  background-color: blue;
+  font-size: 2.5vh;
   color: white;
+  font-weight: bold;
+  padding: 1vh;
+  border-radius: 2vh;
+  border: none;
 }
 
-.remove:active{
-  border: solid 2px gray;
+#senha{
+  width: 15vw;
 }
 
+a{
+  color: rgb(155, 154, 124);
+  text-decoration: none;
+}
 
 .footer {
   grid-area: footer;
@@ -234,19 +174,7 @@ section div label {
     background-repeat: repeat;
   }
 
-  
-
-  section{
-    grid-area: main;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 3vh;
-    background-color: transparent;
-  }
-
-  section div {
+  section form div {
     width: 100%;
     margin: 2vh;
     display: flex;
@@ -256,19 +184,35 @@ section div label {
     border-radius: 1vh;
   }
 
-  .dentroRow label{
-    font-size: 12px;
+  section form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 3vh;
   }
-  
-  .pag{
-    width: 90%;
-    margin: 0;
-    margin-bottom: 1vh;
-    color: rgb(102, 102, 102);
+  section form div .row {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    box-shadow: 1px 1px 1px 1px rgb(56, 53, 53);
-    padding: 1vh;
+    justify-content: flex-start;
+    margin: 0;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+
+    padding: 0;
+  }
+
+  #senha{
+    width: 40vw;
+  }
+
+  section form div .row .botao {
+    color: white;
+    font-size: 1.5vh;
+    background-color: blue;
+    border: solid black 1px;
+    width: 10vw;
+    border-radius: 5px;
+    padding: 0.2vh;
   }
 }

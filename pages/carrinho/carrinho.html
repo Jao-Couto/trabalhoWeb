@@ -18,13 +18,77 @@
             </div>
         </header>
         <section>
-            <div>
+            <!--<div>
                 <label>Endereço de entrega:</label>
                 <p style="font-size: 2vh;"> CEP: 19067-090 <br>
                     Endereço:
                     Rua Kenji Sato Miura, 324 - Parque Cedral - Presidente Prudente - SP - Brasil
                 </p>
-            </div>
+            </div>-->
+            <div>
+                <label style="align-self: center;">Endereço</label>
+                <label for="rua">Rua: <span style="color: red;">*</span></label>
+                <input type="text" name="f_rua" id="rua" autocomplete="off" required>
+                <div class="row">                    
+                    <div class="dentroRow" style="width: 30%; margin-right: 2vw;">
+                        <label for="num">Número: <span style="color: red;">*</span></label>
+                        <input type="text" name="f_rua" id="num" autocomplete="off" required>
+                    </div>
+                    <div class="dentroRow" style="width: 70%;">
+                        <label for="bairro">Bairro: <span style="color: red;">*</span></label>
+                        <input type="text" name="f_bairro" id="bairro" autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="row">                    
+                    <div class="dentroRow" style="width: 70%; margin-right: 2vw;">
+                        <label for="cidade">Cidade: <span style="color: red;">*</span></label>
+                        <input type="text" name="f_cidade" id="cidade" autocomplete="off" required>
+                    </div>
+                    <div class="dentroRow" style="width: 15%; font-size: 2.5vh;"> 
+                        <label for="UF">Estado: <span style="color: red;">*</span></label>
+                        <select name="f_estado" id="UF">
+                            <option value="AC">AC</option>
+                            <option value="AL">AL</option>
+                            <option value="AP">AP</option>
+                            <option value="AM">AM</option>
+                            <option value="BA">BA</option>
+                            <option value="CE">CE</option>
+                            <option value="DF">DF</option>
+                            <option value="ES">ES</option>
+                            <option value="GO">GO</option>
+                            <option value="MA">MA</option>
+                            <option value="MT">MT</option>
+                            <option value="MS">MS</option>
+                            <option value="MG">MG</option>
+                            <option value="PA">PA</option>
+                            <option value="PB">PB</option>
+                            <option value="PR">PR</option>
+                            <option value="PE">PE</option>
+                            <option value="PI">PI</option>
+                            <option value="RJ">RJ</option>
+                            <option value="RN">RN</option>
+                            <option value="RS">RS</option>
+                            <option value="RO">RO</option>
+                            <option value="RR">RR</option>
+                            <option value="SC">SC</option>
+                            <option value="SP">SP</option>
+                            <option value="SE">SE</option>
+                            <option value="TO">TO</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                <div class="dentroRow"  style="width: 30%; margin-right: 2vw;">
+                    <label for="cep">CEP: <span style="color: red;">*</span></label>
+                    <input type="text" name="f_cep" id="cep" autocomplete="off" required>
+                </div>
+                <div class="dentroRow" >
+                    <label for="comp">Complemento: </label>
+                    <input type="text" name="f_comp" id="comp" autocomplete="off">
+                </div>
+                </div>
+                
+            </div> 
             <div id="conteudo">
                 <div class="row">
                     <label>Produtos adicionados ao carrinho </label>
@@ -32,7 +96,7 @@
                         onclick="removerAll()" />
                 </div>
             </div>
-            <div>
+            <div style="border: solid 5px green;">
                 <div class="row">
                     <div class="dentroRow">
                         <label>Valor total</label>

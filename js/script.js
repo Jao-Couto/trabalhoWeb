@@ -1,8 +1,4 @@
-import { getProdutos, setProdutos} from "../data-json.js";
-
 let opened = false
-
-let produtos = getProdutos()
 
 let dados_selecionados = [];
 

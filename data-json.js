@@ -1,10 +1,11 @@
-export function getProdutos(){
+/*export function getProdutos(){
     return produtos;
 }
 
 export function setProdutos(produtoSet){
     produtos = produtosSet
 }
+*/
 
 let produtos = [
     {
@@ -107,7 +108,15 @@ let produtos = [
     }
 ]
 
-let contador = 0
+let user=[{
+    email: "teste@gmail.com",
+    senha: "teste123"
+},
+{
+    email: "joao@gmail.com",
+    senha: "12345678"
+}]
+
 
 
 
