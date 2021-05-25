@@ -51,11 +51,8 @@ function addCategoria(){
 
 function addCarrinho(prod){
     dados_selecionados.push(prod);
-    console.log(dados_selecionados);
-    // armazenando na seção
     let para_enviar = JSON.stringify(dados_selecionados);
     sessionStorage.setItem('meus_dados', para_enviar);
-    // agora podemos recuperar esses dados em 'tela_produto.html' 
 }
 
 let contador = 0

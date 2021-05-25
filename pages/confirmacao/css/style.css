@@ -154,15 +154,6 @@ section div label {
 }
 
 
-#cpf, #celular{
-  width: 90%;
-}
-
-#telefone{
-  width: 60%;
-}
-
-
 .row p{
   font-weight: 500;
   font-size: 2vh;

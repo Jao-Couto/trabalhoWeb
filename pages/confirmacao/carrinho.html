@@ -25,34 +25,6 @@
                     Rua Kenji Sato Miura, 324 - Parque Cedral - Presidente Prudente - SP - Brasil
                 </p>
             </div>-->
-            <div id="conteudo">
-                <div class="row">
-                    <label>Produtos adicionados ao carrinho </label>
-                    <input type="button" value="Remover Tudo" id="removeAll" class="remove"
-                        onclick="removerAll()" />
-                </div>
-            </div>
-            <div>
-                <label style="align-self: center;">Dados do cliente</label>
-                <label for="nome">Nome Completo: <span style="color: red;">*</span></label>
-                    <input type="text"  id="nome" name="f_nome" autocomplete="off" required>
-                <div class="row">
-                    <div class="dentroRow" >
-                        <label for="cpf">CPF: <span style="color: red;">*</span></label>
-                        <input type="text" name="f_cpf" id="cpf" autocomplete="off" required>
-                    </div>
-                    <div class="dentroRow" style="width: 50%; margin-right: 2vw;">
-                        <label for="celular">Celular:</label>
-                        <input type="tel" name="f_cel" id="celular"  autocomplete="off">
-                    </div>
-                </div> 
-                <div class="row">
-                    <div class="dentroRow" style="width: 50%;">
-                        <label for="telefone">Telefone:</label>
-                        <input type="tel" name="f_tel" id="telefone"  autocomplete="off">
-                    </div>
-                </div>
-            </div>
             <div>
                 <label style="align-self: center;">Endereço</label>
                 <label for="rua">Rua: <span style="color: red;">*</span></label>
@@ -117,7 +89,13 @@
                 </div>
                 
             </div> 
-            
+            <div id="conteudo">
+                <div class="row">
+                    <label>Produtos adicionados ao carrinho </label>
+                    <input type="button" value="Remover Tudo" id="removeAll" class="remove"
+                        onclick="removerAll()" />
+                </div>
+            </div>
             <div style="border: solid 5px green;">
                 <div class="row">
                     <div class="dentroRow">
@@ -138,7 +116,7 @@
                     <div class="dentroRow">
                         <label>Forma de pagamento</label>
                         <div class="pag">
-                            <input type="radio" id="boleto" name="formaPag" value="boleto" checked>
+                            <input type="radio" id="boleto" name="formaPag" value="boleto">
                             <label for="boleto">Boleto</label>
                         </div>
                         <div class="pag">
@@ -153,7 +131,7 @@
                     </div>
                 </div>
                 <input type="button" value="Confirmar" id="confirmar" class="comprar"
-                        onclick="confirmar()" />
+                        onclick="console.log('ola')" />
             </div>
         </section>
         <footer class="footer" id="footer">
