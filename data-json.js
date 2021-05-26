@@ -1,12 +1,3 @@
-/*export function getProdutos(){
-    return produtos;
-}
-
-export function setProdutos(produtoSet){
-    produtos = produtosSet
-}
-*/
-
 let produtos = [
     {
         codigo: 1,

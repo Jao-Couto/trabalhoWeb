@@ -51,8 +51,7 @@ function addCategoria(){
 
 function addCarrinho(prod){
     dados_selecionados.push(prod);
-    let para_enviar = JSON.stringify(dados_selecionados);
-    sessionStorage.setItem('meus_dados', para_enviar);
+    sessionStorage.setItem('meus_dados', JSON.stringify(dados_selecionados));
 }
 
 let contador = 0

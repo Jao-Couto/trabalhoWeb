@@ -33,7 +33,6 @@ function ocultaSenha(){
     document.querySelector('#senha').type = "password";
     document.querySelector('#oculta').type = "hidden"
     document.querySelector('#mostra').type = "button"
-    
 }
 
 
