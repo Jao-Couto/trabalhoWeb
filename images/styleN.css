@@ -1,4 +1,4 @@
-/*
+
 .card-body .btn {
     border: none;
     outline: 0;
@@ -9,7 +9,7 @@
     cursor: pointer;
     width: 120%;
     font-size: 18px;
-}*/
+}
   
 .card-body .btn:hover {
     color: white;

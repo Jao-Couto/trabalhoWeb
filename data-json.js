@@ -6,7 +6,7 @@ let produtos = [
         categoria: "HD/SSD",
         preco: 499.19,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "",
+        img: "images/HD2TB.jpg",
     },
     
     {   
@@ -16,7 +16,7 @@ let produtos = [
         categoria: "Placa de video",
         preco: 12999.90,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "",
+        img: "images/RTX3060.jpg",
     },
     
     {
@@ -26,7 +26,7 @@ let produtos = [
         categoria: "Gabinete",
         preco: 159.80,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "",
+        img: "images/TG4.jpg",
     },
     
     {
@@ -36,7 +36,7 @@ let produtos = [
         categoria: "Monitor",
         preco: 1999.80,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "",
+        img: "images/AOPEN 27.jpg",
     },
     {
         codigo: 5,
@@ -45,7 +45,7 @@ let produtos = [
         categoria: "Processador",
         preco: 15899.80,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "",
+        img: "images/i9-10900k.jpg",
     },
     
     {
@@ -55,7 +55,7 @@ let produtos = [
         categoria: "Placa-mae",
         preco: 689.80,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "",
+        img: "images/GA-AB350M.png",
     },
     
     {
@@ -65,7 +65,7 @@ let produtos = [
         categoria: "Memoria RAM",
         preco: 329.70,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "",
+        img: "images/FURY 8GB.jpg",
     },
     
     {
@@ -75,7 +75,7 @@ let produtos = [
         categoria: "Perifericos",
         preco: 149.00,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "",
+        img: "images/COBRA.png",
     },
     
     {
@@ -85,7 +85,7 @@ let produtos = [
         categoria: "Perifericos",
         preco: 139.90,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "",
+        img: "images/G213 PROD.jpg",
     },
     
     {
@@ -95,7 +95,7 @@ let produtos = [
         categoria: "Fonte",
         preco: 349.90,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "",
+        img: "images/500W 80P.jpg",
     }
 ]
 

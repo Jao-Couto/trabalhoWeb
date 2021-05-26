@@ -1,99 +1,51 @@
-<html lang="pt">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+ 
+    <link rel="stylesheet" href="css/styleN.css">
     <script src="data-json.js"></script>
-    <title>Compra aqui</title>
+    <script src="js/scriptN.js"></script>
+    <title>NewVersion</title>
 </head>
 <body>
-    
-    <div class="sidebar" id="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#header">inicio</a>
-        <a href="#footer">final</a>
+    <div class="jumbotron text-center " style="padding: 0; padding-top: 2%; margin-bottom:0">
+        <h4 class="display-4">Site de Compras</h4>
+        <p class="lead">Faça Suas Compras Aqui! Não Perca seu Tempo nem seu Dinheiro! :)</p>
+        
+        <div class="d-flex justify-content-end p-3 bg-secondary text-white" style="margin-top: 3%;">
+            
+            <div class="p-2">
+                <a href="pages/carrinho/carrinho.html" class="btn btn-light align-content-center">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row p-3 justify-content-center"  id="itens">
+            
+        </div>
+    </div>
+        <!--<div class="container p-5">
+            <div class="card-columns" id="itens">
+            </div>
+        </div>-->
+
+        <ul class="pagination justify-content-center align-self-end" id="pageSelect">
+            
+        </ul>
     </div>
     
-    <main class="main" id="main">
-        <header class="header" id="header">
-            
-            <div class="abrirSide">
-                <img src="images/sidenav.png" alt="" class="abrirSide" onclick="openNav()">
-            </div>
-            <div class="cadastro">
-                <button class="quadradinho" onclick="addCategoria()">
-
-                </button>
-                <a href="pages/carrinho/carrinho.html" id="carrinho">
-                    <div class="carrinho">
-                        <img src="images/carrinho.png" alt="">
-                    </div>
-                </a>
-                <a href="pages/login/login.html">
-                    <div class="bolinha">
-                        <img src="images/cadastro.png" alt="" href=>
-                    </div>
-                </a>
-                
-            </div>
-            
-            <div class="titulo">
-                Compra aqui
-            </div>
-            
-            
-        </header>
-        <div class="categoria">
-            <h3>Categorias</h3>
-            <div class="grupoCat">
-                <ul id="listCategoria">
-                    <a href="">
-                        <li>
-                            Entre Aqui!
-                        </li>
-                    </a>
-                    <a href="">
-                        <li>
-                            Entre Aqui!
-                        </li>
-                    </a><a href="">
-                        <li>
-                            Entre Aqui!
-                        </li>
-                    </a>
-                </ul>
-            </div>
-        </div>
-
-        <div class="content" > 
-                
-            <div class="topContent">
-                <div class="qtd" id="qtd">
-                    Quantidade
-                </div>
-                <div class="maisVend">
-                    <select name="maisVendidos" id="maisVend" class="select">
-                        <option value="">Mais Vendidos</option>
-                        <option value="">Menores Preços</option>
-                        <option value="">Maiores Preços</option>
-                        <option value="">Mais Relevantes</option>
-                    </select>
-                    
-                </div>
-            </div>
-
-            <div class="maxContent" id="conteudo">
-
-            </div>
-        </div>
-        
-        <footer class="footer" id="footer">
-            <p>Nada de importante aqui</p>
-              
-        </footer>
-    </main>
-    <script type="text/javascript" src="js/script.js"></script>
+    <div class="jumbotron text-center" style="margin-bottom:0">
+        <p>Footer</p>
+      </div>
 </body>
 </html>
