@@ -23,6 +23,19 @@
         <p class="lead">Faça Suas Compras Aqui! Não Perca seu Tempo nem seu Dinheiro! :)</p>
         
         <div class="d-flex justify-content-end p-3 bg-secondary text-white" style="margin-top: 3%;">
+            <div class="container mt-1">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="dropSelect">Filtragem por Categoria</label>
+                    </div>
+                    <select class="custom-select" id="dropSelect">
+                      <option selected>Selecione...</option>
+                    </select>
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button" id="btnDropSelect">Filtrar</button>
+                    </div>
+                </div>
+            </div>
             
             <div class="p-2">
                 <a href="pages/carrinho/carrinho.html" class="btn btn-light align-content-center">
@@ -33,21 +46,13 @@
     </div>
     <div class="container-fluid">
         <div class="row p-3 justify-content-center"  id="itens">
-            
         </div>
     </div>
-        <!--<div class="container p-5">
-            <div class="card-columns" id="itens">
-            </div>
-        </div>-->
-
-        <ul class="pagination justify-content-center align-self-end" id="pageSelect">
-            
+        <ul class="pagination justify-content-center m-5 align-self-end" id="pageSelect">
         </ul>
     </div>
     
-    <div class="jumbotron text-center" style="margin-bottom:0">
-        <p>Footer</p>
-      </div>
+    <div class="footer-copyright text-center bg-secondary py-3">Desenvolvido por João Vitor Couto e Rafael Correia
+    </div>
 </body>
 </html>
