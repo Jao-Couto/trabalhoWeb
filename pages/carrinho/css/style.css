@@ -73,10 +73,22 @@ section {
   border-radius: 0.5vh;
 }
 
+form, #conteudo{
+  width: 80%;
+  padding: 2vh;
+
+}
+
+form{
+  background-color: rgb(226, 226, 226);
+  margin-top: 2vh;
+  border-radius: 0.5vh;
+}
+
+
 
 section div {
-  width: 80%;
-  margin: 2vh;
+  margin-top: 2vh;
   display: flex;
   flex-direction: column;
   background-color: rgb(226, 226, 226);
