@@ -71,17 +71,14 @@ function addConteudo(){
 	$("#total").text(compra.total)
 	$("#formaPag").val(compra.forma)
 
-	
+	validadeA = compra.validade.split("-")
+	validade = validadeA[2]+"/"+validadeA[1]+"/"+validadeA[0]
 	if(compra.forma == "PIX")
 		$('#detalhes').text('CPF: 986.565.670-12')
 	else if(compra.forma == "Boleto")
 		$('#detalhes').text(geraBoleto())
-	else {
-		validadeA = compra.validade.split("-")
-	validade = validadeA[2]+"/"+validadeA[1]+"/"+validadeA[0]
-		$('#detalhes').html('Número: '+compra.numero+
+	else $('#detalhes').html('Número: '+compra.numero+
 	'<br>Validade: '+validade+
 	'<br>CVV: '+compra.cvv)
-	}
 })
 
