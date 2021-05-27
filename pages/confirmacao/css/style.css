@@ -23,9 +23,7 @@ main {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #181818;
-  background-image: url("/pages/cadastro/images/background.jpg");
-  background-repeat: repeat;
+  background-color: rgb(255, 255, 255);
 }
 
 .header {
@@ -36,7 +34,7 @@ main {
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: rgba(151, 13, 13, 0.5);
+  background-color: rgb(190, 190, 190);
 }
 
 .elemento{
@@ -59,7 +57,7 @@ main {
 }
 
 .titulo {
-  color: white;
+  color: black;
   font-weight: bold;
   font-size: 5vh;
   display: flex;
@@ -89,7 +87,7 @@ section div {
 section div label {
   font-size: 2.5vh;
   font-weight: bold;
-  color: rgb(158, 163, 79);
+  color: black;
   margin-bottom: 1vh;
 }
 
@@ -103,6 +101,35 @@ section div label {
   justify-content: space-between;
   box-shadow: 1px 1px 1px 1px rgb(56, 53, 53);
   padding: 1vh;
+  
+}
+
+#totProd, #frete, #total{
+  color: green;
+  font-weight: bolder;
+}
+
+#frete{
+  text-align: right;
+}
+
+#formaPag{
+  color: rgb(38, 54, 143);
+}
+
+#detalhes{
+  color: red;
+}
+
+.dadosCart{
+  display: none;
+  align-self: center;
+  justify-content: space-between;
+  margin: 0;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  padding: 0;
+  width: 80%;
 }
 
 .pag{
@@ -112,9 +139,11 @@ section div label {
   color: rgb(102, 102, 102);
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   box-shadow: 1px 1px 1px 1px rgb(56, 53, 53);
   padding: 1vh;
+  
 }
 
 .pag label{
@@ -123,6 +152,7 @@ section div label {
   color: rgb(102, 102, 102);
   font-size: 2vh;
   font-weight: 500;
+  
 }
 
 .row {
@@ -154,6 +184,22 @@ section div label {
 }
 
 
+#cpf, #celular{
+  width: 90%;
+}
+
+#telefone{
+  width: 60%;
+}
+
+
+input{
+  background: none;
+  border: none;
+  font-size: 2.5vh;
+  color: green;
+}
+
 .row p{
   font-weight: 500;
   font-size: 2vh;
@@ -175,26 +221,6 @@ section div label {
 .comprar:active{
   border: solid 2px gray;
 }
-
-.remove{
-  grid-area: remove;
-  font-size: 1.5vh;
-  width: auto;
-  background-color: rgb(168, 43, 43);
-  justify-self: flex-end;
-  align-self: center;
-  margin: 0;
-  margin-bottom: 1vh;
-  border: black solid 2px;
-  border-radius: 3px;
-  padding: 0.5vh;
-  color: white;
-}
-
-.remove:active{
-  border: solid 2px gray;
-}
-
 
 .footer {
   grid-area: footer;
@@ -229,9 +255,7 @@ section div label {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #181818;
-    background-image: url("/pages/cadastro/images/background.jpg");
-    background-repeat: repeat;
+    background-color: white;
   }
 
   
@@ -270,5 +294,6 @@ section div label {
     align-items: center;
     box-shadow: 1px 1px 1px 1px rgb(56, 53, 53);
     padding: 1vh;
+    color: green;
   }
 }

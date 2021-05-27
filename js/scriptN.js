@@ -2,7 +2,7 @@ let dados_selecionados = [];
 
 function addCarrinho(coordProd){
     dados_selecionados.push(produtos[parseInt(coordProd)]);
-    sessionStorage.setItem('meus_dados', JSON.stringify(dados_selecionados));
+    sessionStorage.setItem('produtos', JSON.stringify(dados_selecionados));
 }
 
 function toggleDesc(obj) {

@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
-    <title>Document</title>
+    <title>Detalhes da compra</title>
 </head>
 
 <body>
     <main>
         <header class="header" id="header">
             <div class="titulo">
-                Carrinho
+                Detalhes da compra
             </div>
         </header>
         <section>
@@ -25,61 +25,58 @@
                     Rua Kenji Sato Miura, 324 - Parque Cedral - Presidente Prudente - SP - Brasil
                 </p>
             </div>-->
+            <div id="conteudo">
+                <label>Produtos adicionados ao carrinho </label>
+                    
+            </div>
+            <div>
+                <label style="align-self: center;">Dados do cliente</label>
+                <label for="nome">Nome Completo:</label>
+                    <input type="text"  id="nome" name="f_nome" autocomplete="off" required>
+                <div class="row">
+                    <div class="dentroRow" >
+                        <label for="cpf">CPF:</label>
+                        <input type="text" name="f_cpf" id="cpf" autocomplete="off" required>
+                    </div>
+                    <div class="dentroRow" style="width: 50%; margin-right: 2vw;">
+                        <label for="celular">Celular:</label>
+                        <input type="tel" name="f_cel" id="celular"  autocomplete="off">
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="dentroRow" style="width: 50%;">
+                        <label for="telefone">Telefone:</label>
+                        <input type="tel" name="f_tel" id="telefone"  autocomplete="off">
+                    </div>
+                </div>
+            </div>
             <div>
                 <label style="align-self: center;">Endereço</label>
-                <label for="rua">Rua: <span style="color: red;">*</span></label>
+                <label for="rua">Rua:</label>
                 <input type="text" name="f_rua" id="rua" autocomplete="off" required>
                 <div class="row">                    
                     <div class="dentroRow" style="width: 30%; margin-right: 2vw;">
-                        <label for="num">Número: <span style="color: red;">*</span></label>
+                        <label for="num">Número:</label>
                         <input type="text" name="f_rua" id="num" autocomplete="off" required>
                     </div>
                     <div class="dentroRow" style="width: 70%;">
-                        <label for="bairro">Bairro: <span style="color: red;">*</span></label>
+                        <label for="bairro">Bairro:</label>
                         <input type="text" name="f_bairro" id="bairro" autocomplete="off" required>
                     </div>
                 </div>
                 <div class="row">                    
                     <div class="dentroRow" style="width: 70%; margin-right: 2vw;">
-                        <label for="cidade">Cidade: <span style="color: red;">*</span></label>
+                        <label for="cidade">Cidade:</span></label>
                         <input type="text" name="f_cidade" id="cidade" autocomplete="off" required>
                     </div>
                     <div class="dentroRow" style="width: 15%; font-size: 2.5vh;"> 
-                        <label for="UF">Estado: <span style="color: red;">*</span></label>
-                        <select name="f_estado" id="UF">
-                            <option value="AC">AC</option>
-                            <option value="AL">AL</option>
-                            <option value="AP">AP</option>
-                            <option value="AM">AM</option>
-                            <option value="BA">BA</option>
-                            <option value="CE">CE</option>
-                            <option value="DF">DF</option>
-                            <option value="ES">ES</option>
-                            <option value="GO">GO</option>
-                            <option value="MA">MA</option>
-                            <option value="MT">MT</option>
-                            <option value="MS">MS</option>
-                            <option value="MG">MG</option>
-                            <option value="PA">PA</option>
-                            <option value="PB">PB</option>
-                            <option value="PR">PR</option>
-                            <option value="PE">PE</option>
-                            <option value="PI">PI</option>
-                            <option value="RJ">RJ</option>
-                            <option value="RN">RN</option>
-                            <option value="RS">RS</option>
-                            <option value="RO">RO</option>
-                            <option value="RR">RR</option>
-                            <option value="SC">SC</option>
-                            <option value="SP">SP</option>
-                            <option value="SE">SE</option>
-                            <option value="TO">TO</option>
-                        </select>
+                        <label for="UF">Estado:</label>
+                        <input type="text" name="f_estado" id="UF">
                     </div>
                 </div>
                 <div class="row">
                 <div class="dentroRow"  style="width: 30%; margin-right: 2vw;">
-                    <label for="cep">CEP: <span style="color: red;">*</span></label>
+                    <label for="cep">CEP:</label>
                     <input type="text" name="f_cep" id="cep" autocomplete="off" required>
                 </div>
                 <div class="dentroRow" >
@@ -89,13 +86,7 @@
                 </div>
                 
             </div> 
-            <div id="conteudo">
-                <div class="row">
-                    <label>Produtos adicionados ao carrinho </label>
-                    <input type="button" value="Remover Tudo" id="removeAll" class="remove"
-                        onclick="removerAll()" />
-                </div>
-            </div>
+            
             <div style="border: solid 5px green;">
                 <div class="row">
                     <div class="dentroRow">
@@ -108,7 +99,7 @@
                             <p>Frete:</p>
                             <p id="frete"></p>
                         </div>
-                        <div class="tot" style="color: black; font-weight: bolder;">
+                        <div class="tot">
                             <p>TOTAL:</p>
                             <p id="total"></p>
                         </div>
@@ -116,22 +107,13 @@
                     <div class="dentroRow">
                         <label>Forma de pagamento</label>
                         <div class="pag">
-                            <input type="radio" id="boleto" name="formaPag" value="boleto">
-                            <label for="boleto">Boleto</label>
+                            <input type="text" id="formaPag">
+                            <p id="detalhes"></p>
                         </div>
-                        <div class="pag">
-                            <input type="radio" id="credito" name="formaPag" value="credito">
-                            <label for="credito">Cartão de Crédito</label>
-                        </div>
-                        <div class="pag">
-                            <input type="radio" id="debito" name="formaPag" value="debito">
-                            <label for="debito">Cartão de Débito</label>
-                        </div>
-
                     </div>
                 </div>
-                <input type="button" value="Confirmar" id="confirmar" class="comprar"
-                        onclick="console.log('ola')" />
+                <input type="button" value="Página inicial" id="inicio" class="comprar"
+                        onclick="inicio()" />
             </div>
         </section>
         <footer class="footer" id="footer">
