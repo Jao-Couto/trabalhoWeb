@@ -1,4 +1,8 @@
-let dados_selecionados = JSON.parse(sessionStorage.getItem('produtos'));;
+let dados_selecionados;
+if(JSON.parse(sessionStorage.getItem('produtos')) == null)
+    dados_selecionados= []
+else
+    dados_selecionados = JSON.parse(sessionStorage.getItem('produtos'));
 
 function addCarrinho(coordProd){
     produtos.forEach(produto =>{

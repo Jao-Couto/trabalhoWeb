@@ -5,8 +5,6 @@ let contador = 0
 let soma = 0
 let total= 0
 
-console.log(produtos)
-
 
 function credito(){
 	dadosUsu = {
@@ -58,6 +56,7 @@ function outraForma(){
 		frete: $("#frete").text(),
 		total: $("#total").text(),
 		forma: $("input[name='formaPag']:checked").val()
+
 	}
     let para_enviar = JSON.stringify(dadosUsu);
     sessionStorage.setItem('usuario', para_enviar);
@@ -67,7 +66,7 @@ function outraForma(){
 }
 
 $(document).ready(function(){
-	let aux = [];
+	let aux = {};
 
 	let options = {
 		translation: {
@@ -95,7 +94,7 @@ $(document).ready(function(){
 
 function addConteudo(){
 	document.getElementById('conteudo').innerHTML +='<div class="elemento" id="elemento'+produtos[contador].codigo+'"><div class="image">'+
-														'<img src="/images/test.png" alt="" srcset="">'+
+														'<img src="/'+produtos[contador].img+'" alt="" srcset="">'+
 													'</div>'+
 													'<div class="text" id="text">'+ produtos[contador].nome +' <br>' + 
 														'<p> '+ produtos[contador].marca +' </p> <br><p><b> R$ '+produtos[contador].preco.toFixed(2) +'</p></b> <br>' +
@@ -107,26 +106,28 @@ function addConteudo(){
 														'</div>'+
 													'</div>'+
 													'<input type="button" class="remove" value="REMOVER" id="remove" onclick="remover(`elemento'+produtos[contador].codigo+'`)" /> </div>'
+													//document.getElementById('qtd').innerHTML = ++contador + ' Produtos'
 	}
 
 	for (; contador < produtos.length; contador++) {
 		if(!aux[produtos[contador].codigo])
 			aux[produtos[contador].codigo] = 0
         aux[produtos[contador].codigo]++
+		console.log(aux)
+		console.log(produtos);
     }
 
-	function logArrayElements(element, index) {
-		contador = index-1;
+	for(let key in aux){
+		console.log(key)
+		for(var i=0; i<produtos.length; i++) {
+			if(produtos[i].codigo == key) {
+				contador = i
+			}
+		}
 		addConteudo();
-		soma += produtos[contador].preco * element;
+		soma += produtos[contador].preco * aux[key];
 	}
 
-	aux.forEach(logArrayElements);
-
-	/*for (contador = 0; contador < produtos.length; contador++) {
-        addConteudo();
-		soma += produtos[contador].preco
-    }*/
 
 	document.getElementById('totProd').innerText = 'R$ '+soma.toFixed(2)
 	let frete = (Math.random() * (10 - 50) + 50).toFixed(2)
@@ -144,62 +145,56 @@ function addConteudo(){
 	  });
 	  
 $("#comprar").click(function(){
-	if($("#nome").val() != "" && $("#cpf").val() != "" && $("#rua").val() != "" && $("#num").val() != "" && $("#bairro").val() != "" && $("#cidade").val() != "" && $("#cep").val() != "") {
+	if(produtos.length > 0){
+	if($("#nome").val() != "" && $("#cpf").val() != "" && $("#cpf").val().length == 14 && $("#rua").val() != "" && $("#num").val() != "" && $("#bairro").val() != "" && $("#cidade").val() != "" && $("#cep").val() != "" && $("#cep").val().length == 9) {
+
 		if($("input[name='formaPag']:checked").val() == "Cartão de Crédito")
-			if($("#numeroCart").val() != "" && $("#validade").val() != "" && $("#cvv").val() != ""){
+			if($("#numeroCart").val() != "" && $("#numeroCart").val().length == 19 && $("#validade").val() != "" && $("#cvv").val() != "" && $("#cvv").val().length == 3){
 				credito()
-			}else window.alert("Preencha os campos obrigatórios")
+			}else window.alert("Preencha os campos obrigatórios corretamente!")
 		else outraForma()
-	}else window.alert("Preencha os campos obrigatórios")
+
+	}else window.alert("Preencha os campos obrigatórios corretamente!")
+	}else window.alert("Carrinho vazio!")
 });
 
 $('.minus').click(function () {
 	var $input = $(this).parent().find('input');
-	let count = parseInt($input.val());
+	var count = parseInt($input.val()) - 1;
+	count = count < 1 ? 1 : count;
+	$input.val(count);
+	$input.change();
 	let id = $input.attr('id');
 	id = id.split("-")[1]
-	for(let i=0; i<produtos.length; i++) {
+	for(var i=0; i<produtos.length; i++) {
 		if(produtos[i].codigo == id) {
 			id = i
-			break
 		}
 	}
-	if(count > 1){
+	if(count >= 1){
 		soma -= produtos[id].preco
 		document.getElementById('totProd').innerText = 'R$ '+soma.toFixed(2)
 		total = (parseFloat(total) - parseFloat(produtos[id].preco)).toFixed(2)
 		document.getElementById('total').innerText = 'R$ '+total
-
-		produtos.splice(id,1);
-		sessionStorage.setItem('produtos', JSON.stringify(produtos))
 	}
-
-	count--;
-	count = count < 1 ? 1 : count;
-	$input.val(count);
-	$input.change();
 	return false;
 });
-
 $('.plus').click(function () {
 	var $input = $(this).parent().find('input');
 	$input.val(parseInt($input.val()) + 1);
 	$input.change();
 	let id = $input.attr('id');
 	id = id.split("-")[1]
-	for(let i=0; i<produtos.length; i++) {
+	for(var i=0; i<produtos.length; i++) {
 		if(produtos[i].codigo == id) {
 			id = i
-			break
 		}
 	}
+	
 	soma += produtos[id].preco 
 	document.getElementById('totProd').innerText = 'R$ '+soma.toFixed(2)
 	total = (parseFloat(total) + parseFloat(produtos[id].preco)).toFixed(2)
 	document.getElementById('total').innerText = 'R$ '+total
-
-	produtos.push(produtos[id]);
-	sessionStorage.setItem('produtos', JSON.stringify(produtos))
 	return false;
 });
 });
@@ -210,13 +205,15 @@ function remover(id){
 	for(var i=0; i<produtos.length; i++) {
 		if(produtos[i].codigo == pos) {
 			pos = i
-			break
 		}
 	}
+	console.log(pos)
+	console.log($("#qtd-"+remo).val());
 	soma -= produtos[pos].preco * $("#qtd-"+remo).val();
 	document.getElementById('totProd').innerText = 'R$ '+soma.toFixed(2)
 	total = (parseFloat(total) - produtos[pos].preco*$("#qtd-"+remo).val()).toFixed(2)
 	document.getElementById('total').innerText = 'R$ '+total
+
 	produtos.splice(pos,1);
 	sessionStorage.setItem('produtos', JSON.stringify(produtos))
 	$("#"+id).remove();

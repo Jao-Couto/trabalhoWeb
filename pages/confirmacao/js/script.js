@@ -28,7 +28,6 @@ function geraBoleto(){
 		bol += num[Math.floor(Math.random()*10)]; 
 		
 	}
-	console.log("aqui "+bol)
 	return bol;
 }
 
@@ -38,11 +37,11 @@ function inicio(){
 
 $(document).ready(function(){
 
-	let aux = [];
+	let aux = {};
 
 function addConteudo(){
 	document.getElementById('conteudo').innerHTML +='<div class="elemento" id="elemento'+produtos[contador].codigo+'"><div class="image">'+
-														'<img src="/images/test.png" alt="" srcset="">'+
+													'<img src="/'+produtos[contador].img+'" alt="" srcset="">'+
 													'</div>'+
 													'<div class="text" id="text">'+ produtos[contador].nome +' <br>' + 
 														'<p> '+ produtos[contador].marca +' </p> <br><p><b> R$ '+produtos[contador].preco.toFixed(2) +'</p></b> <br>' +
@@ -60,18 +59,17 @@ function addConteudo(){
         aux[produtos[contador].codigo]++
     }
 
-	function logArrayElements(element, index) {
-		contador = index-1;
+	for(let key in aux){
+		console.log(key)
+		for(var i=0; i<produtos.length; i++) {
+			if(produtos[i].codigo == key) {
+				contador = i
+			}
+		}
 		addConteudo();
-		soma += produtos[contador].preco * element;
+		soma += produtos[contador].preco * aux[key];
 	}
 
-	aux.forEach(logArrayElements);
-
-	
-	/*for (; contador < produtos.length; contador++) {
-        addConteudo();
-    }*/
 	
 	$("#nome").val(usuario.nome)
 	$("#cpf").val(usuario.cpf)

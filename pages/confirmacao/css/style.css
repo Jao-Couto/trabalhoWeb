@@ -130,6 +130,14 @@ section div label {
   font-weight: bold;
 }
 
+#totProd{
+  flex: 2;
+  text-align: right;
+}
+
+img{
+  background-color: rgb(226, 226, 226);
+}
 
 .dadosCart{
   display: none;

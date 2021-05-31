@@ -120,6 +120,15 @@ section div label {
   margin-bottom: 1vh;
 }
 
+#totProd{
+  flex: 2;
+  text-align: right;
+}
+
+img{
+  background-color: rgb(226, 226, 226);
+}
+
 .tot{
   width: 90%;
   margin: 0;
