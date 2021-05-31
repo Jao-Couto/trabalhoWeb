@@ -121,6 +121,16 @@ section div label {
   color: red;
 }
 
+.number{
+  display: flex;
+  justify-content: center;
+  align-self: flex-end;
+  flex-direction: row;
+  width: 50%;
+  font-weight: bold;
+}
+
+
 .dadosCart{
   display: none;
   align-self: center;

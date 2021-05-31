@@ -73,10 +73,39 @@ section {
   border-radius: 0.5vh;
 }
 
+span {cursor:pointer; }
+		.number{
+			display: flex;
+      justify-content: center;
+      align-self: flex-end;
+      flex-direction: row;
+      width: 50%;
+		}
+		.minus, .plus{
+      width: 15%;
+			background:#f2f2f2;
+			border-radius:4px;
+			padding:2px;
+			border:1px solid #ddd;
+      display: inline-block;
+      vertical-align: middle;
+      text-align: center;
+      font-size: 2.5vh;
+
+		}
+		.number input{
+      width: 30%;
+      text-align: center;
+      font-size: 2.5vh;
+			border:1px solid #ddd;
+			border-radius:4px;
+      display: inline-block;
+      vertical-align: middle;
+    }
 
 section div {
   width: 80%;
-  margin: 2vh;
+  margin-top: 2vh;
   display: flex;
   flex-direction: column;
   background-color: rgb(226, 226, 226);

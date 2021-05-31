@@ -28,6 +28,7 @@ function geraBoleto(){
 		bol += num[Math.floor(Math.random()*10)]; 
 		
 	}
+	console.log("aqui "+bol)
 	return bol;
 }
 
@@ -37,6 +38,8 @@ function inicio(){
 
 $(document).ready(function(){
 
+	let aux = [];
+
 function addConteudo(){
 	document.getElementById('conteudo').innerHTML +='<div class="elemento" id="elemento'+produtos[contador].codigo+'"><div class="image">'+
 														'<img src="/images/test.png" alt="" srcset="">'+
@@ -44,14 +47,31 @@ function addConteudo(){
 													'<div class="text" id="text">'+ produtos[contador].nome +' <br>' + 
 														'<p> '+ produtos[contador].marca +' </p> <br><p><b> R$ '+produtos[contador].preco.toFixed(2) +'</p></b> <br>' +
 														'<p style="font-size: 1.8vh"> '+ produtos[contador].desc+' </p> '+
+														'<div class="number">'+
+															'Quantidade: '+ aux[produtos[contador].codigo]+''+
+														'</div>'+
 													'</div>'
 													
 	}
 
-	
 	for (; contador < produtos.length; contador++) {
-        addConteudo();
+		if(!aux[produtos[contador].codigo])
+			aux[produtos[contador].codigo] = 0
+        aux[produtos[contador].codigo]++
     }
+
+	function logArrayElements(element, index) {
+		contador = index-1;
+		addConteudo();
+		soma += produtos[contador].preco * element;
+	}
+
+	aux.forEach(logArrayElements);
+
+	
+	/*for (; contador < produtos.length; contador++) {
+        addConteudo();
+    }*/
 	
 	$("#nome").val(usuario.nome)
 	$("#cpf").val(usuario.cpf)
@@ -71,14 +91,17 @@ function addConteudo(){
 	$("#total").text(compra.total)
 	$("#formaPag").val(compra.forma)
 
-	validadeA = compra.validade.split("-")
-	validade = validadeA[2]+"/"+validadeA[1]+"/"+validadeA[0]
+	
 	if(compra.forma == "PIX")
 		$('#detalhes').text('CPF: 986.565.670-12')
 	else if(compra.forma == "Boleto")
 		$('#detalhes').text(geraBoleto())
-	else $('#detalhes').html('Número: '+compra.numero+
-	'<br>Validade: '+validade+
-	'<br>CVV: '+compra.cvv)
+	else{
+		validadeA = compra.validade.split("-")
+		validade = validadeA[2]+"/"+validadeA[1]+"/"+validadeA[0]
+		$('#detalhes').html('Número: '+compra.numero+
+		'<br>Validade: '+validade+
+		'<br>CVV: '+compra.cvv)
+	}
 })
 
