@@ -1,12 +1,14 @@
 
 
 let produtos = JSON.parse(sessionStorage.getItem('produtos'));
+console.log(produtos);
+
 let contador = 0
 let soma = 0
-let total= 0
+let total = 0
 
 
-function credito(){
+function credito() {
 	dadosUsu = {
 		nome: $("#nome").val(),
 		cpf: $("#cpf").val(),
@@ -20,7 +22,7 @@ function credito(){
 		cep: $("#cep").val(),
 		comple: $("#comp").val()
 	}
-	dadosCompra={
+	dadosCompra = {
 		totProd: $("#totProd").text(),
 		frete: $("#frete").text(),
 		total: $("#total").text(),
@@ -30,14 +32,14 @@ function credito(){
 		cvv: $("#cvv").val()
 
 	}
-    let para_enviar = JSON.stringify(dadosUsu);
-    sessionStorage.setItem('usuario', para_enviar);
+	let para_enviar = JSON.stringify(dadosUsu);
+	sessionStorage.setItem('usuario', para_enviar);
 	para_enviar = JSON.stringify(dadosCompra);
-    sessionStorage.setItem('compra', para_enviar);
-	window.location.href='/pages/confirmacao/confirmacao.html'
+	sessionStorage.setItem('compra', para_enviar);
+	window.location.href = '/pages/confirmacao/confirmacao.html'
 }
 
-function outraForma(){
+function outraForma() {
 	dadosUsu = {
 		nome: $("#nome").val(),
 		cpf: $("#cpf").val(),
@@ -51,33 +53,33 @@ function outraForma(){
 		cep: $("#cep").val(),
 		comple: $("#comp").val()
 	}
-	dadosCompra={
+	dadosCompra = {
 		totProd: $("#totProd").text(),
 		frete: $("#frete").text(),
 		total: $("#total").text(),
 		forma: $("input[name='formaPag']:checked").val()
 
 	}
-    let para_enviar = JSON.stringify(dadosUsu);
-    sessionStorage.setItem('usuario', para_enviar);
+	let para_enviar = JSON.stringify(dadosUsu);
+	sessionStorage.setItem('usuario', para_enviar);
 	para_enviar = JSON.stringify(dadosCompra);
-    sessionStorage.setItem('compra', para_enviar);
-	window.location.href='/pages/confirmacao/confirmacao.html'
+	sessionStorage.setItem('compra', para_enviar);
+	window.location.href = '/pages/confirmacao/confirmacao.html'
 }
 
-$(document).ready(function(){
+$(document).ready(function () {
 	let aux = {};
 
 	let options = {
 		translation: {
-			'@' : {pattern: /[a-zÀ-ÿA-Z ]/, recursive: true},
-			'E' : {pattern: /[\w@\-.+]/, recursive: true},
-			'A' : {pattern: /[\w@\-.+]/},
-			'S' : {pattern: /[\w@\-.+]/, optional:true}
+			'@': { pattern: /[a-zÀ-ÿA-Z ]/, recursive: true },
+			'E': { pattern: /[\w@\-.+]/, recursive: true },
+			'A': { pattern: /[\w@\-.+]/ },
+			'S': { pattern: /[\w@\-.+]/, optional: true }
 		}
 	};
-	
-	
+
+
 	$('#nome').mask("@", options);
 	$('#email').mask("E", options);
 	$('#senha').mask("AAAAAAAASSSSSSSS", options);
@@ -92,35 +94,64 @@ $(document).ready(function(){
 	$('#cvv').mask("000");
 	$('#numeroCart').mask("0000 0000 0000 0000");
 
-function addConteudo(){
-	document.getElementById('conteudo').innerHTML +='<div class="elemento" id="elemento'+produtos[contador].codigo+'"><div class="image">'+
-														'<img src="/'+produtos[contador].img+'" alt="" srcset="">'+
-													'</div>'+
-													'<div class="text" id="text">'+ produtos[contador].nome +' <br>' + 
-														'<p> '+ produtos[contador].marca +' </p> <br><p><b> R$ '+produtos[contador].preco.toFixed(2) +'</p></b> <br>' +
-														'<p style="font-size: 1.8vh"> '+ produtos[contador].desc+' </p> '+
-														'<div class="number">'+
-															'<span class="minus">-</span>'+
-															'<input type="text" id="qtd-'+produtos[contador].codigo+'" value="'+ aux[produtos[contador].codigo]+'" readonly/>'+
-															'<span class="plus">+</span>'+
-														'</div>'+
-													'</div>'+
-													'<input type="button" class="remove" value="REMOVER" id="remove" onclick="remover(`elemento'+produtos[contador].codigo+'`)" /> </div>'
-													//document.getElementById('qtd').innerHTML = ++contador + ' Produtos'
+	function addConteudo() {
+		if (produtos != null) {
+			document.getElementById('conteudo').innerHTML += `<div class="card col-md-5 m-2" id="elemento${produtos[contador].codigo}">
+			<img class="card-img-top" src="/${produtos[contador].img}">
+			<div class="card-body" id="text">
+				<h4 class="card-title text-dark">${produtos[contador].nome} </h4>
+				<h5 class="card-text "> ${produtos[contador].marca} </h5>
+				<p class="card-text"> <b> R$ ${produtos[contador].preco.toFixed(2)}</b></p>
+				<p class="card-text">  ${produtos[contador].desc}</p>
+				<div class="row">
+					<div class="col-8 align-self-end">
+						<div class="number float-left">
+							<button class="minus">-</button>
+							<input type="text" id="qtd-${produtos[contador].codigo}" value="${aux[produtos[contador].codigo]}" readonly />
+							<button class="plus">+</button>
+						</div>
+					</div>
+					<div class="col-4 align-self-end">
+						<a onclick="remover('elemento${produtos[contador].codigo}')" id="remove" value="REMOVER"
+							class="btn btn-danger btn-sm float-right">Remover</a>
+					</div>
+				</div>
+			</div>
+		</div>`
+			
+			
+			/*
+			`<div class="elemento" id="elemento${produtos[contador].codigo}">
+																	<div class="image">
+																		'<img src="/${produtos[contador].img}" alt="" srcset="">
+																	'</div>
+																	'<div class="text" id="text">${produtos[contador].nome} <br>
+																		'<p> ${produtos[contador].marca} </p> <br><p><b> R$ ${produtos[contador].preco.toFixed(2)}</p></b> <br>
+																		'<p style="font-size: 1.8vh"> ${produtos[contador].desc} </p> 
+																		'<div class="number">
+																			'<button class="minus">-</button>
+																			'<input type="text" id="qtd-${produtos[contador].codigo}" value="${aux[produtos[contador].codigo]}" readonly/>
+																			'<button class="plus">+</button>
+																		'</div>
+																	'</div>
+																	'<input type="button" class="remove" value="REMOVER" id="remove" onclick="remover('elemento${produtos[contador].codigo}')" /> 
+																</div>`*/
+			//document.getElementById('qtd').innerHTML = ++contador + ' Produtos'
+		}
 	}
 
 	for (; contador < produtos.length; contador++) {
-		if(!aux[produtos[contador].codigo])
+		if (!aux[produtos[contador].codigo])
 			aux[produtos[contador].codigo] = 0
-        aux[produtos[contador].codigo]++
+		aux[produtos[contador].codigo]++
 		console.log(aux)
 		console.log(produtos);
-    }
+	}
 
-	for(let key in aux){
+	for (let key in aux) {
 		console.log(key)
-		for(var i=0; i<produtos.length; i++) {
-			if(produtos[i].codigo == key) {
+		for (var i = 0; i < produtos.length; i++) {
+			if (produtos[i].codigo == key) {
 				contador = i
 			}
 		}
@@ -129,99 +160,99 @@ function addConteudo(){
 	}
 
 
-	document.getElementById('totProd').innerText = 'R$ '+soma.toFixed(2)
+	document.getElementById('totProd').innerText = 'R$ ' + soma.toFixed(2)
 	let frete = (Math.random() * (10 - 50) + 50).toFixed(2)
-	document.getElementById('frete').innerText = 'R$ '+ frete
+	document.getElementById('frete').innerText = 'R$ ' + frete
 	total = (parseFloat(soma) + parseFloat(frete)).toFixed(2)
-	document.getElementById('total').innerText = 'R$ '+total
+	document.getElementById('total').innerText = 'R$ ' + total
 
-	$('input:radio[name="formaPag"]').change(function() {
+	$('input:radio[name="formaPag"]').change(function () {
 		if ($("input[name='formaPag']:checked").val() == "Cartão de Crédito") {
-			$(".dadosCart").css("display","flex");
+			$("#dadosCart").css("display", "flex");
 		} else {
-			$(".dadosCart").css("display","none");
+			$("#dadosCart").css("display", "none");
 		}
-		
-	  });
-	  
-$("#comprar").click(function(){
-	if(produtos.length > 0){
-	if($("#nome").val() != "" && $("#cpf").val() != "" && $("#cpf").val().length == 14 && $("#rua").val() != "" && $("#num").val() != "" && $("#bairro").val() != "" && $("#cidade").val() != "" && $("#cep").val() != "" && $("#cep").val().length == 9) {
 
-		if($("input[name='formaPag']:checked").val() == "Cartão de Crédito")
-			if($("#numeroCart").val() != "" && $("#numeroCart").val().length == 19 && $("#validade").val() != "" && $("#cvv").val() != "" && $("#cvv").val().length == 3){
-				credito()
-			}else window.alert("Preencha os campos obrigatórios corretamente!")
-		else outraForma()
+	});
 
-	}else window.alert("Preencha os campos obrigatórios corretamente!")
-	}else window.alert("Carrinho vazio!")
-});
+	$("#comprar").click(function () {
+		if (produtos.length > 0) {
+			if ($("#nome").val() != "" && $("#cpf").val() != "" && $("#cpf").val().length == 14 && $("#rua").val() != "" && $("#num").val() != "" && $("#bairro").val() != "" && $("#cidade").val() != "" && $("#cep").val() != "" && $("#cep").val().length == 9) {
 
-$('.minus').click(function () {
-	var $input = $(this).parent().find('input');
-	var count = parseInt($input.val()) - 1;
-	count = count < 1 ? 1 : count;
-	$input.val(count);
-	$input.change();
-	let id = $input.attr('id');
-	id = id.split("-")[1]
-	for(var i=0; i<produtos.length; i++) {
-		if(produtos[i].codigo == id) {
-			id = i
+				if ($("input[name='formaPag']:checked").val() == "Cartão de Crédito")
+					if ($("#numeroCart").val() != "" && $("#numeroCart").val().length == 19 && $("#validade").val() != "" && $("#cvv").val() != "" && $("#cvv").val().length == 3) {
+						credito()
+					} else window.alert("Preencha os campos obrigatórios corretamente!")
+				else outraForma()
+
+			} else window.alert("Preencha os campos obrigatórios corretamente!")
+		} else window.alert("Carrinho vazio!")
+	});
+
+	$('.minus').click(function () {
+		var $input = $(this).parent().find('input');
+		var count = parseInt($input.val()) - 1;
+		count = count < 1 ? 1 : count;
+		$input.val(count);
+		$input.change();
+		let id = $input.attr('id');
+		id = id.split("-")[1]
+		for (var i = 0; i < produtos.length; i++) {
+			if (produtos[i].codigo == id) {
+				id = i
+			}
 		}
-	}
-	if(count >= 1){
-		soma -= produtos[id].preco
-		document.getElementById('totProd').innerText = 'R$ '+soma.toFixed(2)
-		total = (parseFloat(total) - parseFloat(produtos[id].preco)).toFixed(2)
-		document.getElementById('total').innerText = 'R$ '+total
-	}
-	return false;
-});
-$('.plus').click(function () {
-	var $input = $(this).parent().find('input');
-	$input.val(parseInt($input.val()) + 1);
-	$input.change();
-	let id = $input.attr('id');
-	id = id.split("-")[1]
-	for(var i=0; i<produtos.length; i++) {
-		if(produtos[i].codigo == id) {
-			id = i
+		if (count >= 1) {
+			soma -= produtos[id].preco
+			document.getElementById('totProd').innerText = 'R$ ' + soma.toFixed(2)
+			total = (parseFloat(total) - parseFloat(produtos[id].preco)).toFixed(2)
+			document.getElementById('total').innerText = 'R$ ' + total
 		}
-	}
-	
-	soma += produtos[id].preco 
-	document.getElementById('totProd').innerText = 'R$ '+soma.toFixed(2)
-	total = (parseFloat(total) + parseFloat(produtos[id].preco)).toFixed(2)
-	document.getElementById('total').innerText = 'R$ '+total
-	return false;
-});
+		return false;
+	});
+	$('.plus').click(function () {
+		var $input = $(this).parent().find('input');
+		$input.val(parseInt($input.val()) + 1);
+		$input.change();
+		let id = $input.attr('id');
+		id = id.split("-")[1]
+		for (var i = 0; i < produtos.length; i++) {
+			if (produtos[i].codigo == id) {
+				id = i
+			}
+		}
+
+		soma += produtos[id].preco
+		document.getElementById('totProd').innerText = 'R$ ' + soma.toFixed(2)
+		total = (parseFloat(total) + parseFloat(produtos[id].preco)).toFixed(2)
+		document.getElementById('total').innerText = 'R$ ' + total
+		return false;
+	});
 });
 
-function remover(id){
-	let remo = id.substring(8) 
+function remover(id) {
+	let remo = id.substring(8)
 	let pos = remo
-	for(var i=0; i<produtos.length; i++) {
-		if(produtos[i].codigo == pos) {
+	for (var i = 0; i < produtos.length; i++) {
+		if (produtos[i].codigo == pos) {
 			pos = i
 		}
 	}
 	console.log(pos)
-	console.log($("#qtd-"+remo).val());
-	soma -= produtos[pos].preco * $("#qtd-"+remo).val();
-	document.getElementById('totProd').innerText = 'R$ '+soma.toFixed(2)
-	total = (parseFloat(total) - produtos[pos].preco*$("#qtd-"+remo).val()).toFixed(2)
-	document.getElementById('total').innerText = 'R$ '+total
+	console.log($("#qtd-" + remo).val());
+	soma -= produtos[pos].preco * $("#qtd-" + remo).val();
+	document.getElementById('totProd').innerText = 'R$ ' + soma.toFixed(2)
+	total = (parseFloat(total) - produtos[pos].preco * $("#qtd-" + remo).val()).toFixed(2)
+	document.getElementById('total').innerText = 'R$ ' + total
 
-	produtos.splice(pos,1);
+	produtos.splice(pos, 1);
 	sessionStorage.setItem('produtos', JSON.stringify(produtos))
-	$("#"+id).remove();
+	$("#" + id).remove();
 }
 
-function removerAll(){
-	for(var i=0; i<produtos.length;) {
-		remover("elemento"+produtos[i].codigo)
+function removerAll() {
+	for (var i = 0; i < produtos.length;) {
+		remover("elemento" + produtos[i].codigo)
 	}
 }
 

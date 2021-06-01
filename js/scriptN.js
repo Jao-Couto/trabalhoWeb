@@ -1,8 +1,10 @@
-let dados_selecionados;
-if(JSON.parse(sessionStorage.getItem('produtos')) == null)
-    dados_selecionados= []
-else
-    dados_selecionados = JSON.parse(sessionStorage.getItem('produtos'));
+let dados_selecionados = []
+if(JSON.parse(sessionStorage.getItem('produtos')) != null){
+    JSON.parse(sessionStorage.getItem('produtos')).forEach(produto =>{
+        dados_selecionados.push(produto)
+    });
+}
+    
 
 function addCarrinho(coordProd){
     produtos.forEach(produto =>{
@@ -72,10 +74,10 @@ $(document).ready(function(){
                                         <h4 class="card-title">`+ elem.nome +`</h4>
                                         <p class="card-text text-muted"> R$ `+ elem.preco.toFixed(2) +`</p>
                                         <p class="card-text" style="display: none;" id="desc`+i+`">`+ elem.desc +`</p>
-                                        <button type="button" class="btn align-self-end btn-outline-info"  onclick="toggleDesc('#desc`+i+`')">Info</button>
+                                        <button type="button" class="btn align-self-end btn-outline-primary"  onclick="toggleDesc('#desc`+i+`')">Info</button>
                                     </div>
-                                    <div class="card-footer bg-dark" style="transform: rotate(0);">
-                                        <a class="stretched-link btn text-white" id='compra`+i+`' onclick="addCarrinho(`+elem.codigo+`)" name='botao' style="width: 100%;"><h6 class="small">Adicionar ao Carrinho</h6></a>
+                                    <div class="card-footer bg-dark p-0" style="transform: rotate(0);">
+                                        <a class="stretched-link btn btn-dark text-white p-3 m-0" id='compra`+i+`' onclick="addCarrinho(`+elem.codigo+`)" name='botao' style="width: 100%;"><h6 class="small">Adicionar ao Carrinho</h6></a>
                                     </div>
                                 </div>
                             </div>`
