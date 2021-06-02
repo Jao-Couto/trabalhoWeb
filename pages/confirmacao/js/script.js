@@ -2,8 +2,8 @@ let produtos = JSON.parse(sessionStorage.getItem('produtos'));
 let usuario = JSON.parse(sessionStorage.getItem('usuario'));
 let compra = JSON.parse(sessionStorage.getItem('compra'));
 
-console.log(sessionStorage)
-console.log(produtos);
+//console.log(sessionStorage)
+//console.log(produtos);
 let contador = 0
 let soma = 0
 
@@ -39,8 +39,8 @@ function remover(id) {
 			pos = i
 		}
 	}
-	console.log(pos)
-	console.log($("#qtd-" + remo).val());
+	//console.log(pos)
+	//console.log($("#qtd-" + remo).val());
 	soma -= produtos[pos].preco * $("#qtd-" + remo).val();
 	document.getElementById('totProd').innerText = 'R$ ' + soma.toFixed(2)
 	total = (parseFloat(total) - produtos[pos].preco * $("#qtd-" + remo).val()).toFixed(2)
@@ -94,7 +94,7 @@ $(document).ready(function(){
     }
 
 	for(let key in aux){
-		console.log(key)
+		//console.log(key)
 		for(var i=0; i<produtos.length; i++) {
 			if(produtos[i].codigo == key) {
 				contador = i

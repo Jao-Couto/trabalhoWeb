@@ -22,7 +22,7 @@ function toggleDesc(obj) {
 
 
 $(document).ready(function(){
-    let maxAmountPerPage = 18;
+    let maxAmountPerPage = 13;
     let MAX = produtos.length
     let maxPages = MAX/maxAmountPerPage
     let elementos = createDiv(produtos);
@@ -32,10 +32,9 @@ $(document).ready(function(){
     let arrCategoria = []
     inicializaPag()
 
-
     function carregaPag() {
         $("#itens")[0].innerHTML = ""
-        elementos.slice(0, maxAmountPerPage).forEach(elemento => {
+        elementos.slice(((presentPage-1) * maxAmountPerPage) + 1, (presentPage * maxAmountPerPage)).forEach(elemento => {
             $("#itens")[0].innerHTML += elemento   
         });    
     }
@@ -64,7 +63,7 @@ $(document).ready(function(){
     }
     
     function createDiv(produtos){
-        let respArr = []
+        let respArr = [""]
         let  strResp, i=0
         produtos.forEach(elem =>{
             if(elem.preco != undefined){
@@ -117,8 +116,11 @@ $(document).ready(function(){
         if(presentPage < maxPages){
             presentPage++;
             activeElm.classList.toggle("active");
-            activeElm = $("#pageSelect")[0].childNodes[presentPage+2]
+            activeElm = $("#pageSelect")[0].childNodes[presentPage+1]
             activeElm.classList.toggle("active");
+
+            carregaPag()
+            
             return true
         }
         return false
@@ -128,8 +130,9 @@ $(document).ready(function(){
         if(presentPage > 1){
             presentPage--;
             activeElm.classList.toggle("active");
-            activeElm = $("#pageSelect")[0].childNodes[presentPage+2]
+            activeElm = $("#pageSelect")[0].childNodes[presentPage+1]
             activeElm.classList.toggle("active");
+            carregaPag()
             return true
         }
         return false

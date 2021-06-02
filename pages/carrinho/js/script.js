@@ -1,5 +1,5 @@
 let produtos = JSON.parse(sessionStorage.getItem('produtos'));
-console.log(produtos);
+//console.log(produtos);
 
 let contador = 0
 let soma = 0
@@ -123,12 +123,12 @@ $(document).ready(function () {
 		if (!aux[produtos[contador].codigo])
 			aux[produtos[contador].codigo] = 0
 		aux[produtos[contador].codigo]++
-		console.log(aux)
-		console.log(produtos);
+		//console.log(aux)
+		//console.log(produtos);
 	}
 
 	for (let key in aux) {
-		console.log(key)
+		//console.log(key)
 		for (var i = 0; i < produtos.length; i++) {
 			if (produtos[i].codigo == key) {
 				contador = i
@@ -217,8 +217,8 @@ function remover(id) {
 			pos = i
 		}
 	}
-	console.log(pos)
-	console.log($("#qtd-" + remo).val());
+	//console.log(pos)
+	//console.log($("#qtd-" + remo).val());
 	soma -= produtos[pos].preco * $("#qtd-" + remo).val();
 	document.getElementById('totProd').innerText = 'R$ ' + soma.toFixed(2)
 	total = (parseFloat(total) - produtos[pos].preco * $("#qtd-" + remo).val()).toFixed(2)
