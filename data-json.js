@@ -96,17 +96,89 @@ let produtos = [
         preco: 349.90,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         img: "images/500W 80P.jpg",
-    }
-]
+    },
 
-let user=[{
-    email: "teste@gmail.com",
-    senha: "teste123"
-},
-{
-    email: "joao@gmail.com",
-    senha: "12345678"
-}]
+    {
+        codigo: 11,
+        nome: "Console Xbox Series S 500gb Ssd",
+        marca: "Microsoft",
+        categoria: "Console",
+        preco: 2799.99,
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        img: "images/xbox-S.jpg",
+    },
+
+    {
+        codigo: 12,
+        nome: "Console Nintendo Switch",
+        marca: "Nintendo",
+        categoria: "Console",
+        preco: 2495.00,
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        img: "images/nintendoSwitch.jpg",
+    },
+
+    {
+        codigo: 13,
+        nome: "Sony Playstation 5 825gb",
+        marca: "Sony",
+        categoria: "Console",
+        preco: 6994.90,
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        img: "images/ps5.jpg",
+    },
+
+    {
+        codigo: 14,
+        nome: "PLACA DE VIDEO ASUS GEFORCE RTX 2060 DUAL OC EDITION 6GB",
+        marca: "ASUS",
+        categoria: "Placa de vídeo",
+        preco: 5899.92,
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        img: "images/rtx2060.jpg",
+    },
+
+    {
+        codigo: 15,
+        nome: "SSD CS900 500GB 2.5 SATA III 6GB/S",
+        marca: "PNY",
+        categoria: "HD/SSD",
+        preco: 549.01,
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        img: "images/ssd.jpg",
+    },
+
+    {
+        codigo: 16,
+        nome: "PLACA MAE B550MH DDR4",
+        marca: "Biostar",
+        categoria: "Placa-mãe",
+        preco: 638.99,
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        img: "images/b550mh.jpg",
+    },
+
+    {
+        codigo: 17,
+        nome: "WATER COOLER COOLER MASTER MASTERLIQUID ML120L V2 RGB",
+        marca: "Cooler Master",
+        categoria: "Cooler",
+        preco: 369.50,
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        img: "images/waterCooler.jpg",
+    },
+
+    {
+        codigo: 18,
+        nome: "COOLER DEEPCOOL GAMMAXX 400S 120MM",
+        marca: "DeepCool ",
+        categoria: "Cooler",
+        preco: 115.00,
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        img: "images/cooler.jpg",
+    }
+
+]
 
 
 

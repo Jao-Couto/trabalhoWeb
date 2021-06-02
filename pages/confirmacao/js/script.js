@@ -31,7 +31,34 @@ function geraBoleto(){
 	return bol;
 }
 
+function remover(id) {
+	let remo = id.substring(8)
+	let pos = remo
+	for (var i = 0; i < produtos.length; i++) {
+		if (produtos[i].codigo == pos) {
+			pos = i
+		}
+	}
+	console.log(pos)
+	console.log($("#qtd-" + remo).val());
+	soma -= produtos[pos].preco * $("#qtd-" + remo).val();
+	document.getElementById('totProd').innerText = 'R$ ' + soma.toFixed(2)
+	total = (parseFloat(total) - produtos[pos].preco * $("#qtd-" + remo).val()).toFixed(2)
+	document.getElementById('total').innerText = 'R$ ' + total
+
+	produtos.splice(pos, 1);
+	sessionStorage.setItem('produtos', JSON.stringify(produtos))
+	$("#" + id).remove();
+}
+
+function removerAll() {
+	for (var i = 0; i < produtos.length;) {
+		remover("elemento" + produtos[i].codigo)
+	}
+}
+
 function inicio(){
+	removerAll();
 	window.location.href = "/index.html";
 }
 
@@ -39,18 +66,25 @@ $(document).ready(function(){
 
 	let aux = {};
 
-function addConteudo(){
-	document.getElementById('conteudo').innerHTML +='<div class="elemento" id="elemento'+produtos[contador].codigo+'"><div class="image">'+
-													'<img src="/'+produtos[contador].img+'" alt="" srcset="">'+
-													'</div>'+
-													'<div class="text" id="text">'+ produtos[contador].nome +' <br>' + 
-														'<p> '+ produtos[contador].marca +' </p> <br><p><b> R$ '+produtos[contador].preco.toFixed(2) +'</p></b> <br>' +
-														'<p style="font-size: 1.8vh"> '+ produtos[contador].desc+' </p> '+
-														'<div class="number">'+
-															'Quantidade: '+ aux[produtos[contador].codigo]+''+
-														'</div>'+
-													'</div>'
-													
+	function addConteudo() {
+		if (produtos != null) {
+			document.getElementById('conteudo').innerHTML += `<div class="card col-md-5 m-2" id="elemento${produtos[contador].codigo}">
+			<img class="card-img-top" src="/${produtos[contador].img}">
+			<div class="card-body" id="text">
+				<h4 class="card-title text-dark">${produtos[contador].nome} </h4>
+				<h5 class="card-text "> ${produtos[contador].marca} </h5>
+				<p class="card-text"> <b> R$ ${produtos[contador].preco.toFixed(2)}</b></p>
+				<p class="card-text">  ${produtos[contador].desc}</p>
+				<div class="row align-self-end">
+					<div class="col-8">
+						<div class="number float-left">
+							<input type="text" id="qtd-${produtos[contador].codigo}" value="${aux[produtos[contador].codigo]}" readonly />
+						</div>
+				</div>
+				</div>
+			</div>
+		</div>`
+		}
 	}
 
 	for (; contador < produtos.length; contador++) {
@@ -91,15 +125,15 @@ function addConteudo(){
 
 	
 	if(compra.forma == "PIX")
-		$('#detalhes').text('CPF: 986.565.670-12')
+		$('#detalhes').html('CPF: <span class="text-success">986.565.670-12</span>')
 	else if(compra.forma == "Boleto")
-		$('#detalhes').text(geraBoleto())
+		$('#detalhes').html('<span class="text-success">'+geraBoleto()+'</span>')
 	else{
 		validadeA = compra.validade.split("-")
 		validade = validadeA[2]+"/"+validadeA[1]+"/"+validadeA[0]
-		$('#detalhes').html('Número: '+compra.numero+
-		'<br>Validade: '+validade+
-		'<br>CVV: '+compra.cvv)
+		$('#detalhes').html('Número: <span class="text-success">'+compra.numero+'</span>'+
+		'<br>Validade: <span class="text-success">'+validade+'</span>'+
+		'<br>CVV: <span class="text-success">'+compra.cvv+'</span>')
 	}
 })
 

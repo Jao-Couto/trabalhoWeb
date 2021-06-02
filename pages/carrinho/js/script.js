@@ -1,5 +1,3 @@
-
-
 let produtos = JSON.parse(sessionStorage.getItem('produtos'));
 console.log(produtos);
 
@@ -118,25 +116,6 @@ $(document).ready(function () {
 				</div>
 			</div>
 		</div>`
-			
-			
-			/*
-			`<div class="elemento" id="elemento${produtos[contador].codigo}">
-																	<div class="image">
-																		'<img src="/${produtos[contador].img}" alt="" srcset="">
-																	'</div>
-																	'<div class="text" id="text">${produtos[contador].nome} <br>
-																		'<p> ${produtos[contador].marca} </p> <br><p><b> R$ ${produtos[contador].preco.toFixed(2)}</p></b> <br>
-																		'<p style="font-size: 1.8vh"> ${produtos[contador].desc} </p> 
-																		'<div class="number">
-																			'<button class="minus">-</button>
-																			'<input type="text" id="qtd-${produtos[contador].codigo}" value="${aux[produtos[contador].codigo]}" readonly/>
-																			'<button class="plus">+</button>
-																		'</div>
-																	'</div>
-																	'<input type="button" class="remove" value="REMOVER" id="remove" onclick="remover('elemento${produtos[contador].codigo}')" /> 
-																</div>`*/
-			//document.getElementById('qtd').innerHTML = ++contador + ' Produtos'
 		}
 	}
 
