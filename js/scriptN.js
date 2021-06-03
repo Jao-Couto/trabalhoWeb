@@ -27,12 +27,25 @@ $(document).ready(function(){
     let maxPages = MAX/maxAmountPerPage
     let elementos = createDiv(produtos);
     let presentPage = 1
-    let active = 0
     let activeElm
     let arrCategoria = []
     inicializaPag()
 
+    function carregaSelPag() {
+        MAX = produtos.length
+        maxPages = MAX/maxAmountPerPage
+        $("#pageSelect")[0].innerHTML = ""
+        $("#pageSelect")[0].innerHTML += `<li class="page-item"><a class="page-link" href="#" id="prevBtn">Previous</a></li>`
+        for (let i = 1; i <= maxPages; i++) {
+            $("#pageSelect")[0].innerHTML += `<li class="page-item"><a class="page-link" id="pag`+i+`">`+i+`</a></li>`
+        }
+        $("#pageSelect")[0].innerHTML += `<li class="page-item"><a class="page-link" href="#" id="nextBtn">Next</a></li>`
+        activeElm = $("#pageSelect")[0].childNodes[(presentPage)]
+        activeElm.className += " active"
+    }
+
     function carregaPag() {
+        
         $("#itens")[0].innerHTML = ""
         elementos.slice(((presentPage-1) * maxAmountPerPage) + 1, (presentPage * maxAmountPerPage)).forEach(elemento => {
             $("#itens")[0].innerHTML += elemento   
@@ -41,15 +54,7 @@ $(document).ready(function(){
     
     function inicializaPag() {
         carregaPag()
-        $("#pageSelect")[0].innerHTML += `<li class="page-item"><a class="page-link" href="#" id="prevBtn">Previous</a></li>`
-        for (let i = 0; i < maxPages; i++) {
-            $("#pageSelect")[0].innerHTML += `<li class="page-item"><a class="page-link" id="pag`+(i+1)+`">`+(i+1)+`</a></li>`
-        }
-        $("#pageSelect")[0].innerHTML += `<li class="page-item"><a class="page-link" href="#" id="nextBtn">Next</a></li>`
-        activeElm = $("#pageSelect")[0].childNodes[(2+active)]
-        activeElm.className += " active"
-
-        
+        carregaSelPag()
         produtos.forEach(elem => {
             if(arrCategoria.indexOf(elem.categoria) == -1)
                 arrCategoria.push(elem.categoria)
@@ -67,7 +72,8 @@ $(document).ready(function(){
         let  strResp, i=0
         produtos.forEach(elem =>{
             if(elem.preco != undefined){
-                strResp =   `<div class="col-sm-12 col-lg-3 col-md-4 m-2"><div class="card h-100">
+                strResp =   `<div class="col-sm-12 col-lg-3 col-md-4 m-2">
+                                <div class="card h-100">
                                     <img src="`+ elem.img +`" class="card-img-top">
                                     <div class="card-body">
                                         <h4 class="card-title">`+ elem.nome +`</h4>
@@ -87,15 +93,24 @@ $(document).ready(function(){
         return respArr
     }
 
-    $("#btnDropSelect").click(function(){
+    $("#dropSelect").change(function(){
         let sel = $("#dropSelect")[0].value
+        if(sel == "all"){
+            elementos = createDiv(produtos);
+            presentPage = 1
+            carregaSelPag()
+            carregaPag()
+            return
+        }
         if(arrCategoria.indexOf(sel) != -1){
+            presentPage = 1
             let filCategoria = []
             produtos.forEach(prod =>{
                 if(prod.categoria == sel)
                     filCategoria.push(prod)
             })
             elementos = createDiv(filCategoria)
+            carregaSelPag()
             carregaPag()
         }
     })
@@ -116,11 +131,9 @@ $(document).ready(function(){
         if(presentPage < maxPages){
             presentPage++;
             activeElm.classList.toggle("active");
-            activeElm = $("#pageSelect")[0].childNodes[presentPage+1]
+            activeElm = $("#pageSelect")[0].childNodes[presentPage]
             activeElm.classList.toggle("active");
-
             carregaPag()
-            
             return true
         }
         return false
@@ -130,7 +143,7 @@ $(document).ready(function(){
         if(presentPage > 1){
             presentPage--;
             activeElm.classList.toggle("active");
-            activeElm = $("#pageSelect")[0].childNodes[presentPage+1]
+            activeElm = $("#pageSelect")[0].childNodes[presentPage]
             activeElm.classList.toggle("active");
             carregaPag()
             return true
