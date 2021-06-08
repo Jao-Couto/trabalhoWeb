@@ -124,7 +124,7 @@ $(document).ready(function () {
   $("#totProd").text(compra.totProd);
   let tempoFrete = Math.floor(Math.random() * 6) + 3;
   $("#frete").html(
-    compra.frete + "<br>Entrga em " + tempoFrete + " dias úteis"
+    compra.frete + "<br>Entrega em " + tempoFrete + " dias úteis"
   );
   $("#total").text(compra.total);
   $("#formaPag").val(compra.forma);
