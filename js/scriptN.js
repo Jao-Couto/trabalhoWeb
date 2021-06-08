@@ -23,8 +23,8 @@ function toggleDesc(obj) {
 
 $(document).ready(function(){
     let maxAmountPerPage = 13;
-    let MAX = produtos.length
-    let maxPages = MAX/maxAmountPerPage
+    let MAX
+    let maxPages
     let elementos = createDiv(produtos);
     let presentPage = 1
     let activeElm
@@ -33,7 +33,7 @@ $(document).ready(function(){
 
     function carregaSelPag() {
         MAX = produtos.length
-        maxPages = MAX/maxAmountPerPage
+        maxPages = Math.ceil(MAX/maxAmountPerPage)
         $("#pageSelect")[0].innerHTML = ""
         $("#pageSelect")[0].innerHTML += `<li class="page-item"><a class="page-link" href="#" id="prevBtn">Previous</a></li>`
         for (let i = 1; i <= maxPages; i++) {
