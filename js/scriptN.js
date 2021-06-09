@@ -20,7 +20,7 @@ function toggleDesc(obj) {
 }
 
 let maxAmountPerPage = 13;
-let presentPage
+let presentPage = 1
 let MAX
 let maxPages
 let elementos
@@ -51,15 +51,18 @@ function prevPage(event){
 }
 
 function carregaPag() {
+    
     $("#itens")[0].innerHTML = ""
     elementos.slice(((presentPage-1) * maxAmountPerPage) + 1, (presentPage * maxAmountPerPage)).forEach(elemento => {
-        $("#itens")[0].innerHTML += elemento   
+        $("#itens")[0].innerHTML += elemento
     });    
 }
 
 $(document).ready(function(){
     
     elementos = createDiv(produtos);
+    carregaPag()
+    carregaSelPag()
     let arrCategoria = []
     inicializaPag()
 
@@ -78,8 +81,7 @@ $(document).ready(function(){
     }    
     
     function inicializaPag() {
-        carregaPag()
-        carregaSelPag()
+        
         produtos.forEach(elem => {
             if(arrCategoria.indexOf(elem.categoria) == -1)
                 arrCategoria.push(elem.categoria)
