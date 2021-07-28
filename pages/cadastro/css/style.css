@@ -1,0 +1,26 @@
+
+span {cursor:pointer; }
+		.number{
+      width: 100%;
+		}
+		.minus, .plus{
+      width: 15%;
+			background:#f2f2f2;
+			border-radius:4px;
+			padding:2px;
+			border:1px solid #ddd;
+      text-align: center;
+      font-size: 2.5vh;
+		}
+    .minus:active, .plus:active{
+      background:#e2e2e2;
+    }
+
+		.number input{
+      pointer-events: none;
+      width: 30%;
+      text-align: center;
+      font-size: 2.5vh;
+			border:1px solid #ddd;
+			border-radius:4px;
+    }
