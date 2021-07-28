@@ -1,13 +1,12 @@
 <?php
-include_once "conn.inc.php";
+require('conn.inc.php');
 
-function runSQL($sql){
+function runSQL($sql, $conn){
     $error = "";
-    if ($conn->query($sql) !== TRUE) {
-        $error = $conn->error;
+    if ($conn->query($sql) != TRUE) {
+        return $conn->error;
     }
-    $conn->close();
-    return $error;
+    return "Sucesso query";
 }
 
 function getProduto($codigo){
@@ -40,3 +39,6 @@ function setProduto($prod){
 
     runSQL($sql);
 }
+
+
+echo runSQL("SELECT * FROM Produto", $conn);
