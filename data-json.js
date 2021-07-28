@@ -1,3 +1,24 @@
+`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+`
+
+
+
 let produtos = [
     {
         codigo: 1,
@@ -6,7 +27,7 @@ let produtos = [
         categoria: "HD/SSD",
         preco: 499.19,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "images/HD2TB.jpg",
+        img: "https://i.ibb.co/TkzLZMX/HD2TB.jpg",
     },
     
     {   
@@ -16,7 +37,7 @@ let produtos = [
         categoria: "Placa de vídeo",
         preco: 12999.90,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "images/RTX3060.jpg",
+        img: "https://i.ibb.co/YZkjvGY/RTX3060.jpg",
     },
     
     {
@@ -26,7 +47,7 @@ let produtos = [
         categoria: "Gabinete",
         preco: 159.80,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "images/TG4.jpg",
+        img: "https://i.ibb.co/8MJhwp6/TG4.jpg",
     },
     
     {
@@ -36,7 +57,7 @@ let produtos = [
         categoria: "Monitor",
         preco: 1999.80,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "images/AOPEN 27.jpg",
+        img: "ihttps://i.ibb.co/BKnK8S9/AOPEN-27.jpg",
     },
     {
         codigo: 5,
@@ -45,7 +66,7 @@ let produtos = [
         categoria: "Processador",
         preco: 15899.80,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "images/i9-10900k.jpg",
+        img: "https://i.ibb.co/W5cBwGN/i9-10900k.jpg",
     },
     
     {
@@ -55,7 +76,7 @@ let produtos = [
         categoria: "Placa-mãe",
         preco: 689.80,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "images/GA-AB350M.png",
+        img: "https://i.ibb.co/N9fGnRg/GA-AB350-M.png",
     },
     
     {
@@ -65,7 +86,7 @@ let produtos = [
         categoria: "Memória RAM",
         preco: 329.70,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "images/FURY 8GB.jpg",
+        img: "https://i.ibb.co/bNBdNX2/FURY-8GB.jpg",
     },
     
     {
@@ -75,7 +96,7 @@ let produtos = [
         categoria: "Periféricos",
         preco: 149.00,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "images/COBRA.png",
+        img: "https://i.ibb.co/7JYr7XC/COBRA.png",
     },
     
     {
@@ -85,7 +106,7 @@ let produtos = [
         categoria: "Periféricos",
         preco: 139.90,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "images/G213 PROD.jpg",
+        img: "https://i.ibb.co/3m6NBvm/G213-PROD.jpg",
     },
     
     {
@@ -95,7 +116,7 @@ let produtos = [
         categoria: "Fonte",
         preco: 349.90,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "images/500W 80P.jpg",
+        img: "https://i.ibb.co/L1dvXtb/500W-80P.jpg",
     },
 
     {
@@ -105,7 +126,7 @@ let produtos = [
         categoria: "Console",
         preco: 2799.99,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "images/xbox-S.jpg",
+        img: "https://i.ibb.co/Wgqs6nv/xbox-S.jpg",
     },
 
     {
@@ -115,7 +136,7 @@ let produtos = [
         categoria: "Console",
         preco: 2495.00,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "images/nintendoSwitch.jpg",
+        img: "https://i.ibb.co/3B51sx9/nintendo-Switch.jpg",
     },
 
     {
@@ -125,7 +146,7 @@ let produtos = [
         categoria: "Console",
         preco: 6994.90,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "images/ps5.jpg",
+        img: "https://i.ibb.co/RB5nzNk/ps5.jpg",
     },
 
     {
@@ -135,7 +156,7 @@ let produtos = [
         categoria: "Placa de vídeo",
         preco: 5899.92,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "images/rtx2060.jpg",
+        img: "https://i.ibb.co/pdW4R0M/rtx2060.jpg",
     },
 
     {
@@ -145,7 +166,7 @@ let produtos = [
         categoria: "HD/SSD",
         preco: 549.01,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "images/ssd.jpg",
+        img: "https://i.ibb.co/wKxM8s4/ssd.jpg",
     },
 
     {
@@ -155,7 +176,7 @@ let produtos = [
         categoria: "Placa-mãe",
         preco: 638.99,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "images/b550mh.jpg",
+        img: "https://i.ibb.co/zH1CDH7/b550mh.jpg",
     },
 
     {
@@ -165,7 +186,7 @@ let produtos = [
         categoria: "Cooler",
         preco: 369.50,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "images/waterCooler.jpg",
+        img: "https://i.ibb.co/HFstS9W/water-Cooler.jpg",
     },
 
     {
@@ -175,7 +196,7 @@ let produtos = [
         categoria: "Cooler",
         preco: 115.00,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "images/cooler.jpg",
+        img: "https://i.ibb.co/F32Fzzr/cooler.jpg",
     }
 
 ]
