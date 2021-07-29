@@ -43,7 +43,7 @@
             </div>
             
             <div class="p-2">
-                <a href="pages/carrinho/carrinho.html" class="btn btn-light align-content-center">
+                <a href="pages/carrinho/carrinho.php" class="btn btn-light align-content-center">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
 

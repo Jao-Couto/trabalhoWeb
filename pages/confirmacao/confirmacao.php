@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="pt">
 
 <head>
     <meta charset="UTF-8">
@@ -14,10 +14,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
-    <script type="text/javascript" src="/js/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="../../js/jquery.mask.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
     <title>Detalhes</title>
-    <link rel="sortcut icon" href="/images/carrinho.png" type="image/gif" />
+    <link rel="sortcut icon" href="../../images/carrinho.png" type="image/gif" />
 </head>
 
 <body>

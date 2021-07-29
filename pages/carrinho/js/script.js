@@ -95,7 +95,7 @@ $(document).ready(function () {
       ).innerHTML += `<div class="card col-md-5 m-2" id="elemento${
         produtos[contador].codigo
       }">
-			<img class="card-img-top" src="/${produtos[contador].img}">
+			<img class="card-img-top" src="${produtos[contador].img}">
 			<div class="card-body" id="text">
 				<h4 class="card-title text-dark">${produtos[contador].nome} </h4>
 				<h5 class="card-text "> ${produtos[contador].marca} </h5>

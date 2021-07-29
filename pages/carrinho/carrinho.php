@@ -1,4 +1,27 @@
-<html lang="en">
+<?php
+require_once('../../database/functions.php');
+
+$query = "SELECT * FROM cliente LIMIT 1";
+$result = runSQL($query);
+if($row = mysqli_fetch_array($result)){
+    $nome = $row['Nome'];
+    $cpf = $row['CPF'];
+    //$cel = $row['cel'];
+    //$tel = $row['tel'];
+    $rua = $row['Rua'];
+    $bairro = $row['Bairro'];
+    $num = $row['Numero'];
+    $cep = $row['CEP'];
+    $complemento = $row['Complemento'];
+    $cidade = $row['Cidade'];
+    $uf = $row['UF'];
+    $pais = $row['Pais'];
+}
+
+?>
+
+
+<html lang="pt">
 
 <head>
     <meta charset="UTF-8">
@@ -13,11 +36,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-
-    <script type="text/javascript" src="/js/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/jquery.mask.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
     <title>Carrinho</title>
-    <link rel="sortcut icon" href="/images/carrinho.png" type="image/gif" />
+    <link rel="sortcut icon" href="../../images/carrinho.png" type="image/gif" />
 </head>
 
 <body>
@@ -58,30 +81,29 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
-                                <label for="nome">Nome Completo: <span style="color: red;">*</span></label>
-                                <input class="form-control" type="text" id="nome" name="f_nome" autocomplete="off"
+                                <label for="nome">Nome Completo:</label>
+                                <input class="form-control" type="text" readonly value="<?php echo $nome;?>" id="nome" name="f_nome" autocomplete="off"
                                     required>
                             </div>
                         </div>
                         <div class="col-md-4 ">
                             <div class="form-group">
-                                <label for="cpf">CPF: <span style="color: red;">*</span></label>
-                                <input class="form-control" type="text" name="f_cpf" id="cpf" autocomplete="off"
+                                <label for="cpf">CPF:</label>
+                                <input class="form-control" type="text" readonly value="<?php echo $cpf;?>" name="f_cpf" id="cpf" autocomplete="off"
                                     minlength="14" required>
                             </div>
                         </div>
                         <div class="col-md-4 ">
                             <div class="form-group">
                                 <label for="celular">Celular:</label>
-                                <input class="form-control" type="tel" name="f_cel" id="celular" autocomplete="off"
+                                <input class="form-control" type="tel"  value="<?php echo $cel;?>" name="f_cel" id="celular" autocomplete="off"
                                     minlength="15">
                             </div>
                         </div>
                         <div class="col-md-4 ">
                             <div class="form-group">
                                 <label for="telefone">Telefone:</label>
-                                <input class="form-control w-10" type="tel" name="f_tel" id="telefone"
-                                    autocomplete="off" minlength="14">
+                                <input class="form-control w-10" value="<?php echo $tel;?>" type="tel" name="f_tel" id="telefone" autocomplete="off" minlength="14">
                             </div>
                         </div>
                     </div>
@@ -94,80 +116,62 @@
                         <div class="row">
                             <div class="col-md-10">
                                 <div class="form-group">
-                                    <label for="rua">Rua: <span style="color: red;">*</span></label>
-                                    <input class="form-control" type="text" name="f_rua" id="rua" autocomplete="off"
+                                    <label for="rua">Rua:</label>
+                                    <input class="form-control" type="text" readonly value="<?php echo $rua;?>" name="f_rua" id="rua" autocomplete="off"
                                         required>
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group mr-3">
-                                    <label for="num">Número: <span style="color: red;">*</span></label>
-                                    <input class="form-control" type="text" name="f_rua" id="num" autocomplete="off"
+                                    <label for="num">Número:</label>
+                                    <input class="form-control" readonly value="<?php echo $num;?>" type="text" name="f_rua" id="num" autocomplete="off"
                                         required>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="bairro">Bairro: <span style="color: red;">*</span></label>
-                                    <input class="form-control" type="text" name="f_bairro" id="bairro"
+                                    <label for="bairro">Bairro:</label>
+                                    <input class="form-control" type="text" readonly value="<?php echo $bairro;?>" name="f_bairro" id="bairro"
                                         autocomplete="off" required>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="cep">CEP: <span style="color: red;">*</span></label>
-                                    <input class="form-control" type="text" name="f_cep" id="cep" autocomplete="off"
+                                    <label for="cep">CEP:</label>
+                                    <input class="form-control" type="text" readonly value="<?php echo $cep;?>" name="f_cep" id="cep" autocomplete="off"
                                         minlength="9" required>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="comp">Complemento: </label>
-                                    <input class="form-control" type="text" name="f_comp" id="comp" autocomplete="off">
+                                    <input class="form-control" type="text" readonly value="<?php echo $complemento;?>" name="f_comp" id="comp" autocomplete="off">
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-md-10">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="cidade">Cidade: <span style="color: red;">*</span></label>
-                                    <input class="form-control" type="text" name="f_cidade" id="cidade"
+                                    <label for="cidade">Cidade:</label>
+                                    <input class="form-control" type="text" readonly value="<?php echo $cidade;?>" name="f_cidade" id="cidade"
                                         autocomplete="off" required>
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="UF">Estado: <span style="color: red;">*</span></label>
-                                    <select class="form-control" name="f_estado" id="UF">
-                                        <option value="AC">AC</option>
-                                        <option value="AL">AL</option>
-                                        <option value="AP">AP</option>
-                                        <option value="AM">AM</option>
-                                        <option value="BA">BA</option>
-                                        <option value="CE">CE</option>
-                                        <option value="DF">DF</option>
-                                        <option value="ES">ES</option>
-                                        <option value="GO">GO</option>
-                                        <option value="MA">MA</option>
-                                        <option value="MT">MT</option>
-                                        <option value="MS">MS</option>
-                                        <option value="MG">MG</option>
-                                        <option value="PA">PA</option>
-                                        <option value="PB">PB</option>
-                                        <option value="PR">PR</option>
-                                        <option value="PE">PE</option>
-                                        <option value="PI">PI</option>
-                                        <option value="RJ">RJ</option>
-                                        <option value="RN">RN</option>
-                                        <option value="RS">RS</option>
-                                        <option value="RO">RO</option>
-                                        <option value="RR">RR</option>
-                                        <option value="SC">SC</option>
-                                        <option value="SP">SP</option>
-                                        <option value="SE">SE</option>
-                                        <option value="TO">TO</option>
-                                    </select>
+                                    <label for="UF">Estado:</label>
+                                    <input class="form-control" type="text" readonly value="<?php echo $uf;?>" name="UF" id="UF"
+                                        autocomplete="off" required> 
+                                    
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="pais">País:</label>
+                                    <input class="form-control" type="text" readonly value="<?php echo $pais;?>" name="pais" id="pais"
+                                        autocomplete="off" required>
                                 </div>
                             </div>
 
