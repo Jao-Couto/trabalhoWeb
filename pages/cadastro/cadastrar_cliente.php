@@ -19,14 +19,14 @@
   <body>
     <div class="container-fluid b-0 p-0" style="min-height: 100vh;">
     <div class="container-fluid navbar pt-3 pb-3 p-0 navbar-light justify-content-between bg-secondary" id="header">
-            <div class="row w-100">
-                <div class="col-4 ml-3 align-self-center">
-                    <a href="../../index.html" class="btn btn-primary">Continuar Comprando</a>
+            <div class="row w-100 align-items-center justify-content-between">
+                <div class="ml-3">
+                    <a href="../../index.php" class="btn btn-primary">Voltar para o Site</a>
                 </div>
-                <div class="display-4 col-4">
+                <div class="display-4">
                    <strong>Cadastro</strong> 
                 </div>
-                <div class="col-4"></div>
+                <div></div>
             </div>
             
         </div>
@@ -46,17 +46,16 @@
                         <script>
                             setTimeout(function() {
                                 $("#cadastroSucesso").fadeOut();
-                            }, 1000);
+                            }, 8000);
                         </script>';
-                    else echo $result;
-                    echo '
+                    else echo '
                         <div class="row justify-content-center" id="cadastroErro">
                             <div class="display-4 text-success fw-bolder">Falha ao cadastrar</div>
                         </div>
                         <script>
                             setTimeout(function() {
                                 $("#cadastroErro").fadeOut();
-                            }, 1000);
+                            }, 8000);
                         </script>';
                 }
 
@@ -154,7 +153,7 @@
                             <div class="form-group col-md-4">
                                     <label for="pais">País</label>
                                     <input class="form-control" type="text" id="pais" name="pais" autocomplete="off"
-                                        minlength="9" required>
+                                        required>
                             </div>
                         </div>
                         

@@ -4,6 +4,15 @@
     <title>
         Login
     </title>
+
+    <?php
+        session_start();
+        
+        if(isset($_SESSION["login"])){
+            header("Location: https://localhost/trabalhoWeb/index.php");
+        }
+    ?>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,21 +22,26 @@
   </head>
   <body>
     <div class="container" style="height: 100vh;">
-        <div class="row justify-content-center align-self-center">
-            <div class="col-lg-6 col-md-8 col-sm-12 bg-secondary p-5 border border-dark rounded">
-                <form>
+        <div class="h-100 row align-items-center justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-12 bg-secondary border border-dark rounded" style="padding: 5%;">
+                <h1 class="text-center text-light mb-5">Login</h1>
+                <form method="POST" action="../../database/loginConfirm.php" >
                     <div class="form-group">
-                        <label for="loginEmail">Email</label>
-                        <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder="jorge@hotmail.com">
+                        <label for="loginEmail" class="text-light">Email</label>
+                        <input type="email" class="form-control" name="loginEmail" aria-describedby="emailHelp" placeholder="jorge@hotmail.com" required>
                     </div>
                     <div class="form-group">
-                        <label for="loginPwd">Password</label>
-                        <input type="password" class="form-control" id="loginPwd" placeholder="jorgeLegal123">
+                        <label for="loginPwd" class="text-light">Password</label>
+                        <input type="password" class="form-control" name="loginPwd" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    
+                    <div class="row justify-content-center mt-3">
+                        <a href="../cadastro/cadastrar_cliente.php" style="color: white;">Cadastrar-se</a>
+                    </div>
+                    <div class="row justify-content-center mt-2">
+                        <input type="submit" name="submit" value="Login" class="btn btn-primary" ></input>
+                    </div>
                 </form>
-                <a href="../cadastro/cadastrar_cliente.php" style="color: white;">Cadastrar-se</a>
+                
             </div>
         </div>
         

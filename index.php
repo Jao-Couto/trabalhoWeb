@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     
+    <?php 
+        session_start();
+    ?>
+
     <link rel="stylesheet" href="css/styleN.css">
     <script src="data-json.js"></script>
     <script src="js/scriptN.js"></script>
@@ -42,9 +46,20 @@
                 <a href="pages/carrinho/carrinho.html" class="btn btn-light align-content-center">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
-                <a href="pages/login/login.php" class="btn btn-light align-content-center">
-                    <i class="fas fa-user"></i>
-                </a>
+
+                <?php if (isset($_SESSION["login"])){?>
+                    
+                    <a href="database/logout.php" class="btn btn-danger align-content-center">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
+                
+                <?php }else { ?>
+
+                    <a href="pages/login/login.php" class="btn btn-light align-content-center">
+                        <i class="fas fa-user"></i>
+                    </a>
+
+                <?php } ?>
             </div>
             
         </div>

@@ -7,14 +7,13 @@ function runSQL($sql){
     if ($result != true) 
         $result = $conn->error;
     $conn->close();
+    
     return $result;
 }
 
-/*
-
 function getProduto($codigo){
     $sql = "SELECT * FROM produtos where Codigo = $codigo";
-    $result = mysqli_query($conn, $sql);
+    $result = runSQL($conn, $sql);
     $check = mysqli_num_rows($result);
     if($check > 0){
         while($row = mysqli_fetch_assoc($result)){
@@ -34,6 +33,24 @@ function getProduto($codigo){
     }
 }
 
+function setMarca($nome, $cnpj){
+    $sql = "INSERT INTO Marca (CNPJ, Nome)
+    VALUES (' ".$cnpj."', '". $nome ."')";
+
+    return runSQL($sql);
+}
+
+function setCategoria($nome){
+    $sql = "INSERT INTO Categoria (Nome)
+    VALUES ('". $nome ."')";
+
+    return runSQL($sql);
+}
+
+function getAllCategorias(){
+    return runSQL("SELECT * FROM Categoria");
+}
+
 function setProduto($prod){
     $prod = json_decode($prod);
     $sql = "INSERT INTO Produtos (Codigo, Nome, Marca, Categoria, Preco, Descri, Img)
@@ -42,10 +59,16 @@ function setProduto($prod){
 
     runSQL($sql);
 }
-*/
 
-/* Exemplo
+function loginExists($login, $pwd){
+    return true;
+}
+
+
+
+// Exemplo
 $resutlado = runSQL("SELECT * FROM produto");
 while($row = mysqli_fetch_array($resutlado))
     echo $row['Nome'];
-*/
+
+#echo getAllCategorias();
