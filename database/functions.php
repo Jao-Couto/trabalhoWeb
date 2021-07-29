@@ -1,13 +1,16 @@
 <?php
-require('conn.inc.php');
 
-function runSQL($sql, $conn){
-    $error = "";
-    if ($conn->query($sql) != TRUE) {
-        return $conn->error;
-    }
-    return "Sucesso query";
+
+function runSQL($sql){
+    require('conn.inc.php');
+    $result = $conn->query($sql); 
+    if ($result != true) 
+        $result = $conn->error;
+    $conn->close();
+    return $result;
 }
+
+/*
 
 function getProduto($codigo){
     $sql = "SELECT * FROM produtos where Codigo = $codigo";
@@ -39,6 +42,10 @@ function setProduto($prod){
 
     runSQL($sql);
 }
+*/
 
-
-echo runSQL("SELECT * FROM Produto", $conn);
+/* Exemplo
+$resutlado = runSQL("SELECT * FROM produto");
+while($row = mysqli_fetch_array($resutlado))
+    echo $row['Nome'];
+*/

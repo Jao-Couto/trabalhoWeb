@@ -1,5 +1,8 @@
-<!doctype html>
-<html lang="en">
+<?php
+    require_once('../../database/functions.php')
+
+?>
+<html lang="pt">
   <head>
     <title>Cadastro Atendente</title>
     <!-- Required meta tags -->
@@ -8,8 +11,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+
     <script type="text/javascript" src="js/script.js"></script>
   </head>
   <body>
@@ -27,51 +31,90 @@
             
         </div>
         <div class="container mt-2">
+            
+        
+            <?php
+                if(isset($_POST['enviar']) && $_POST['enviar'] == "Cadastrar"){
+                    $query = "INSERT INTO cliente(CPF, Nome, Email, Senha, CEP, Rua, Numero, Complemento, Bairro, Cidade, Pais, UF, nascimento) values('$_POST[cpf]', '$_POST[nome]', '$_POST[email]', '$_POST[senha]', '$_POST[cep]', '$_POST[rua]', '$_POST[num]', '$_POST[complemento]', '$_POST[bairro]', '$_POST[cidade]', '$_POST[pais]', '$_POST[uf]', '$_POST[nascimento]' )";
+
+                    $result = runSQL($query); 
+                    if($result == 1)
+                    echo '
+                        <div class="row justify-content-center" id="cadastroSucesso">
+                            <div class="display-4 text-success fw-bolder">Cadastrado com sucesso!</div>
+                        </div>
+                        <script>
+                            setTimeout(function() {
+                                $("#cadastroSucesso").fadeOut();
+                            }, 1000);
+                        </script>';
+                    else echo $result;
+                    echo '
+                        <div class="row justify-content-center" id="cadastroErro">
+                            <div class="display-4 text-success fw-bolder">Falha ao cadastrar</div>
+                        </div>
+                        <script>
+                            setTimeout(function() {
+                                $("#cadastroErro").fadeOut();
+                            }, 1000);
+                        </script>';
+                }
+
+
+            
+            ?>
             <div class="row justify-content-center">
                 <div class="col-8 p-4">
-                    <form>
+                    <form method="POST" action="cadastrar_cliente.php">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                             <label for="email">E-mail</label>
-                            <input type="email" class="form-control" id="email" placeholder="fulano@gmail.com" required>
+                            <input type="email" class="form-control" id="email" name="email" required>
                             </div>
                             <div class="form-group col-md-6">
                             <label for="senha">Senha</label>
-                            <input type="password" class="form-control" id="senha" placeholder="fulano123" required minlength="8" maxlength="16">
+                            <input type="password" class="form-control" id="senha" name="senha" required minlength="8" maxlength="16">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-8">
                                 <label for="nome">Nome</label>
-                                <input type="text" class="form-control" id="nome" placeholder="Fulano da Silva" required>
+                                <input type="text" class="form-control" id="nome" name="nome" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="cpf">CPF</label>
-                                <input type="text" class="form-control" id="cpf" placeholder="111.111.111-11" minlength="14" required>
+                                <input type="text" class="form-control" id="cpf" name="cpf"  minlength="14" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-10">
                                 <label for="rua">Rua</label>
-                                <input type="text" class="form-control" id="rua" placeholder="Rua das Palmas" required>
+                                <input type="text" class="form-control" id="rua" name="rua" required>
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="num">Número</label>
-                                <input type="text" class="form-control" id="num" placeholder="1234" required>
+                                <input type="text" class="form-control" id="num" name="num" required>
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-8">
                                 <label for="bairro">Bairro</label>
-                                <input type="text" class="form-control" id="bairro" required>
+                                <input type="text" class="form-control" id="bairro" name="bairro" required>
                             </div>
                             <div class="form-group col-md-4">
+                                    <label for="cep">CEP:</label>
+                                    <input class="form-control" type="text" id="cep" name="cep" autocomplete="off"
+                                        minlength="9" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
                                 <label for="cidade">Cidade</label>
-                                <input type="text" class="form-control" id="cidade" required>
+                                <input type="text" class="form-control" id="cidade" name="cidade" required>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="inputState">Estado</label>
-                                <select id="inputState" class="form-control">
+                                <label for="uf">Estado</label>
+                                <select id="uf" name="uf" class="form-control">
                                     <option value="AC">AC</option>
                                         <option value="AL">AL</option>
                                         <option value="AP">AP</option>
@@ -102,24 +145,36 @@
                                 </select>
                             </div>
                         </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <label for="complemento">Complemento</label>
+                                <input type="text" class="form-control" id="complemento" name="complemento" required>
+                            </div>
+                            <div class="form-group col-md-4">
+                                    <label for="pais">País</label>
+                                    <input class="form-control" type="text" id="pais" name="pais" autocomplete="off"
+                                        minlength="9" required>
+                            </div>
+                        </div>
                         
                         <div class="form-row justify-content-center">
                             <div class="form-group col-md-4">
                                 <label for="nascimento">Data de Nascimento</label>
-                                <input type="date" class="form-control" name="nascimento"placeholder="dd/mm/yyyy"  min="1900-01-01" required>
+                                <input type="date" class="form-control" name="nascimento" placeholder="dd/mm/yyyy"  min="1900-01-01" required>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="celular">Celular:</label>
-                                <input class="form-control" type="tel" name="f_cel" id="celular" autocomplete="off"
+                                <label for="celular">Celular</label>
+                                <input class="form-control" type="tel" name="cel" id="celular" autocomplete="off"
                                     minlength="15">
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="telefone">Telefone:</label>
-                                <input class="form-control w-10" type="tel" name="f_tel" id="telefone"
+                                <label for="telefone">Telefone</label>
+                                <input class="form-control w-10" type="tel" name="tel" id="telefone"
                                     autocomplete="off" minlength="14">
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                        <input type="submit" value="Cadastrar" class="btn btn-primary" name="enviar"></input>
                     </form>
                 </div>
             </div>

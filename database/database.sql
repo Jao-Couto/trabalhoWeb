@@ -11,37 +11,45 @@ CREATE TABLE Cliente(
     Complemento varchar(32) NOT NULL,
     Bairro varchar(32) NOT NULL,
     Cidade varchar(32) NOT NULL,
-    Pais varchar(32) NOT NULL
+    Pais varchar(32) NOT NULL,
+    UF varchar(2) NOT NULL,
+    Nascimento date NOT NULL
 );
-
+ 
+CREATE TABLE Telefone(
+    CPF varchar(14) NOT NULL Primary Key,
+    Numero varchar(17) NOT NULL,
+    FOREIGN KEY (CPF) REFERENCES Cliente(CPF)
+);
+ 
 CREATE TABLE Marca(
     CNPJ varchar(18) NOT NULL Primary Key,
-    Nome varchar(128) NOT NULL    
+    Nome varchar(128) NOT NULL	
 );
  
 CREATE TABLE Categoria(
     Codigo int(11) NOT NULL Primary Key,
-    Nome varchar(128) NOT NULL    
+    Nome varchar(128) NOT NULL	
 );
  
+CREATE TABLE Forma_pagamento(
+    Codigo int(11) NOT NULL Primary Key,
+    Tipo varchar(128) NOT NULL,
+    Desconto float(4,2) NOT NULL	
+);
+
 CREATE TABLE Produto(
     Codigo int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
     Nome varchar(128) NOT NULL,
-    Cod_Marca varchar(18) NOT NULL,
-    FOREIGN KEY(Cod_Marca) REFERENCES Marca(CNPJ),
+    CNPJ_Marca varchar(18) NOT NULL,
+    FOREIGN KEY (CNPJ_Marca) REFERENCES Marca(CNPJ),
     Cod_Categoria int(11) NOT NULL,
-    FOREIGN KEY(Cod_Categoria) REFERENCES Categoria(Codigo),
+    FOREIGN KEY (Cod_Categoria) REFERENCES Categoria(Codigo),
     Preco float(13,2) NOT NULL,
     Descricao text NOT NULL,
     URL_Img varchar(128) NOT NULL
 );
- 
- CREATE TABLE Forma_Pagamento(
-    Codigo int(11) NOT NULL Primary Key,
-    Tipo varchar(128) NOT NULL,
-    Desconto float(4,2) NOT NULL    
-);
- 
+
 CREATE TABLE Compra(
     Codigo int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
     Cod_Produto int(11) NOT NULL,
@@ -58,12 +66,4 @@ CREATE TABLE Compra(
  
  
  
-CREATE TABLE Telefone(
-    CPF varchar(14) NOT NULL Primary Key,
-    Numero varchar(17) NOT NULL,
-    FOREIGN KEY (CPF) REFERENCES Cliente(CPF)
-);
-
- 
-
 

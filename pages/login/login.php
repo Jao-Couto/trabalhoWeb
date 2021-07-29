@@ -25,7 +25,9 @@
                         <input type="password" class="form-control" id="loginPwd" placeholder="jorgeLegal123">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
+                    
                 </form>
+                <a href="../cadastro/cadastrar_cliente.php" style="color: white;">Cadastrar-se</a>
             </div>
         </div>
         

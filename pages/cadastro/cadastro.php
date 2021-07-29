@@ -116,7 +116,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="cep">CEP: <span style="color: red;">*</span></label>
-                                    <input class="form-control" type="text" name="f_cep" id="cep" autocomplete="off"
+                                    <input class="form-control" type="text" id="cep" autocomplete="off"
                                         minlength="9" required>
                                 </div>
                             </div>
