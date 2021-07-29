@@ -46,9 +46,9 @@
                         <script>
                             setTimeout(function() {
                                 $("#cadastroSucesso").fadeOut();
-                            }, 1000);
+                            }, 4000);
                         </script>';
-                    else echo $result;
+                    else 
                     echo '
                         <div class="row justify-content-center" id="cadastroErro">
                             <div class="display-4 text-success fw-bolder">Falha ao cadastrar</div>
@@ -56,7 +56,7 @@
                         <script>
                             setTimeout(function() {
                                 $("#cadastroErro").fadeOut();
-                            }, 1000);
+                            }, 4000);
                         </script>';
                 }
 
@@ -153,8 +153,7 @@
                             </div>
                             <div class="form-group col-md-4">
                                     <label for="pais">País</label>
-                                    <input class="form-control" type="text" id="pais" name="pais" autocomplete="off"
-                                        minlength="9" required>
+                                    <input class="form-control" type="text" id="pais" name="pais" autocomplete="off" required>
                             </div>
                         </div>
                         

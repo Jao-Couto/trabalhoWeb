@@ -192,7 +192,7 @@ let produtos = [
     {
         codigo: 18,
         nome: "COOLER DEEPCOOL GAMMAXX 400S 120MM",
-        marca: "DeepCool ",
+        marca: "DeepCool",
         categoria: "Cooler",
         preco: 115.00,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
