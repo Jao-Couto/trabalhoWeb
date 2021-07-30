@@ -12,7 +12,27 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     
     <?php 
+        require_once('database/functions.php');
         session_start();
+
+        if(isset($_POST['enviar']) && $_POST['enviar'] == "Cadastrar"){
+            $query = "INSERT INTO cliente(CPF, Nome, Email, Senha, CEP, Rua, Numero, Complemento, Bairro, Cidade, Pais, UF, nascimento) values('$_POST[cpf]', '$_POST[nome]', '$_POST[email]', '$_POST[senha]', '$_POST[cep]', '$_POST[rua]', '$_POST[num]', '$_POST[complemento]', '$_POST[bairro]', '$_POST[cidade]', '$_POST[pais]', '$_POST[uf]', '$_POST[nascimento]' )";
+
+            $result = runSQL($query); 
+            if($result == 1){
+                if(isset($_POST['cel'])){
+                    $query2 = "INSERT INTO telefone(CPF, Numero) value('$_POST[cpf]','$_POST[cel]')";
+                    $result2 = runSQL($query2);
+                }
+                
+                if(isset($_POST['tel'])){
+                    $query2 = "INSERT INTO telefone(CPF, Numero) value('$_POST[cpf]','$_POST[tel]')";
+                    $result2 = runSQL($query2);
+                }
+                $_SESSION["login"] = $_POST['cpf'];
+
+            }
+        }
     ?>
 
     <link rel="stylesheet" href="css/styleN.css">
@@ -64,6 +84,33 @@
             
         </div>
     </div>
+    <?php
+                if(isset($_POST['enviar']) && $_POST['enviar'] == "Cadastrar"){
+                    if($result == 1){
+                        echo '
+                            <div class="row justify-content-center" id="cadastroSucesso">
+                                <div class="display-4 text-success fw-bolder">Cadastrado com sucesso!</div>
+                            </div>
+                            <script>
+                                setTimeout(function() {
+                                    $("#cadastroSucesso").fadeOut();
+                                }, 8000);
+                            </script>';
+                    }
+                    else echo '
+                        <div class="row justify-content-center" id="cadastroErro">
+                            <div class="display-4 text-success fw-bolder">Falha ao cadastrar</div>
+                        </div>
+                        <script>
+                            setTimeout(function() {
+                                $("#cadastroErro").fadeOut();
+                            }, 8000);
+                        </script>';
+                }
+
+
+            
+            ?>
     <div class="container-fluid mt-5">
         <div class="row p-3 justify-content-center"  id="itens">
         </div>

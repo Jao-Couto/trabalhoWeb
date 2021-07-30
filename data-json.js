@@ -57,7 +57,7 @@ let produtos = [
         categoria: "Monitor",
         preco: 1999.80,
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        img: "ihttps://i.ibb.co/BKnK8S9/AOPEN-27.jpg",
+        img: "https://i.ibb.co/BKnK8S9/AOPEN-27.jpg",
     },
     {
         codigo: 5,

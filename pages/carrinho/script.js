@@ -32,7 +32,7 @@ function credito() {
   sessionStorage.setItem("usuario", para_enviar);
   para_enviar = JSON.stringify(dadosCompra);
   sessionStorage.setItem("compra", para_enviar);
-  window.location.href = "/pages/confirmacao/confirmacao.html";
+  window.location.href = "../confirmacao/confirmacao.php";
 }
 
 function outraForma() {
@@ -59,7 +59,7 @@ function outraForma() {
   sessionStorage.setItem("usuario", para_enviar);
   para_enviar = JSON.stringify(dadosCompra);
   sessionStorage.setItem("compra", para_enviar);
-  window.location.href = "/pages/confirmacao/confirmacao.html";
+  window.location.href = "../confirmacao/confirmacao.php";
 }
 
 $(document).ready(function () {
@@ -149,12 +149,20 @@ $(document).ready(function () {
   let frete = (Math.random() * (10 - 50) + 50).toFixed(2);
   document.getElementById("frete").innerText = "R$ " + frete;
   total = (parseFloat(soma) + parseFloat(frete)).toFixed(2);
-  document.getElementById("total").innerText = "R$ " + total;
+  document.getElementById("total").innerText = "R$ " + (total*0.9).toFixed(2);
 
   $('input:radio[name="formaPag"]').change(function () {
-    if ($("input[name='formaPag']:checked").val() == "Cartão de Crédito") {
+    if ($("input[name='formaPag']:checked").val() == "Cartão de crédito") {
+      console.log(total);
+      document.getElementById("total").innerText = "R$ " + total;
       $("#dadosCart").css("display", "flex");
-    } else {
+    } else if ($("input[name='formaPag']:checked").val() == "Boleto") {
+      console.log(total);
+      document.getElementById("total").innerText = "R$ " + (total*0.9).toFixed(2);
+      $("#dadosCart").css("display", "none");
+    } else if ($("input[name='formaPag']:checked").val() == "PIX") {
+      console.log(total);
+      document.getElementById("total").innerText = "R$ " + (total*0.85).toFixed(2);
       $("#dadosCart").css("display", "none");
     }
   });
@@ -173,7 +181,7 @@ $(document).ready(function () {
           $("#cep").val() != "" &&
           $("#cep").val().length == 9
         ) {
-          if ($("input[name='formaPag']:checked").val() == "Cartão de Crédito")
+          if ($("input[name='formaPag']:checked").val() == "Cartão de crédito")
             if (
               $("#numeroCart").val() != "" &&
               $("#numeroCart").val().length == 19 &&
@@ -208,7 +216,7 @@ $(document).ready(function () {
         soma -= produtos[id].preco;
         document.getElementById("totProd").innerText = "R$ " + soma.toFixed(2);
         total = (parseFloat(total) - parseFloat(produtos[id].preco)).toFixed(2);
-        document.getElementById("total").innerText = "R$ " + total;
+        document.getElementById("total").innerText = "R$ " + (total*0.9).toFixed(2);
       }
     }
     return false;
@@ -228,8 +236,8 @@ $(document).ready(function () {
 
       soma += produtos[id].preco;
       document.getElementById("totProd").innerText = "R$ " + soma.toFixed(2);
-      total = (parseFloat(total) + parseFloat(produtos[id].preco)).toFixed(2);
-      document.getElementById("total").innerText = "R$ " + total;
+      total = ((parseFloat(total) + parseFloat(produtos[id].preco))).toFixed(2);
+      document.getElementById("total").innerText = "R$ " + (total*0.9).toFixed(2);
     }
     return false;
   });
@@ -250,9 +258,9 @@ function remover(id) {
     document.getElementById("totProd").innerText = "R$ " + soma.toFixed(2);
     total = (
       parseFloat(total) -
-      produtos[pos].preco * $("#qtd-" + remo).val()
+      produtos[pos].preco * $("#qtd-" + remo).val
     ).toFixed(2);
-    document.getElementById("total").innerText = "R$ " + total;
+    document.getElementById("total").innerText = "R$ " + (total*0.9).toFixed(2);
 
     produtos.splice(pos, 1);
     sessionStorage.setItem("produtos", JSON.stringify(produtos));

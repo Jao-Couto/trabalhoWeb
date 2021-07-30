@@ -1,13 +1,23 @@
 <?php
 require_once('../../database/functions.php');
+$nome = '';
+    $cpf ='';
+    $rua = '';
+    $bairro = '';
+    $num = '';
+    $cep = '';
+    $complemento = '';
+    $cidade = '';
+    $uf = '';
+    $pais = '';
+    $cel = '';
+    $tel = '';
 
-$query = "SELECT * FROM cliente LIMIT 1";
+$query = "SELECT * FROM cliente WHERE cliente.CPF = '111.111.111-11' LIMIT 1";
 $result = runSQL($query);
 if($row = mysqli_fetch_array($result)){
     $nome = $row['Nome'];
     $cpf = $row['CPF'];
-    //$cel = $row['cel'];
-    //$tel = $row['tel'];
     $rua = $row['Rua'];
     $bairro = $row['Bairro'];
     $num = $row['Numero'];
@@ -16,7 +26,16 @@ if($row = mysqli_fetch_array($result)){
     $cidade = $row['Cidade'];
     $uf = $row['UF'];
     $pais = $row['Pais'];
+
+    $queryTel = "SELECT Numero FROM telefone WHERE CPF = '111.111.111-11' LIMIT 2";
+    $resultTel = runSQL($queryTel);
+    while($rowTel = mysqli_fetch_array($resultTel)){
+        if(strlen($rowTel['Numero']) == 15)
+            $cel = $rowTel['Numero'];
+        else $tel = $rowTel['Numero'];
+    }
 }
+
 
 ?>
 
@@ -38,7 +57,7 @@ if($row = mysqli_fetch_array($result)){
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <script type="text/javascript" src="../../js/jquery.min.js"></script>
     <script type="text/javascript" src="../../js/jquery.mask.min.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="script.js"></script>
     <title>Carrinho</title>
     <link rel="sortcut icon" href="../../images/carrinho.png" type="image/gif" />
 </head>
@@ -48,7 +67,7 @@ if($row = mysqli_fetch_array($result)){
         <div class="container-fluid navbar pt-3 pb-3 p-0 navbar-light justify-content-between bg-secondary" id="header">
             <div class="row w-100">
                 <div class="col-4 ml-3 align-self-center">
-                    <a href="../../index.html" class="btn btn-primary">Continuar Comprando</a>
+                    <a href="../../index.php" class="btn btn-primary">Continuar Comprando</a>
                 </div>
                 <div class="display-4 col-4">
                    <strong>Carrinho</strong> 
@@ -96,14 +115,14 @@ if($row = mysqli_fetch_array($result)){
                         <div class="col-md-4 ">
                             <div class="form-group">
                                 <label for="celular">Celular:</label>
-                                <input class="form-control" type="tel"  value="<?php echo $cel;?>" name="f_cel" id="celular" autocomplete="off"
+                                <input class="form-control" type="tel"  value="<?php echo $cel;?>" readonly name="f_cel" id="celular" autocomplete="off"
                                     minlength="15">
                             </div>
                         </div>
                         <div class="col-md-4 ">
                             <div class="form-group">
                                 <label for="telefone">Telefone:</label>
-                                <input class="form-control w-10" value="<?php echo $tel;?>" type="tel" name="f_tel" id="telefone" autocomplete="off" minlength="14">
+                                <input class="form-control w-10" value="<?php echo $tel;?>" readonly type="tel" name="f_tel" id="telefone" autocomplete="off" minlength="14">
                             </div>
                         </div>
                     </div>
@@ -212,39 +231,28 @@ if($row = mysqli_fetch_array($result)){
                                     <h5 class="card-title">Forma de pagamento</h5>
                                     <div class="card-body ">
                                         <div class="row">
-                                            <div class="col-12 m-2">
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">
-                                                            <input type="radio" value="Boleto" id="boleto"
-                                                                name="formaPag" checked>
+                                        <?php
+                                            $queryPag = "SELECT * FROM forma_pagamento";
+                                            $resultPag = runSQL($queryPag);
+                                            while($rowPag = mysqli_fetch_array($resultPag)){
+                                                echo '<div class="col-12 m-2">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="radio" value="'.$rowPag['Nome'].'" id="'.$rowPag['Codigo'].'"
+                                                                        name="formaPag"';
+                                                                        
+                                                if($rowPag['Codigo'] == 'boleto')
+                                                    echo ' checked ';
+                                                
+                                                echo  '>
+                                                                </div>
+                                                            </div>
+                                                            <label for="'.$rowPag['Codigo'].'" class="form-control text-dark">'.$rowPag['Nome'].'<span class="text-success"> Desconto de '.$rowPag['Desconto'].'%</span> </label>
                                                         </div>
-                                                    </div>
-                                                    <label for="boleto" class="form-control text-dark">Boleto</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 m-2">
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">
-                                                            <input type="radio" value="Cartão de Crédito" id="credito"
-                                                                name="formaPag">
-                                                        </div>
-                                                    </div>
-                                                    <label for="credito" class="form-control text-dark">Cartão de
-                                                        Crédito</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 m-2">
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">
-                                                            <input type="radio" value="PIX" id="pix" name="formaPag">
-                                                        </div>
-                                                    </div>
-                                                    <label for="pix" class="form-control text-dark">PIX</label>
-                                                </div>
-                                            </div>
+                                                    </div>';
+                                            }
+                                        ?>
 
                                         </div>
                                     </div>

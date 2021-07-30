@@ -33,38 +33,10 @@
         <div class="container mt-2">
             
         
-            <?php
-                if(isset($_POST['enviar']) && $_POST['enviar'] == "Cadastrar"){
-                    $query = "INSERT INTO cliente(CPF, Nome, Email, Senha, CEP, Rua, Numero, Complemento, Bairro, Cidade, Pais, UF, nascimento) values('$_POST[cpf]', '$_POST[nome]', '$_POST[email]', '$_POST[senha]', '$_POST[cep]', '$_POST[rua]', '$_POST[num]', '$_POST[complemento]', '$_POST[bairro]', '$_POST[cidade]', '$_POST[pais]', '$_POST[uf]', '$_POST[nascimento]' )";
-
-                    $result = runSQL($query); 
-                    if($result == 1)
-                    echo '
-                        <div class="row justify-content-center" id="cadastroSucesso">
-                            <div class="display-4 text-success fw-bolder">Cadastrado com sucesso!</div>
-                        </div>
-                        <script>
-                            setTimeout(function() {
-                                $("#cadastroSucesso").fadeOut();
-                            }, 8000);
-                        </script>';
-                    else echo '
-                        <div class="row justify-content-center" id="cadastroErro">
-                            <div class="display-4 text-success fw-bolder">Falha ao cadastrar</div>
-                        </div>
-                        <script>
-                            setTimeout(function() {
-                                $("#cadastroErro").fadeOut();
-                            }, 8000);
-                        </script>';
-                }
-
-
             
-            ?>
             <div class="row justify-content-center">
                 <div class="col-8 p-4">
-                    <form method="POST" action="cadastrar_cliente.php">
+                    <form method="POST" action="../../index.php">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                             <label for="email">E-mail</label>
@@ -148,7 +120,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-8">
                                 <label for="complemento">Complemento</label>
-                                <input type="text" class="form-control" id="complemento" name="complemento" required>
+                                <input type="text" class="form-control" id="complemento" name="complemento">
                             </div>
                             <div class="form-group col-md-4">
                                     <label for="pais">País</label>
