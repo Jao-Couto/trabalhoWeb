@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/styleN.css">
     
     <title>Início</title>
-    
+    <script> let produtos = [];</script>
     <?php 
 
         require_once('database/functions.php');
@@ -37,6 +37,18 @@
 
             }
         }
+        $filPreco = "ORDER BY produto.codigo asc"; 
+        $filCategoria = "";
+        if(isset($_POST['submit']) && $_POST['submit'] == "Filtrar"){
+            if(isset($_POST["filPreco"]) && $_POST['filPreco'] != ""){
+                $filPreco = " ORDER BY produto.preco ". $_POST["filPreco"] . " ";
+                $filtroPreco = $_POST["filPreco"];
+            }
+            if(isset($_POST["filCategoria"]) && $_POST['filCategoria'] != ""){
+                $filCategoria = " where categoria.Codigo = " . $_POST["filCategoria"]. " ";
+                $filtroCategoria = $_POST["filCategoria"];
+            }
+        }
 
 
         $queryProdutos = "SELECT produto.codigo, 
@@ -46,101 +58,175 @@
                                  produto.img, 
                                  marca.Nome as marca, 
                                  categoria.Nome as categoria 
-                          FROM produto INNER JOIN marca ON marca.CNPJ = produto.CNPJ_Marca
-                                       INNER JOIN categoria on categoria.Codigo = produto.Cod_Categoria";
+                          FROM produto INNER JOIN marca ON marca.CNPJ = produto.CNPJ_Marca 
+                                       INNER JOIN categoria on categoria.Codigo = produto.Cod_Categoria $filCategoria $filPreco ";
         $resultProdutos = runSQL($queryProdutos);
         $produtos;
+        $i = 0;
         while($rowProdutos = mysqli_fetch_assoc($resultProdutos)){
-            $produtos[$rowProdutos['codigo']] = $rowProdutos;
+            $produtos[$i] = $rowProdutos; $i++;
         }
-        $js_produtos = json_encode($produtos);
-        echo "<script type='text/javascript'> let produtos = Object.values($js_produtos); </script>";
+        if(!empty($produtos)){
+            $js_produtos = json_encode($produtos);
+            if(isset($_GET["debug"]) && strcasecmp( " '". $_GET["debug"]. "' ", "true")){
+                echo $queryProdutos;
+            }
+            echo "<script type='text/javascript'> produtos = Object.values($js_produtos); </script>";
+        }
     ?>
 
     <link rel="stylesheet" href="css/styleN.css">
     <script src="scriptN.js"></script>
     <title>Início</title>
 </head>
-<body>
-    <div class="jumbotron text-center" style="padding: 0; padding-top: 2%; margin-bottom:0">
-        <h4 class="display-4">Site de Compras</h4>
-        <p class="lead">Faça Suas Compras Aqui! Não Perca seu Tempo nem seu Dinheiro! :)</p>
-        
-        <div class="d-flex w-7 justify-content-end p-3 bg-secondary text-white" style="margin-top: 3%;">
-            <div class="container mt-1">
-                <div class="row">
-                    <div class="col-6">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="dropSelect">Filtragem por Categoria</label>
+<body >
+        <div class="jumbotron text-center" style="padding: 0; padding-top: 2%; margin-bottom:0">
+            <h4 class="display-4">Site de Compras</h4>
+            <p class="lead">Faça Suas Compras Aqui! Não Perca seu Tempo nem seu Dinheiro! :)</p>
+            
+            <div class="conainer p-3 bg-secondary text-white" style="margin-top: 3%;">
+                <div class="row align-items-center">
+                    <div class="col-10">
+                        <div class="container mt-1">
+                            <form action="index.php" method="POST">
+                                <div class="row">
+                                    <div class="col-lg-5 col-sm-12 m-1">
+
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="filCategoria">Filtragem por Categoria</label>
+                                            </div>
+                                            <select class="custom-select" name="filCategoria">
+                                                
+                                                <?php 
+                                                    $options = "";
+                                                    $result = runSQL("SELECT * FROM categoria");
+                                                    if(isset($filtroCategoria)){
+                                                        while($row = mysqli_fetch_assoc($result)){
+                                                            if($filtroCategoria == $row['Codigo']){
+                                                                $options .=  "<option value='$row[Codigo]' selected>$row[Nome]</option>";
+                                                                continue;
+                                                            }
+                                                            $options .=  "<option value='$row[Codigo]' >$row[Nome]</option>";
+                                                        }
+                                                        echo "<option value=''>Todos</option>";
+                                                    }else{
+                                                        while($row = mysqli_fetch_assoc($result)){
+                                                            $options .=  "<option value='$row[Codigo]'>$row[Nome]</option>";
+                                                        }
+                                                        echo "<option value='' selected>Todos</option>";
+                                                    }
+                                                    echo $options;
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-sm-10 m-1">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="filPreco">Ordenar por Preço</label>
+                                            </div>
+                                            <select class="custom-select" name="filPreco">
+                                                <?php 
+                                                    if(isset($filtroPreco)){
+                                                        if($filtroPreco === "asc"){
+                                                            $options = '<option value="" >Padrão</option>
+                                                            <option value="asc"    selected>Crescente</option>
+                                                            <option value="desc"   >Decrescente</option>';
+                                                        }else{
+                                                            $options = '<option value="" >Padrão</option>
+                                                            <option value="asc"    >Crescente</option>
+                                                            <option value="desc"   selected>Decrescente</option>';
+                                                        }
+                                                    }else{
+                                                        $options = '<option value="" selected>Padrão</option>
+                                                        <option value="asc"    >Crescente</option>
+                                                        <option value="desc"   >Decrescente</option>';
+                                                    }
+                                                    echo $options;
+                                                    
+                                                ?>
+                                            </select>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-1">
+                                        <input type="submit" name="submit" value="Filtrar" class="btn btn-primary h-100" ></input>
+                                    </div>
+                                    
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-2" style="min-width: 50px;">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-5 m-1 p-0">
+                                    <a style="min-width: 35px; min-height: 35px;" href="pages/carrinho/carrinho.php" class="btn btn-light p-2 w-100 align-content-center">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <div class="col-5 m-1 p-0">
+                                    <?php if (isset($_SESSION["login"])){?>
+                                        
+                                        <a style="min-width: 35px; min-height: 35px;" href="database/logout.php" class="btn btn-danger p-2 w-100 align-content-center">
+                                            <i class="fas fa-sign-out-alt"></i>
+                                        </a>
+                                    
+                                    <?php }else { ?>
+
+                                        <a style="min-width: 35px; min-height: 35px;" href="pages/login/login.php" class="btn btn-light p-2 w-100 align-content-center">
+                                            <i class="fas fa-user"></i>
+                                        </a>
+
+                                    <?php } ?>
+                                </div>
                             </div>
-                            <select class="custom-select" id="dropSelect">
-                              <option value="all" selected>Todos</option>
-                            </select>
                         </div>
                     </div>
                 </div>
-            </div>
             
-            <div class="p-2">
-                <div class="container">
-                    <div class="row  justify-content-center">
-                            <a href="pages/carrinho/carrinho.php" class="btn btn-light p-1 w-100 align-content-center">
-                                <i class="fas fa-shopping-cart"></i>
-                            </a>
-                            <?php if (isset($_SESSION["login"])){?>
-                                
-                                <a href="database/logout.php" class="btn btn-danger p-1 w-100 align-content-center">
-                                    <i class="fas fa-sign-out-alt"></i>
-                                </a>
-                            
-                            <?php }else { ?>
-
-                                <a href="pages/login/login.php" class="btn btn-light p-1 w-100 align-content-center">
-                                    <i class="fas fa-user"></i>
-                                </a>
-
-                            <?php } ?>
-                    </div>
-                </div>
             </div>
-            
         </div>
-    </div>
-    <?php
-        if(isset($_POST['enviar']) && $_POST['enviar'] == "Cadastrar"){
-            if($result == 1){
-                echo '
-                    <div class="row justify-content-center" id="cadastroSucesso">
-                        <div class="display-4 text-success fw-bolder">Cadastrado com sucesso!</div>
+    <div class="container" style="min-height: 49vh;">
+
+    
+
+        <?php
+            if(isset($_POST['enviar']) && $_POST['enviar'] == "Cadastrar"){
+                if($result == 1){
+                    echo '
+                        <div class="row justify-content-center" id="cadastroSucesso">
+                            <div class="display-4 text-success fw-bolder">Cadastrado com sucesso!</div>
+                        </div>
+                        <script>
+                            setTimeout(function() {
+                                $("#cadastroSucesso").fadeOut();
+                            }, 8000);
+                        </script>';
+                }
+                else echo '
+                    <div class="row justify-content-center" id="cadastroErro">
+                        <div class="display-4 text-success fw-bolder">Falha ao cadastrar</div>
                     </div>
                     <script>
                         setTimeout(function() {
-                            $("#cadastroSucesso").fadeOut();
+                            $("#cadastroErro").fadeOut();
                         }, 8000);
                     </script>';
             }
-            else echo '
-                <div class="row justify-content-center" id="cadastroErro">
-                    <div class="display-4 text-success fw-bolder">Falha ao cadastrar</div>
-                </div>
-                <script>
-                    setTimeout(function() {
-                        $("#cadastroErro").fadeOut();
-                    }, 8000);
-                </script>';
-        }
-    ?>
-    <div class="container-fluid mt-5">
-        <div class="row p-3 justify-content-center"  id="itens">
+        ?>
+        <div class="container-fluid mt-5">
+            <div class="row p-3 justify-content-center"  id="itens">
+            </div>
         </div>
-    </div>
-    </div>
-        <ul class="pagination justify-content-center m-5 align-self-end" id="pageSelect">
-        </ul>
-    </div>
-    
-    <div class="footer-copyright text-center bg-secondary pt-3">Desenvolvido por João Vitor Couto e Rafael Correia
+        </div>
+            <ul class="pagination justify-content-center m-5 align-self-end" id="pageSelect">
+            </ul>
+        </div>
+        
+        <div class="footer-copyright text-center bg-secondary pt-3">Desenvolvido por João Vitor Couto e Rafael Correia
+        </div>
     </div>
 </body>
 </html>

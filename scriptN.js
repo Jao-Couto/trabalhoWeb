@@ -6,7 +6,6 @@ if(JSON.parse(sessionStorage.getItem('produtos')) != null){
 }
 
 function addCarrinho(coordProd){
-    console.log(JSON.parse(sessionStorage.getItem('produtos')));
 
     produtos.forEach(produto =>{
         if(produto.codigo == coordProd){
@@ -85,17 +84,16 @@ $(document).ready(function(){
     }    
     
     function inicializaPag() {
-        
         produtos.forEach(elem => {
             if(arrCategoria.indexOf(elem.categoria) == -1)
                 arrCategoria.push(elem.categoria)
-        })
+        })/*
         for (let i = 0; i < arrCategoria.length; i++) {
             let opt = document.createElement("option")
             opt.value = arrCategoria[i];
             opt.innerHTML = arrCategoria[i];
-            $("#dropSelect")[0].appendChild(opt)   
-        }
+            $("#filCategoria")[0].appendChild(opt)   
+        }*/
     }
     
     function createDiv(produtos){
@@ -120,9 +118,9 @@ $(document).ready(function(){
         })
         return respArr
     }
-
-    $("#dropSelect").change(function(){
-        let sel = $("#dropSelect")[0].value
+/*
+    $("#filCategoria").change(function(){
+        let sel = $("#filCategoria")[0].value
         if(sel == "all"){
             elementos = createDiv(produtos);
             carregaPag()
@@ -141,7 +139,25 @@ $(document).ready(function(){
             carregaSelPag()
         }
     })
-    
-    
-    
+
+    $("#filPreco").change(function(){
+        let sel = $("#filPreco")[0].value
+        if(sel == "all"){
+            elementos = createDiv(produtos);
+            carregaPag()
+            carregaSelPag()
+            return
+        }
+        if(arrCategoria.indexOf(sel) != -1){
+            let filCategoria = []
+            produtos.forEach(prod =>{
+                if(prod.categoria == sel)
+                    filCategoria.push(prod)
+            })
+            elementos = createDiv(filCategoria)
+            carregaPag()
+            carregaPag()
+            carregaSelPag()
+        }
+    })  */
 })
