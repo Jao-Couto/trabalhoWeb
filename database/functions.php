@@ -1,5 +1,25 @@
 <?php
+session_start();
 
+if(isset($tipoLog)){
+    if($tipoLog === "login"){
+        if(!isset($_POST["submit"])){
+            header("Location: http://localhost/trabalhoWeb/index.php");
+        }
+        
+        if(loginExists($_POST["loginEmail"], $_POST["loginPwd"])){
+            $_SESSION["login"] = $_POST["loginEmail"];
+        }
+        header("Location: http://localhost/trabalhoWeb/pages/login/login.php");
+        
+    }
+    if($tipoLog === "cadastro"){
+        if(isset($_SESSION["login"])){
+            unset($_SESSION["login"]);
+        }
+        header("Location: http://localhost/trabalhoWeb/index.php");
+    }
+}
 
 function runSQL($sql){
     require('conn.inc.php');
@@ -63,12 +83,3 @@ function setProduto($prod){
 function loginExists($login, $pwd){
     return true;
 }
-
-
-/*
-// Exemplo
-$resutlado = runSQL("SELECT * FROM produto");
-while($row = mysqli_fetch_array($resutlado))
-    echo $row['Nome'];
-*/
-#echo getAllCategorias();
