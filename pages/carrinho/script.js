@@ -1,5 +1,7 @@
+console.log("ola");
+
 let produtos = JSON.parse(sessionStorage.getItem("produtos"));
-//console.log(produtos);
+console.log(produtos);
 
 let contador = 0;
 let soma = 0;
@@ -99,8 +101,8 @@ $(document).ready(function () {
 			<div class="card-body" id="text">
 				<h4 class="card-title text-dark">${produtos[contador].nome} </h4>
 				<h5 class="card-text "> ${produtos[contador].marca} </h5>
-				<p class="card-text"> <b> R$ ${produtos[contador].preco.toFixed(2)}</b></p>
-				<p class="card-text">  ${produtos[contador].desc}</p>
+				<p class="card-text"> <b> R$ ${produtos[contador].preco}</b></p>
+				<p class="card-text">  ${produtos[contador].descricao}</p>
 				<div class="row">
 					<div class="col-8 align-self-end">
 						<div class="number float-left">
@@ -213,7 +215,7 @@ $(document).ready(function () {
         }
       }
       if (count >= 1) {
-        soma -= produtos[id].preco;
+        soma = parseFloat(soma) - produtos[id].preco;
         document.getElementById("totProd").innerText = "R$ " + soma.toFixed(2);
         total = (parseFloat(total) - parseFloat(produtos[id].preco)).toFixed(2);
         document.getElementById("total").innerText = "R$ " + (total*0.9).toFixed(2);
@@ -234,7 +236,7 @@ $(document).ready(function () {
         }
       }
 
-      soma += produtos[id].preco;
+      soma = parseFloat(soma) + produtos[id].preco;
       document.getElementById("totProd").innerText = "R$ " + soma.toFixed(2);
       total = ((parseFloat(total) + parseFloat(produtos[id].preco))).toFixed(2);
       document.getElementById("total").innerText = "R$ " + (total*0.9).toFixed(2);
@@ -254,7 +256,7 @@ function remover(id) {
     }
     //console.log(pos)
     //console.log($("#qtd-" + remo).val());
-    soma -= produtos[pos].preco * $("#qtd-" + remo).val();
+    soma = parseFloat(soma) - produtos[pos].preco * $("#qtd-" + remo).val();
     document.getElementById("totProd").innerText = "R$ " + soma.toFixed(2);
     total = (
       parseFloat(total) -

@@ -75,7 +75,7 @@ $(document).ready(function () {
 			<div class="card-body" id="text">
 				<h4 class="card-title text-dark">${produtos[contador].nome} </h4>
 				<h5 class="card-text "> ${produtos[contador].marca} </h5>
-				<p class="card-text"> <b> R$ ${produtos[contador].preco.toFixed(2)}</b></p>
+				<p class="card-text"> <b> R$ ${produtos[contador].preco}</b></p>
 				<p class="card-text">  ${produtos[contador].desc}</p>
 				<div class="row align-self-end">
 					<div class="col-8">

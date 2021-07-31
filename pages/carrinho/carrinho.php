@@ -35,11 +35,7 @@ if($row = mysqli_fetch_array($result)){
         else $tel = $rowTel['Numero'];
     }
 }
-
-
 ?>
-
-
 <html lang="pt">
 
 <head>
@@ -59,7 +55,6 @@ if($row = mysqli_fetch_array($result)){
     <script type="text/javascript" src="../../js/jquery.mask.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
     <title>Carrinho</title>
-    <link rel="sortcut icon" href="../../images/carrinho.png" type="image/gif" />
 </head>
 
 <body>

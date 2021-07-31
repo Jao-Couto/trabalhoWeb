@@ -40,15 +40,15 @@ CREATE TABLE Forma_pagamento(
 );
 
 CREATE TABLE Produto(
-    Codigo int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    Nome varchar(128) NOT NULL,
+    codigo int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    nome varchar(128) NOT NULL,
     CNPJ_Marca varchar(18) NOT NULL,
     FOREIGN KEY (CNPJ_Marca) REFERENCES Marca(CNPJ),
     Cod_Categoria int(11) NOT NULL,
     FOREIGN KEY (Cod_Categoria) REFERENCES Categoria(Codigo),
-    Preco float(13,2) NOT NULL,
-    Descricao text NOT NULL,
-    URL_Img varchar(128) NOT NULL
+    preco float(13,2) NOT NULL,
+    descricao text NOT NULL,
+    img varchar(128) NOT NULL
 );
 
 CREATE TABLE Compra(
@@ -71,7 +71,7 @@ INSERT INTO Marca(CNPJ,Nome) value('56.910.331/0001-13', 'Saga'),('07.567.999/00
 
 INSERT INTO Forma_Pagamento(Codigo, Nome, Desconto) value('boleto','Boleto', '10'),('pix','PIX', '15'),('credito','Cartão de crédito', '0');
  
-INSERT INTO Produto(Nome, CNPJ_Marca, Cod_Categoria, Preco, Descricao, URL_Img) value('HD 2TB 7200RPM', '56.910.331/0001-13', '1', '499.19', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'https://i.ibb.co/TkzLZMX/HD2TB.jpg'),('Placa de Vídeo RTX 3060 12GB', '07.567.999/0001-02', '2', '12999.90', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'https://i.ibb.co/YZkjvGY/RTX3060.jpg'),('Gabinete TG4 Blue','07.567.999/0001-01','3','159.80','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.','https://i.ibb.co/8MJhwp6/TG4.jpg');
+INSERT INTO Produto(nome, CNPJ_Marca, Cod_Categoria, preco, descricao, img) value('HD 2TB 7200RPM', '56.910.331/0001-13', '1', '499.19', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'https://i.ibb.co/TkzLZMX/HD2TB.jpg'),('Placa de Vídeo RTX 3060 12GB', '07.567.999/0001-02', '2', '12999.90', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'https://i.ibb.co/YZkjvGY/RTX3060.jpg'),('Gabinete TG4 Blue','07.567.999/0001-01','3','159.80','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.','https://i.ibb.co/8MJhwp6/TG4.jpg');
  
 INSERT INTO Cliente value('111.111.111-11', 'José da Silva', 'jose@gamil.com', '12345678', '11111-111', 'Av. Brasil', '123', '', 'Morumbi', 'São Paulo', 'Brasil', 'SP', '1990-01-01');
  

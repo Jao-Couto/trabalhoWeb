@@ -39,11 +39,11 @@
         }
 
 
-        $queryProdutos = "SELECT produto.Codigo, 
-                                 produto.Descricao, 
-                                 produto.Nome, 
-                                 produto.Preco, 
-                                 produto.URL_img, 
+        $queryProdutos = "SELECT produto.codigo, 
+                                 produto.descricao, 
+                                 produto.nome, 
+                                 produto.preco, 
+                                 produto.img, 
                                  marca.Nome as marca, 
                                  categoria.Nome as categoria 
                           FROM produto INNER JOIN marca ON marca.CNPJ = produto.CNPJ_Marca
@@ -51,16 +51,15 @@
         $resultProdutos = runSQL($queryProdutos);
         $produtos;
         while($rowProdutos = mysqli_fetch_assoc($resultProdutos)){
-            $produtos[$rowProdutos['Codigo']] = $rowProdutos;
+            $produtos[$rowProdutos['codigo']] = $rowProdutos;
         }
         $js_produtos = json_encode($produtos);
         echo "<script type='text/javascript'> let produtos = Object.values($js_produtos); </script>";
     ?>
 
     <link rel="stylesheet" href="css/styleN.css">
-    <script src="js/scriptN.js"></script>
+    <script src="scriptN.js"></script>
     <title>Início</title>
-    <link rel="sortcut icon" href="/images/carrinho.png" type="image/gif" />
 </head>
 <body>
     <div class="jumbotron text-center" style="padding: 0; padding-top: 2%; margin-bottom:0">
