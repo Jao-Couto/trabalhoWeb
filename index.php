@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="css/styleN.css">
     
     <title>Início</title>
-    <!--<link rel="sortcut icon" href="/images/carrinho" type="image/gif" />-->
     
     <?php 
 
@@ -39,11 +38,7 @@
             }
         }
 
-<<<<<<< Updated upstream
 
-
-=======
->>>>>>> Stashed changes
         $queryProdutos = "SELECT produto.Codigo, 
                                  produto.Descricao, 
                                  produto.Nome, 
@@ -59,24 +54,13 @@
             $produtos[$rowProdutos['Codigo']] = $rowProdutos;
         }
         $js_produtos = json_encode($produtos);
-        echo "<script type='text/javascript'>
-            let produtos = Object.values($js_produtos);
-<<<<<<< Updated upstream
-            console.log(produtos);
-            </script>";
-    ?>
-
-    
-=======
-            
-            </script>";
+        echo "<script type='text/javascript'> let produtos = Object.values($js_produtos); </script>";
     ?>
 
     <link rel="stylesheet" href="css/styleN.css">
     <script src="js/scriptN.js"></script>
     <title>Início</title>
     <link rel="sortcut icon" href="/images/carrinho.png" type="image/gif" />
->>>>>>> Stashed changes
 </head>
 <body>
     <div class="jumbotron text-center" style="padding: 0; padding-top: 2%; margin-bottom:0">
@@ -100,54 +84,54 @@
             </div>
             
             <div class="p-2">
-                <a href="pages/carrinho/carrinho.php" class="btn btn-light align-content-center">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
+                <div class="container">
+                    <div class="row  justify-content-center">
+                            <a href="pages/carrinho/carrinho.php" class="btn btn-light p-1 w-100 align-content-center">
+                                <i class="fas fa-shopping-cart"></i>
+                            </a>
+                            <?php if (isset($_SESSION["login"])){?>
+                                
+                                <a href="database/logout.php" class="btn btn-danger p-1 w-100 align-content-center">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                </a>
+                            
+                            <?php }else { ?>
 
-                <?php if (isset($_SESSION["login"])){?>
-                    
-                    <a href="database/logout.php" class="btn btn-danger align-content-center">
-                        <i class="fas fa-sign-out-alt"></i>
-                    </a>
-                
-                <?php }else { ?>
+                                <a href="pages/login/login.php" class="btn btn-light p-1 w-100 align-content-center">
+                                    <i class="fas fa-user"></i>
+                                </a>
 
-                    <a href="pages/login/login.php" class="btn btn-light align-content-center">
-                        <i class="fas fa-user"></i>
-                    </a>
-
-                <?php } ?>
+                            <?php } ?>
+                    </div>
+                </div>
             </div>
             
         </div>
     </div>
     <?php
-                if(isset($_POST['enviar']) && $_POST['enviar'] == "Cadastrar"){
-                    if($result == 1){
-                        echo '
-                            <div class="row justify-content-center" id="cadastroSucesso">
-                                <div class="display-4 text-success fw-bolder">Cadastrado com sucesso!</div>
-                            </div>
-                            <script>
-                                setTimeout(function() {
-                                    $("#cadastroSucesso").fadeOut();
-                                }, 8000);
-                            </script>';
-                    }
-                    else echo '
-                        <div class="row justify-content-center" id="cadastroErro">
-                            <div class="display-4 text-success fw-bolder">Falha ao cadastrar</div>
-                        </div>
-                        <script>
-                            setTimeout(function() {
-                                $("#cadastroErro").fadeOut();
-                            }, 8000);
-                        </script>';
-                }
-
-
-            
-            ?>
+        if(isset($_POST['enviar']) && $_POST['enviar'] == "Cadastrar"){
+            if($result == 1){
+                echo '
+                    <div class="row justify-content-center" id="cadastroSucesso">
+                        <div class="display-4 text-success fw-bolder">Cadastrado com sucesso!</div>
+                    </div>
+                    <script>
+                        setTimeout(function() {
+                            $("#cadastroSucesso").fadeOut();
+                        }, 8000);
+                    </script>';
+            }
+            else echo '
+                <div class="row justify-content-center" id="cadastroErro">
+                    <div class="display-4 text-success fw-bolder">Falha ao cadastrar</div>
+                </div>
+                <script>
+                    setTimeout(function() {
+                        $("#cadastroErro").fadeOut();
+                    }, 8000);
+                </script>';
+        }
+    ?>
     <div class="container-fluid mt-5">
         <div class="row p-3 justify-content-center"  id="itens">
         </div>
@@ -161,4 +145,3 @@
     </div>
 </body>
 </html>
-<script src="scriptN.js"></script>

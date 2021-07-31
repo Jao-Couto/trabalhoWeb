@@ -9,6 +9,8 @@ if(JSON.parse(sessionStorage.getItem('produtos')) != null){
 }
 
 function addCarrinho(coordProd){
+    console.log(JSON.parse(sessionStorage.getItem('produtos')));
+
     produtos.forEach(produto =>{
         if(produto.codigo == coordProd){
             dados_selecionados.push(produto);
@@ -105,15 +107,15 @@ $(document).ready(function(){
         produtos.forEach(elem =>{
             strResp =   `<div class="col-sm-12 col-lg-3 col-md-4 m-2">
                             <div class="card h-100">
-                                <img src="`+ elem.URL_img +`" class="card-img-top">
+                                <img src="`+ elem.img +`" class="card-img-top">
                                 <div class="card-body">
-                                    <h4 class="card-title">`+ elem.Nome +`</h4>
-                                    <p class="card-text text-muted"> R$ `+ elem.Preco +`</p>
-                                    <p class="card-text" style="display: none;" id="desc`+elem.Codigo+`">`+ elem.Descricao +`</p>
-                                    <button type="button" class="btn align-self-end btn-outline-primary"  onclick="toggleDesc('#desc`+elem.Codigo+`')">Info</button>
+                                    <h4 class="card-title">`+ elem.nome +`</h4>
+                                    <p class="card-text text-muted"> R$ `+ elem.preco +`</p>
+                                    <p class="card-text" style="display: none;" id="desc`+elem.codigo+`">`+ elem.descricao +`</p>
+                                    <button type="button" class="btn align-self-end btn-outline-primary"  onclick="toggleDesc('#desc`+elem.codigo+`')">Info</button>
                                 </div>
                                 <div class="card-footer bg-dark p-0" style="transform: rotate(0);">
-                                    <a class="stretched-link btn btn-dark text-white p-3 m-0" id='compra`+elem.Codigo+`' onclick="addCarrinho(`+elem.Codigo+`)" name='botao' style="width: 100%;"><h6 class="small">Adicionar ao Carrinho</h6></a>
+                                    <a class="stretched-link btn btn-dark text-white p-3 m-0" id='compra`+elem.codigo+`' onclick="addCarrinho(`+elem.codigo+`)" name='botao' style="width: 100%;"><h6 class="small">Adicionar ao Carrinho</h6></a>
                                 </div>
                             </div>
                         </div>`
