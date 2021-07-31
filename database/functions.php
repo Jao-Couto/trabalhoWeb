@@ -65,10 +65,10 @@ function loginExists($login, $pwd){
 }
 
 
-
+/*
 // Exemplo
 $resutlado = runSQL("SELECT * FROM produto");
 while($row = mysqli_fetch_array($resutlado))
     echo $row['Nome'];
-
+*/
 #echo getAllCategorias();

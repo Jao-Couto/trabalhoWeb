@@ -63,7 +63,9 @@ function carregaPag() {
 
 $(document).ready(function(){
     
+    
     elementos = createDiv(produtos);
+    
     carregaPag()
     carregaSelPag()
     let arrCategoria = []
@@ -99,26 +101,23 @@ $(document).ready(function(){
     
     function createDiv(produtos){
         let respArr = [""]
-        let  strResp, i=0
+        let  strResp
         produtos.forEach(elem =>{
-            if(elem.preco != undefined){
-                strResp =   `<div class="col-sm-12 col-lg-3 col-md-4 m-2">
-                                <div class="card h-100">
-                                    <img src="`+ elem.img +`" class="card-img-top">
-                                    <div class="card-body">
-                                        <h4 class="card-title">`+ elem.nome +`</h4>
-                                        <p class="card-text text-muted"> R$ `+ elem.preco.toFixed(2) +`</p>
-                                        <p class="card-text" style="display: none;" id="desc`+i+`">`+ elem.desc +`</p>
-                                        <button type="button" class="btn align-self-end btn-outline-primary"  onclick="toggleDesc('#desc`+i+`')">Info</button>
-                                    </div>
-                                    <div class="card-footer bg-dark p-0" style="transform: rotate(0);">
-                                        <a class="stretched-link btn btn-dark text-white p-3 m-0" id='compra`+i+`' onclick="addCarrinho(`+elem.codigo+`)" name='botao' style="width: 100%;"><h6 class="small">Adicionar ao Carrinho</h6></a>
-                                    </div>
+            strResp =   `<div class="col-sm-12 col-lg-3 col-md-4 m-2">
+                            <div class="card h-100">
+                                <img src="`+ elem.URL_img +`" class="card-img-top">
+                                <div class="card-body">
+                                    <h4 class="card-title">`+ elem.Nome +`</h4>
+                                    <p class="card-text text-muted"> R$ `+ elem.Preco +`</p>
+                                    <p class="card-text" style="display: none;" id="desc`+elem.Codigo+`">`+ elem.Descricao +`</p>
+                                    <button type="button" class="btn align-self-end btn-outline-primary"  onclick="toggleDesc('#desc`+elem.Codigo+`')">Info</button>
                                 </div>
-                            </div>`
-                i++
-                respArr.push(strResp)
-            }
+                                <div class="card-footer bg-dark p-0" style="transform: rotate(0);">
+                                    <a class="stretched-link btn btn-dark text-white p-3 m-0" id='compra`+elem.Codigo+`' onclick="addCarrinho(`+elem.Codigo+`)" name='botao' style="width: 100%;"><h6 class="small">Adicionar ao Carrinho</h6></a>
+                                </div>
+                            </div>
+                        </div>`
+            respArr.push(strResp)
         })
         return respArr
     }

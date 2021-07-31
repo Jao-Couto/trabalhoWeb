@@ -16,6 +16,7 @@
     <!--<link rel="sortcut icon" href="/images/carrinho" type="image/gif" />-->
     
     <?php 
+
         require_once('database/functions.php');
         session_start();
 
@@ -38,8 +39,11 @@
             }
         }
 
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
         $queryProdutos = "SELECT produto.Codigo, 
                                  produto.Descricao, 
                                  produto.Nome, 
@@ -57,11 +61,22 @@
         $js_produtos = json_encode($produtos);
         echo "<script type='text/javascript'>
             let produtos = Object.values($js_produtos);
+<<<<<<< Updated upstream
             console.log(produtos);
             </script>";
     ?>
 
     
+=======
+            
+            </script>";
+    ?>
+
+    <link rel="stylesheet" href="css/styleN.css">
+    <script src="js/scriptN.js"></script>
+    <title>Início</title>
+    <link rel="sortcut icon" href="/images/carrinho.png" type="image/gif" />
+>>>>>>> Stashed changes
 </head>
 <body>
     <div class="jumbotron text-center" style="padding: 0; padding-top: 2%; margin-bottom:0">
