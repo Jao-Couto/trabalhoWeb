@@ -25,7 +25,7 @@
         <div class="h-100 row align-items-center justify-content-center">
             <div class="col-lg-6 col-md-8 col-sm-12 bg-secondary border border-dark rounded" style="padding: 5%;">
                 <h1 class="text-center text-light mb-5">Login</h1>
-                <form method="POST" action="../../database/loginConfirm.php" >
+                <form method="POST" action="../../database/functions.php" >
                     <div class="form-group">
                         <label for="loginEmail" class="text-light">Email</label>
                         <input type="email" class="form-control" name="loginEmail" aria-describedby="emailHelp" placeholder="jorge@hotmail.com" required>

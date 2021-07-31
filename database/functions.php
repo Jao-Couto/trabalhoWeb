@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() != 1) {
+    session_start();
+}
 
 function runSQL($sql){
     require('conn.inc.php');
@@ -11,25 +13,17 @@ function runSQL($sql){
     return $result;
 }
 
-if(isset($tipoLog)){
-    if($tipoLog === "login"){
-        if(!isset($_POST["submit"])){
+if(isset($_POST["submit"]) && $_POST["submit"] == "Login"){
+    if(isset($_POST["loginEmail"]) && isset($_POST["loginPwd"])){
+        $query = "SELECT CPF FROM cliente WHERE Email = '$_POST[loginEmail]' AND Senha = '$_POST[loginPwd]' LIMIT 1";
+        $result = runSQL($query);
+        if($row = mysqli_fetch_assoc($result)){
+            $_SESSION["login"] = $row['CPF'];
             header("Location: http://localhost/trabalhoWeb/index.php");
-        }
-        
-        if(loginExists($_POST["loginEmail"], $_POST["loginPwd"])){
-            $_SESSION["login"] = $_POST["loginEmail"];
-        }
-        header("Location: http://localhost/trabalhoWeb/pages/login/login.php");
+        }else header("Location: http://localhost/trabalhoWeb/pages/login/login.php");
         
     }
-    if($tipoLog === "cadastro"){
-        if(isset($_SESSION["login"])){
-            unset($_SESSION["login"]);
-        }
-        header("Location: http://localhost/trabalhoWeb/index.php");
-    }
+    
 }
-
 
 
