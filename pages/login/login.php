@@ -5,13 +5,7 @@
         Login
     </title>
 
-    <?php
-        session_start();
-        
-        if(isset($_SESSION["login"])){
-            header("Location: https://localhost/trabalhoWeb/index.php");
-        }
-    ?>
+    
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -22,6 +16,50 @@
   </head>
   <body>
     <div class="container" style="height: 100vh;">
+    <?php
+    
+
+    if(isset($_POST['enviar']) && $_POST['enviar'] == "Cadastrar"){
+        require_once('../../database/functions.php');
+        $query = "INSERT INTO cliente(CPF, Nome, Email, Senha, CEP, Rua, Numero, Complemento, Bairro, Cidade, Pais, UF, nascimento) values('$_POST[cpf]', '$_POST[nome]', '$_POST[email]', '$_POST[senha]', '$_POST[cep]', '$_POST[rua]', '$_POST[num]', '$_POST[complemento]', '$_POST[bairro]', '$_POST[cidade]', '$_POST[pais]', '$_POST[uf]', '$_POST[nascimento]' )";
+
+        $result = runSQL($query); 
+        if($result == 1){
+            if(isset($_POST['cel'])){
+                $query2 = "INSERT INTO telefone(CPF, Numero) value('$_POST[cpf]','$_POST[cel]')";
+                $result2 = runSQL($query2);
+            }
+            
+            if(isset($_POST['tel'])){
+                $query2 = "INSERT INTO telefone(CPF, Numero) value('$_POST[cpf]','$_POST[tel]')";
+                $result2 = runSQL($query2);
+            }
+            $_SESSION["login"] = $_POST['cpf'];
+
+        }
+        if($result == 1){
+            echo '
+                <div class="row justify-content-center" id="cadastroSucesso">
+                    <div class="display-4 text-success fw-bolder">Cadastrado com sucesso!</div>
+                </div>
+                <script>
+                    setTimeout(function() {
+                        $("#cadastroSucesso").fadeOut();
+                    }, 8000);
+                </script>';
+        }
+        else echo '
+            <div class="row justify-content-center" id="cadastroErro">
+                <div class="display-4 text-success fw-bolder">Falha ao cadastrar</div>
+            </div>
+            <script>
+                setTimeout(function() {
+                    $("#cadastroErro").fadeOut();
+                }, 8000);
+            </script>';
+    }
+
+    ?>
         <div class="h-100 row align-items-center justify-content-center">
             <div class="col-lg-6 col-md-8 col-sm-12 bg-secondary border border-dark rounded" style="padding: 5%;">
                 <h1 class="text-center text-light mb-5">Login</h1>
