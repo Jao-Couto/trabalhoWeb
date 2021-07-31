@@ -1,5 +1,9 @@
 <?php
 require_once('../../database/functions.php');
+
+if(!isset($_SESSION['login']))
+    header("Location: http://localhost/trabalhoWeb/pages/login/login.php");
+    
 $nome = '';
     $cpf ='';
     $rua = '';
@@ -13,7 +17,7 @@ $nome = '';
     $cel = '';
     $tel = '';
 
-$query = "SELECT * FROM cliente WHERE cliente.CPF = '111.111.111-11' LIMIT 1";
+$query = "SELECT * FROM cliente WHERE cliente.CPF = '$_SESSION[login]' LIMIT 1";
 $result = runSQL($query);
 if($row = mysqli_fetch_array($result)){
     $nome = $row['Nome'];

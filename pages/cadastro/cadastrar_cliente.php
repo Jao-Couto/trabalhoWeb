@@ -36,7 +36,7 @@
             
             <div class="row justify-content-center">
                 <div class="col-8 p-4">
-                    <form method="POST" action="../../index.php">
+                    <form method="POST" action="../login/login.php">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                             <label for="email">E-mail</label>

@@ -6,7 +6,6 @@ if(JSON.parse(sessionStorage.getItem('produtos')) != null){
 }
 
 function addCarrinho(coordProd){
-
     produtos.forEach(produto =>{
         if(produto.codigo == coordProd){
             dados_selecionados.push(produto);

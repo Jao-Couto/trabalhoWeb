@@ -1,7 +1,5 @@
 <?php
-if (session_status() != 1) {
-    session_start();
-}
+session_start();
 
 function runSQL($sql){
     require('conn.inc.php');
