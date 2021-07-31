@@ -1,3 +1,6 @@
+
+
+
 let dados_selecionados = []
 if(JSON.parse(sessionStorage.getItem('produtos')) != null){
     JSON.parse(sessionStorage.getItem('produtos')).forEach(produto =>{

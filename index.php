@@ -10,6 +10,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styleN.css">
+    
+    <title>Início</title>
+    <!--<link rel="sortcut icon" href="/images/carrinho" type="image/gif" />-->
     
     <?php 
         require_once('database/functions.php');
@@ -33,13 +37,31 @@
 
             }
         }
+
+
+
+        $queryProdutos = "SELECT produto.Codigo, 
+                                 produto.Descricao, 
+                                 produto.Nome, 
+                                 produto.Preco, 
+                                 produto.URL_img, 
+                                 marca.Nome as marca, 
+                                 categoria.Nome as categoria 
+                          FROM produto INNER JOIN marca ON marca.CNPJ = produto.CNPJ_Marca
+                                       INNER JOIN categoria on categoria.Codigo = produto.Cod_Categoria";
+        $resultProdutos = runSQL($queryProdutos);
+        $produtos;
+        while($rowProdutos = mysqli_fetch_assoc($resultProdutos)){
+            $produtos[$rowProdutos['Codigo']] = $rowProdutos;
+        }
+        $js_produtos = json_encode($produtos);
+        echo "<script type='text/javascript'>
+            let produtos = Object.values($js_produtos);
+            console.log(produtos);
+            </script>";
     ?>
 
-    <link rel="stylesheet" href="css/styleN.css">
-    <script src="data-json.js"></script>
-    <script src="js/scriptN.js"></script>
-    <title>Início</title>
-    <link rel="sortcut icon" href="/images/carrinho.png" type="image/gif" />
+    
 </head>
 <body>
     <div class="jumbotron text-center" style="padding: 0; padding-top: 2%; margin-bottom:0">
@@ -124,3 +146,4 @@
     </div>
 </body>
 </html>
+<script src="scriptN.js"></script>
