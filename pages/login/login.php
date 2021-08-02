@@ -47,9 +47,11 @@
                         $("#cadastroSucesso").fadeOut();
                     }, 8000);
                 </script>';
-        }else echo '
-            <div class="row justify-content-center" id="cadastroErro">
-                <div class="display-4 text-success fw-bolder">Falha ao cadastrar</div>
+        }
+        else echo '
+            <div class="row d-flex flex-column  justify-content-center align-content-center" id="cadastroErro">
+                <div class="display-4 text-danger fw-bolder">Falha ao cadastrar</div>
+                <p class="text-danger align-self-center"> '.$result.'</p>
             </div>
             <script>
                 setTimeout(function() {
