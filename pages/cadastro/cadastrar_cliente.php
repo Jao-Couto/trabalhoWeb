@@ -17,74 +17,72 @@
     <script type="text/javascript" src="js/script.js"></script>
   </head>
   <body>
-    <div class="container-fluid b-0 p-0" style="min-height: 100vh;">
-    <div class="container-fluid navbar pt-3 pb-3 p-0 navbar-light justify-content-between bg-secondary" id="header">
+    <div class="container-fluid b-0 p-0  bg-secondary" style="min-height: 100vh;">
+        <div class="container-fluid navbar pt-3 pb-3  navbar-light justify-content-between bg-dark" id="header">
             <div class="row w-100 align-items-center justify-content-between">
                 <div class="ml-3">
                     <a href="../../index.php" class="btn btn-primary">Voltar para o Site</a>
                 </div>
                 <div class="display-4">
-                   <strong>Cadastro</strong> 
+                    <strong class="text-light">Cadastro</strong> 
                 </div>
                 <div></div>
             </div>
             
         </div>
-        <div class="container mt-2">
-            
-        
+        <div class="container mt-2 bg-secondary">
             
             <div class="row justify-content-center">
-                <div class="col-8 p-4">
+                <div class="col-md-8 col-sm-12 p-4">
                     <form method="POST" action="../login/login.php">
                         <div class="form-row">
-                            <div class="form-group col-md-6">
-                            <label for="email">E-mail</label>
+                            <div class="form-group col-sm-12 col-md-6">
+                            <label class="text-light" for="email">E-mail</label>
                             <input type="email" class="form-control" id="email" name="email" required>
                             </div>
-                            <div class="form-group col-md-6">
-                            <label for="senha">Senha</label>
+                            <div class="form-group col-sm-12 col-md-6">
+                            <label class="text-light" for="senha">Senha</label>
                             <input type="password" class="form-control" id="senha" name="senha" required minlength="8" maxlength="16">
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-md-8">
-                                <label for="nome">Nome</label>
+                            <div class="form-group col-sm-12 col-md-8">
+                                <label class="text-light" for="nome">Nome</label>
                                 <input type="text" class="form-control" id="nome" name="nome" required>
                             </div>
-                            <div class="form-group col-md-4">
-                                <label for="cpf">CPF</label>
+                            <div class="form-group col-sm-12 col-md-4">
+                                <label class="text-light" for="cpf">CPF</label>
                                 <input type="text" class="form-control" id="cpf" name="cpf"  minlength="14" required>
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-md-10">
-                                <label for="rua">Rua</label>
+                            <div class="form-group col-sm-12 col-md-10">
+                                <label class="text-light" for="rua">Rua</label>
                                 <input type="text" class="form-control" id="rua" name="rua" required>
                             </div>
-                            <div class="form-group col-md-2">
-                                <label for="num">Número</label>
+                            <div class="form-group col-sm-12 col-md-2">
+                                <label class="text-light" for="num">Número</label>
                                 <input type="text" class="form-control" id="num" name="num" required>
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-md-8">
-                                <label for="bairro">Bairro</label>
+                            <div class="form-group col-sm-12 col-md-8">
+                                <label class="text-light" for="bairro">Bairro</label>
                                 <input type="text" class="form-control" id="bairro" name="bairro" required>
                             </div>
-                            <div class="form-group col-md-4">
-                                    <label for="cep">CEP:</label>
+                            <div class="form-group col-sm-12 col-md-4">
+                                    <label class="text-light" for="cep">CEP:</label>
                                     <input class="form-control" type="text" id="cep" name="cep" autocomplete="off"
                                         minlength="9" required>
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-md-8">
-                                <label for="cidade">Cidade</label>
+                            <div class="form-group col-sm-12 col-md-8">
+                                <label class="text-light" for="cidade">Cidade</label>
                                 <input type="text" class="form-control" id="cidade" name="cidade" required>
                             </div>
-                            <div class="form-group col-md-4">
-                                <label for="uf">Estado</label>
+                            <div class="form-group col-sm-12 col-md-4">
+                                <label class="text-light" for="uf">Estado</label>
                                 <select id="uf" name="uf" class="form-control">
                                     <option value="AC">AC</option>
                                         <option value="AL">AL</option>
@@ -118,28 +116,28 @@
                         </div>
 
                         <div class="form-row">
-                            <div class="form-group col-md-8">
-                                <label for="complemento">Complemento</label>
+                            <div class="form-group col-sm-12 col-md-8">
+                                <label class="text-light" for="complemento">Complemento</label>
                                 <input type="text" class="form-control" id="complemento" name="complemento">
                             </div>
-                            <div class="form-group col-md-4">
-                                    <label for="pais">País</label>
+                            <div class="form-group col-sm-12 col-md-4">
+                                    <label class="text-light" for="pais">País</label>
                                     <input class="form-control" type="text" id="pais" name="pais" autocomplete="off" required>
                             </div>
                         </div>
                         
                         <div class="form-row justify-content-center">
-                            <div class="form-group col-md-4">
-                                <label for="nascimento">Data de Nascimento</label>
+                            <div class="form-group col-sm-12 col-md-4">
+                                <label class="text-light" for="nascimento">Data de Nascimento</label>
                                 <input type="date" class="form-control" name="nascimento" placeholder="dd/mm/yyyy"  min="1900-01-01" required>
                             </div>
-                            <div class="form-group col-md-4">
-                                <label for="celular">Celular</label>
+                            <div class="form-group col-sm-12 col-md-4">
+                                <label class="text-light" for="celular">Celular</label>
                                 <input class="form-control" type="tel" name="cel" id="celular" autocomplete="off"
                                     minlength="15">
                             </div>
-                            <div class="form-group col-md-4">
-                                <label for="telefone">Telefone</label>
+                            <div class="form-group col-sm-12 col-md-4">
+                                <label class="text-light" for="telefone">Telefone</label>
                                 <input class="form-control w-10" type="tel" name="tel" id="telefone"
                                     autocomplete="off" minlength="14">
                             </div>
@@ -149,9 +147,8 @@
                 </div>
             </div>
         </div>
-            
+                
     </div>
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     

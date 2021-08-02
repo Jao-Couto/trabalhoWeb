@@ -14,7 +14,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
-  <body>
+  <body class="bg-secondary">
     <div class="container" style="height: 100vh;">
     <?php
     
@@ -47,8 +47,7 @@
                         $("#cadastroSucesso").fadeOut();
                     }, 8000);
                 </script>';
-        }
-        else echo '
+        }else echo '
             <div class="row justify-content-center" id="cadastroErro">
                 <div class="display-4 text-success fw-bolder">Falha ao cadastrar</div>
             </div>
@@ -58,10 +57,34 @@
                 }, 8000);
             </script>';
     }
+    if(isset($_GET['erroLogin'])){
+        echo $_GET['erroLogin'];
+        if ($_GET['erroLogin'] == 0) {
+            echo '
+                <div class="row justify-content-center" id="cadastroErro">
+                    <h3 class="text-warning fw-bolder">Falha ao fazer login: E-mail/Senha Incorreto(s) :(</h3>
+                </div>
+                <script>
+                    setTimeout(function() {
+                        $("#cadastroErro").fadeOut();
+                    }, 8000);
+                </script>';
+        }else{
+            echo '
+                <div class="row justify-content-center" id="cadastroErro">
+                    <h3 class="text-warning fw-bolder">Falha ao fazer login</h3>
+                </div>
+                <script>
+                    setTimeout(function() {
+                        $("#cadastroErro").fadeOut();
+                    }, 8000);
+                </script>';
+        }
+    }
 
     ?>
         <div class="h-100 row align-items-center justify-content-center">
-            <div class="col-lg-6 col-md-8 col-sm-12 bg-secondary border border-dark rounded" style="padding: 5%;">
+            <div class="col-lg-6 col-md-8 col-sm-12 bg-dark border border-dark rounded" style="padding: 5%;">
                 <h1 class="text-center text-light mb-5">Login</h1>
                 <form method="POST" action="../../database/functions.php" >
                     <div class="form-group">

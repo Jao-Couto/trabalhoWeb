@@ -73,6 +73,6 @@ INSERT INTO Forma_Pagamento(Codigo, Nome, Desconto) value('boleto','Boleto', '10
  
 INSERT INTO Produto(nome, CNPJ_Marca, Cod_Categoria, preco, descricao, img) value('HD 2TB 7200RPM', '56.910.331/0001-13', '1', '499.19', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'https://i.ibb.co/TkzLZMX/HD2TB.jpg'),('Placa de Vídeo RTX 3060 12GB', '07.567.999/0001-02', '2', '12999.90', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'https://i.ibb.co/YZkjvGY/RTX3060.jpg'),('Gabinete TG4 Blue','07.567.999/0001-01','3','159.80','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.','https://i.ibb.co/8MJhwp6/TG4.jpg');
  
-INSERT INTO Cliente value('111.111.111-11', 'José da Silva', 'jose@gamil.com', '12345678', '11111-111', 'Av. Brasil', '123', '', 'Morumbi', 'São Paulo', 'Brasil', 'SP', '1990-01-01');
+INSERT INTO Cliente value('111.111.111-11', 'José da Silva', 'jose@gmail.com', '12345678', '11111-111', 'Av. Brasil', '123', '', 'Morumbi', 'São Paulo', 'Brasil', 'SP', '1990-01-01');
  
 INSERT INTO Telefone value('111.111.111-11', '(18) 99999-9999'),('111.111.111-11', '(18) 8888-8888');

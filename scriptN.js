@@ -99,8 +99,8 @@ $(document).ready(function(){
         let respArr = [""]
         let  strResp
         produtos.forEach(elem =>{
-            strResp =   `<div class="col-sm-12 col-lg-3 col-md-4 m-2">
-                            <div class="card h-100">
+            strResp =   `<div class="col-sm-12 col-lg-3 col-md-4 m-2  ">
+                            <div class="card h-100 border-2 border-dark">
                                 <img src="`+ elem.img +`" class="card-img-top">
                                 <div class="card-body">
                                     <h4 class="card-title">`+ elem.nome +`</h4>
@@ -108,7 +108,7 @@ $(document).ready(function(){
                                     <p class="card-text" style="display: none;" id="desc`+elem.codigo+`">`+ elem.descricao +`</p>
                                     <button type="button" class="btn align-self-end btn-outline-primary"  onclick="toggleDesc('#desc`+elem.codigo+`')">Info</button>
                                 </div>
-                                <div class="card-footer bg-dark p-0" style="transform: rotate(0);">
+                                <div class="card-footer bg-dark border border-light p-0" style="transform: rotate(0); ">
                                     <a class="stretched-link btn btn-dark text-white p-3 m-0" id='compra`+elem.codigo+`' onclick="addCarrinho(`+elem.codigo+`)" name='botao' style="width: 100%;"><h6 class="small">Adicionar ao Carrinho</h6></a>
                                 </div>
                             </div>
@@ -117,46 +117,4 @@ $(document).ready(function(){
         })
         return respArr
     }
-/*
-    $("#filCategoria").change(function(){
-        let sel = $("#filCategoria")[0].value
-        if(sel == "all"){
-            elementos = createDiv(produtos);
-            carregaPag()
-            carregaSelPag()
-            return
-        }
-        if(arrCategoria.indexOf(sel) != -1){
-            let filCategoria = []
-            produtos.forEach(prod =>{
-                if(prod.categoria == sel)
-                    filCategoria.push(prod)
-            })
-            elementos = createDiv(filCategoria)
-            carregaPag()
-            carregaPag()
-            carregaSelPag()
-        }
-    })
-
-    $("#filPreco").change(function(){
-        let sel = $("#filPreco")[0].value
-        if(sel == "all"){
-            elementos = createDiv(produtos);
-            carregaPag()
-            carregaSelPag()
-            return
-        }
-        if(arrCategoria.indexOf(sel) != -1){
-            let filCategoria = []
-            produtos.forEach(prod =>{
-                if(prod.categoria == sel)
-                    filCategoria.push(prod)
-            })
-            elementos = createDiv(filCategoria)
-            carregaPag()
-            carregaPag()
-            carregaSelPag()
-        }
-    })  */
 })

@@ -79,117 +79,115 @@
     <title>Início</title>
 </head>
 <body >
-        <div class="jumbotron text-center" style="padding: 0; padding-top: 2%; margin-bottom:0">
-            <h4 class="display-4">Site de Compras</h4>
-            <p class="lead">Faça Suas Compras Aqui! Não Perca seu Tempo nem seu Dinheiro! :)</p>
-            
-            <div class="conainer p-3 bg-secondary text-white" style="margin-top: 3%;">
-                <div class="row align-items-center">
-                    <div class="col-10">
-                        <div class="container mt-1">
-                            <form action="index.php" method="POST">
-                                <div class="row">
-                                    <div class="col-lg-5 col-sm-12 m-1">
-
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="filCategoria">Filtragem por Categoria</label>
-                                            </div>
-                                            <select class="custom-select" name="filCategoria">
-                                                
-                                                <?php 
-                                                    $options = "";
-                                                    $result = runSQL("SELECT * FROM categoria");
-                                                    if(isset($filtroCategoria)){
-                                                        while($row = mysqli_fetch_assoc($result)){
-                                                            if($filtroCategoria == $row['Codigo']){
-                                                                $options .=  "<option value='$row[Codigo]' selected>$row[Nome]</option>";
-                                                                continue;
-                                                            }
-                                                            $options .=  "<option value='$row[Codigo]' >$row[Nome]</option>";
-                                                        }
-                                                        echo "<option value=''>Todos</option>";
-                                                    }else{
-                                                        while($row = mysqli_fetch_assoc($result)){
-                                                            $options .=  "<option value='$row[Codigo]'>$row[Nome]</option>";
-                                                        }
-                                                        echo "<option value='' selected>Todos</option>";
-                                                    }
-                                                    echo $options;
-                                                ?>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-5 col-sm-10 m-1">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="filPreco">Ordenar por Preço</label>
-                                            </div>
-                                            <select class="custom-select" name="filPreco">
-                                                <?php 
-                                                    if(isset($filtroPreco)){
-                                                        if($filtroPreco === "asc"){
-                                                            $options = '<option value="" >Padrão</option>
-                                                            <option value="asc"    selected>Crescente</option>
-                                                            <option value="desc"   >Decrescente</option>';
-                                                        }else{
-                                                            $options = '<option value="" >Padrão</option>
-                                                            <option value="asc"    >Crescente</option>
-                                                            <option value="desc"   selected>Decrescente</option>';
-                                                        }
-                                                    }else{
-                                                        $options = '<option value="" selected>Padrão</option>
-                                                        <option value="asc"    >Crescente</option>
-                                                        <option value="desc"   >Decrescente</option>';
-                                                    }
-                                                    echo $options;
-                                                    
-                                                ?>
-                                            </select>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="col-1">
-                                        <input type="submit" name="submit" value="Filtrar" class="btn btn-primary h-100" ></input>
-                                    </div>
-                                    
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-2" style="min-width: 50px;">
-                        <div class="container">
+    <div class="jumbotron text-center" style="padding: 0; padding-top: 2%; margin-bottom:0">
+        <h4 class="display-4">Site de Compras</h4>
+        <p class="lead">Faça Suas Compras Aqui! Não Perca seu Tempo nem seu Dinheiro! :)</p>
+        
+        <div class="conainer p-3 bg-dark text-white" style="margin-top: 3%;">
+            <div class="row align-items-center">
+                <div class="col-10">
+                    <div class="container mt-1">
+                        <form action="index.php" method="POST">
                             <div class="row">
-                                <div class="col-5 m-1 p-0">
-                                    <a style="min-width: 35px; min-height: 35px;" href="pages/carrinho/carrinho.php" class="btn btn-light p-2 w-100 align-content-center">
-                                        <i class="fas fa-shopping-cart"></i>
-                                    </a>
+                                <div class="col-lg-5 col-sm-12 m-1">
+
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" for="filCategoria">Filtragem por Categoria</label>
+                                        </div>
+                                        <select class="custom-select" name="filCategoria">
+                                            
+                                            <?php 
+                                                $options = "";
+                                                $result = runSQL("SELECT * FROM categoria");
+                                                if(isset($filtroCategoria)){
+                                                    while($row = mysqli_fetch_assoc($result)){
+                                                        if($filtroCategoria == $row['Codigo']){
+                                                            $options .=  "<option value='$row[Codigo]' selected>$row[Nome]</option>";
+                                                            continue;
+                                                        }
+                                                        $options .=  "<option value='$row[Codigo]' >$row[Nome]</option>";
+                                                    }
+                                                    echo "<option value=''>Todos</option>";
+                                                }else{
+                                                    while($row = mysqli_fetch_assoc($result)){
+                                                        $options .=  "<option value='$row[Codigo]'>$row[Nome]</option>";
+                                                    }
+                                                    echo "<option value='' selected>Todos</option>";
+                                                }
+                                                echo $options;
+                                            ?>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="col-5 m-1 p-0">
-                                    <?php if (isset($_SESSION["login"])){?>
-                                        
-                                        <a style="min-width: 35px; min-height: 35px;" href="pages/login/logout.php" class="btn btn-danger p-2 w-100 align-content-center">
-                                            <i class="fas fa-sign-out-alt"></i>
-                                        </a>
+                                <div class="col-lg-5 col-sm-10 m-1">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" for="filPreco">Ordenar por Preço</label>
+                                        </div>
+                                        <select class="custom-select" name="filPreco">
+                                            <?php 
+                                                if(isset($filtroPreco)){
+                                                    if($filtroPreco === "asc"){
+                                                        $options = '<option value="" >Padrão</option>
+                                                        <option value="asc"    selected>Crescente</option>
+                                                        <option value="desc"   >Decrescente</option>';
+                                                    }else{
+                                                        $options = '<option value="" >Padrão</option>
+                                                        <option value="asc"    >Crescente</option>
+                                                        <option value="desc"   selected>Decrescente</option>';
+                                                    }
+                                                }else{
+                                                    $options = '<option value="" selected>Padrão</option>
+                                                    <option value="asc"    >Crescente</option>
+                                                    <option value="desc"   >Decrescente</option>';
+                                                }
+                                                echo $options;
+                                                
+                                            ?>
+                                        </select>
+                                    </div>
                                     
-                                    <?php }else { ?>
-
-                                        <a style="min-width: 35px; min-height: 35px;" href="pages/login/login.php" class="btn btn-light p-2 w-100 align-content-center">
-                                            <i class="fas fa-user"></i>
-                                        </a>
-
-                                    <?php } ?>
                                 </div>
+                                <div class="col-1">
+                                    <input type="submit" name="submit" value="Filtrar" class="btn btn-primary h-100" ></input>
+                                </div>
+                                
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-2" style="min-width: 50px;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-5 m-1 p-0">
+                                <a style="min-width: 35px; min-height: 35px;" href="pages/carrinho/carrinho.php" class="btn btn-light p-2 w-100 align-content-center">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </a>
+                            </div>
+                            <div class="col-5 m-1 p-0">
+                                <?php if (isset($_SESSION["login"])){?>
+                                    
+                                    <a style="min-width: 35px; min-height: 35px;" href="pages/login/logout.php" class="btn btn-danger p-2 w-100 align-content-center">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                    </a>
+                                
+                                <?php }else { ?>
+
+                                    <a style="min-width: 35px; min-height: 35px;" href="pages/login/login.php" class="btn btn-light p-2 w-100 align-content-center">
+                                        <i class="fas fa-user"></i>
+                                    </a>
+
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
                 </div>
-            
             </div>
+        
         </div>
-    <div class="container" style="min-height: 49vh;">
-
-    
+    </div>
+    <div class="container-fluid m-0 bg-secondary" style="min-height: 49vh;">
 
         <?php
             if(isset($_POST['enviar']) && $_POST['enviar'] == "Cadastrar"){

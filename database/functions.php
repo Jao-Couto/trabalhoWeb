@@ -18,11 +18,14 @@ if(isset($_POST["submit"]) && $_POST["submit"] == "Login"){
         if($row = mysqli_fetch_assoc($result)){
             $_SESSION["login"] = $row['CPF'];
             header("Location: http://localhost/trabalhoWeb/index.php");
-        }else header("Location: http://localhost/trabalhoWeb/pages/login/login.php");
-        
+        }
+        if (!isset($_SESSION["login"])){
+            header("Location: http://localhost/trabalhoWeb/pages/login/login.php?erroLogin=0");
+        }
     }
-    
 }
+
+
 
 
 
