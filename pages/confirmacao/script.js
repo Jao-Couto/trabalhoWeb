@@ -56,11 +56,6 @@ function removerAll() {
   }
 }
 
-function inicio() {
-  removerAll();
-  window.location.href = "../../index.php";
-}
-
 $(document).ready(function () {
   let aux = {};
 
@@ -76,7 +71,7 @@ $(document).ready(function () {
 				<h4 class="card-title text-dark">${produtos[contador].nome} </h4>
 				<h5 class="card-text "> ${produtos[contador].marca} </h5>
 				<p class="card-text"> <b> R$ ${produtos[contador].preco}</b></p>
-				<p class="card-text">  ${produtos[contador].desc}</p>
+				<p class="card-text">  ${produtos[contador].descricao}</p>
 				<div class="row align-self-end">
 					<div class="col-8">
 						<div class="number float-left">

@@ -22,16 +22,17 @@
 
 <body>
     <main>
-        <div class="container-fluid navbar pt-3 pb-3 p-0 navbar-light justify-content-between bg-secondary" id="header">
-            <div class="row w-100">
-                <div class="col-4">
+        <div class="container-fluid navbar pt-3 pb-3  navbar-light justify-content-between bg-dark" id="header">
+            <div class="row w-100 align-items-center justify-content-between">
+                <div class="ml-3">
+                    
                 </div>
-                <div class="display-4 col-6">
-                    <strong>Detalhes da compra</strong>
+                <div class="display-4">
+                    <strong class="text-light">Detalhes da Compra</strong> 
                 </div>
-                <div class="col-2"></div>
+                <div></div>
             </div>
-
+            
         </div>
         <div class="container p-3">
             <div class="alert border border-secondary rounded alert-light" role="alert">
@@ -188,7 +189,7 @@
                                 </div>
                             </div>
                         </div>
-                        <input class="form-control" type="button" value="Página inicial" id="inicio" onclick="inicio()">
+                        <a href="../../index.php" class="btn btn-success w-100"> Página Inicial<a>
                     </div>
                 </div>
             </div>

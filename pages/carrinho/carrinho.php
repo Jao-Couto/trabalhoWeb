@@ -63,15 +63,15 @@ if($row = mysqli_fetch_array($result)){
 
 <body>
     <main>
-        <div class="container-fluid navbar pt-3 pb-3 p-0 navbar-light justify-content-between bg-secondary" id="header">
-            <div class="row w-100">
-                <div class="col-4 ml-3 align-self-center">
+        <div class="container-fluid navbar pt-3 pb-3  navbar-light justify-content-between bg-dark" id="header">
+            <div class="row w-100 align-items-center justify-content-between">
+                <div class="ml-3">
                     <a href="../../index.php" class="btn btn-primary">Continuar Comprando</a>
                 </div>
-                <div class="display-4 col-4">
-                   <strong>Carrinho</strong> 
+                <div class="display-4">
+                    <strong class="text-light">Carrinho</strong> 
                 </div>
-                <div class="col-4"></div>
+                <div></div>
             </div>
             
         </div>

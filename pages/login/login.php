@@ -16,7 +16,36 @@
   </head>
   <body class="bg-secondary">
     <div class="container" style="height: 100vh;">
+    
     <?php
+
+    function displayMessage($name, $color, $message, $description){
+        if($description != ''){
+            return "<div class='row justify-content-center m-3' id='$name'>
+                        <div class='justify-content-center'>
+                            <div class='row justify-content-center'>
+                                <h1 class='text-$color' fw-bolder'>$message</h1>
+                            </div>
+                            <div class='row justify-content-center'>
+                                <p class='text-info  align-self-center'> $description</p>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        setTimeout(function() {
+                            $('#$name').fadeOut();
+                        }, 5000);
+                    </script>";
+        }
+        return "<div class='row justify-content-center m-3' id='$name'>
+                    <h2 class='text-$color fw-bolder'>$message</h2>
+                </div>
+                <script>
+                    setTimeout(function() {
+                        $('#$name').fadeOut();
+                    }, 5000);
+                </script>";
+    }
     
 
     if(isset($_POST['enviar']) && $_POST['enviar'] == "Cadastrar"){
@@ -38,54 +67,19 @@
 
         }
         if($result == 1){
-            echo '
-                <div class="row justify-content-center" id="cadastroSucesso">
-                    <div class="display-4 text-success fw-bolder">Cadastrado com sucesso!</div>
-                </div>
-                <script>
-                    setTimeout(function() {
-                        $("#cadastroSucesso").fadeOut();
-                    }, 8000);
-                </script>';
-        }
-        else echo '
-            <div class="row d-flex flex-column  justify-content-center align-content-center" id="cadastroErro">
-                <div class="display-4 text-danger fw-bolder">Falha ao cadastrar</div>
-                <p class="text-danger align-self-center"> '.$result.'</p>
-            </div>
-            <script>
-                setTimeout(function() {
-                    $("#cadastroErro").fadeOut();
-                }, 8000);
-            </script>';
+            echo displayMessage("MensagemSucesso", "success", "Cadastrado com Sucesso!", "");
+        }else echo displayMessage("MensagemErro", "warning", "Falha ao cadastrar", $result);
     }
     if(isset($_GET['erroLogin'])){
-        echo $_GET['erroLogin'];
         if ($_GET['erroLogin'] == 0) {
-            echo '
-                <div class="row justify-content-center" id="cadastroErro">
-                    <h3 class="text-warning fw-bolder">Falha ao fazer login: E-mail/Senha Incorreto(s) :(</h3>
-                </div>
-                <script>
-                    setTimeout(function() {
-                        $("#cadastroErro").fadeOut();
-                    }, 8000);
-                </script>';
+            echo displayMessage("mensagemErroLogin", "warning", "Falha ao fazer login: E-mail/Senha Incorreto(s) :(", "");
         }else{
-            echo '
-                <div class="row justify-content-center" id="cadastroErro">
-                    <h3 class="text-warning fw-bolder">Falha ao fazer login</h3>
-                </div>
-                <script>
-                    setTimeout(function() {
-                        $("#cadastroErro").fadeOut();
-                    }, 8000);
-                </script>';
+            echo displayMessage("mensagemErroLoginIndef", "warning", "Falha ao fazer login", "");
         }
     }
 
     ?>
-        <div class="h-100 row align-items-center justify-content-center">
+        <div class="row mt-5 align-items-center justify-content-center">
             <div class="col-lg-6 col-md-8 col-sm-12 bg-dark border border-dark rounded" style="padding: 5%;">
                 <h1 class="text-center text-light mb-5">Login</h1>
                 <form method="POST" action="../../database/functions.php" >
