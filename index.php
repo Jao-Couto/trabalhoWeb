@@ -168,7 +168,7 @@
                                 <div class="col-5 m-1 p-0">
                                     <?php if (isset($_SESSION["login"])){?>
                                         
-                                        <a style="min-width: 35px; min-height: 35px;" href="database/logout.php" class="btn btn-danger p-2 w-100 align-content-center">
+                                        <a style="min-width: 35px; min-height: 35px;" href="pages/login/logout.php" class="btn btn-danger p-2 w-100 align-content-center">
                                             <i class="fas fa-sign-out-alt"></i>
                                         </a>
                                     
