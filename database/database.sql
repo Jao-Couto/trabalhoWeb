@@ -3,7 +3,7 @@ CREATE DATABASE loja_de_hardware;
 CREATE TABLE Cliente(
     CPF varchar(14) PRIMARY KEY NOT NULL,
     Nome varchar(128) NOT NULL,
-    Email varchar(64) NOT NULL,
+    Email varchar(64) NOT NULL UNIQUE,
     Senha varchar(64) NOT NULL,
     CEP varchar(9) NOT NULL,
     Rua varchar(128) NOT NULL,
