@@ -187,7 +187,7 @@
         
         </div>
     </div>
-    <div class="container-fluid m-0 bg-secondary" style="min-height: 49vh;">
+    <div class="container-fluid pb-2 bg-secondary" style="min-height: 49vh;">
 
         <?php
             if(isset($_POST['enviar']) && $_POST['enviar'] == "Cadastrar"){
@@ -219,7 +219,8 @@
         </div>          
         <ul class="pagination justify-content-center m-5 align-self-end" id="pageSelect"></ul>
         
-        <div class="footer-copyright text-center text-light bg-dark pt-3">Desenvolvido por João Vitor Couto e Rafael Correia</div>
+        
     </div>
+    <div class="footer-copyright text-center p-3 w-100 text-light bg-dark">Desenvolvido por João Vitor Couto e Rafael Correia</div>
 </body>
 </html>

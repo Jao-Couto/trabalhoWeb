@@ -63,7 +63,7 @@ if($row = mysqli_fetch_array($result)){
 
 <body>
     <main>
-        <div class="container-fluid navbar pt-3 pb-3  navbar-light justify-content-between bg-dark" id="header">
+        <div class="container-fluid navbar mb-5 p-5  navbar-light justify-content-between bg-dark" id="header">
             <div class="row w-100 align-items-center justify-content-between">
                 <div class="ml-3">
                     <a href="../../index.php" class="btn btn-primary">Continuar Comprando</a>
@@ -283,9 +283,7 @@ if($row = mysqli_fetch_array($result)){
                 </div>
             </div>
         </div>
-        <div class="footer-copyright w-100 text-center bg-secondary pt-3">
-            Desenvolvido por João Vitor Couto e Rafael Correia
-        </div>
+        <div class="footer-copyright text-center p-3 w-100 text-light bg-dark">Desenvolvido por João Vitor Couto e Rafael Correia</div>
 
     </main>
 

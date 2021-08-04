@@ -15,21 +15,30 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body class="bg-secondary">
-    <div class="container" style="height: 100vh;">
+    <div class="container" style="height: 88vh;">
     
-    <?php
+        <?php
 
-    function displayMessage($name, $color, $message, $description){
-        if($description != ''){
-            return "<div class='row justify-content-center m-3' id='$name'>
-                        <div class='justify-content-center'>
-                            <div class='row justify-content-center'>
-                                <h1 class='text-$color' fw-bolder'>$message</h1>
-                            </div>
-                            <div class='row justify-content-center'>
-                                <p class='text-info  align-self-center'> $description</p>
+        function displayMessage($name, $color, $message, $description){
+            if($description != ''){
+                return "<div class='row justify-content-center m-3' id='$name'>
+                            <div class='justify-content-center'>
+                                <div class='row justify-content-center'>
+                                    <h1 class='text-$color' fw-bolder'>$message</h1>
+                                </div>
+                                <div class='row justify-content-center'>
+                                    <p class='text-info  align-self-center'> $description</p>
+                                </div>
                             </div>
                         </div>
+                        <script>
+                            setTimeout(function() {
+                                $('#$name').fadeOut();
+                            }, 5000);
+                        </script>";
+            }
+            return "<div class='row justify-content-center m-3' id='$name'>
+                        <h2 class='text-$color fw-bolder'>$message</h2>
                     </div>
                     <script>
                         setTimeout(function() {
@@ -37,48 +46,39 @@
                         }, 5000);
                     </script>";
         }
-        return "<div class='row justify-content-center m-3' id='$name'>
-                    <h2 class='text-$color fw-bolder'>$message</h2>
-                </div>
-                <script>
-                    setTimeout(function() {
-                        $('#$name').fadeOut();
-                    }, 5000);
-                </script>";
-    }
-    
+        
 
-    if(isset($_POST['enviar']) && $_POST['enviar'] == "Cadastrar"){
-        require_once('../../database/functions.php');
-        $query = "INSERT INTO cliente(CPF, Nome, Email, Senha, CEP, Rua, Numero, Complemento, Bairro, Cidade, Pais, UF, nascimento) values('$_POST[cpf]', '$_POST[nome]', '$_POST[email]', '$_POST[senha]', '$_POST[cep]', '$_POST[rua]', '$_POST[num]', '$_POST[complemento]', '$_POST[bairro]', '$_POST[cidade]', '$_POST[pais]', '$_POST[uf]', '$_POST[nascimento]' )";
+        if(isset($_POST['enviar']) && $_POST['enviar'] == "Cadastrar"){
+            require_once('../../database/functions.php');
+            $query = "INSERT INTO cliente(CPF, Nome, Email, Senha, CEP, Rua, Numero, Complemento, Bairro, Cidade, Pais, UF, nascimento) values('$_POST[cpf]', '$_POST[nome]', '$_POST[email]', '$_POST[senha]', '$_POST[cep]', '$_POST[rua]', '$_POST[num]', '$_POST[complemento]', '$_POST[bairro]', '$_POST[cidade]', '$_POST[pais]', '$_POST[uf]', '$_POST[nascimento]' )";
 
-        $result = runSQL($query); 
-        if($result == 1){
-            if(isset($_POST['cel'])){
-                $query2 = "INSERT INTO telefone(CPF, Numero) value('$_POST[cpf]','$_POST[cel]')";
-                $result2 = runSQL($query2);
+            $result = runSQL($query); 
+            if($result == 1){
+                if(isset($_POST['cel'])){
+                    $query2 = "INSERT INTO telefone(CPF, Numero) value('$_POST[cpf]','$_POST[cel]')";
+                    $result2 = runSQL($query2);
+                }
+                
+                if(isset($_POST['tel'])){
+                    $query2 = "INSERT INTO telefone(CPF, Numero) value('$_POST[cpf]','$_POST[tel]')";
+                    $result2 = runSQL($query2);
+                }
+                $_SESSION["login"] = $_POST['cpf'];
+
             }
-            
-            if(isset($_POST['tel'])){
-                $query2 = "INSERT INTO telefone(CPF, Numero) value('$_POST[cpf]','$_POST[tel]')";
-                $result2 = runSQL($query2);
+            if($result == 1){
+                echo displayMessage("MensagemSucesso", "success", "Cadastrado com Sucesso!", "");
+            }else echo displayMessage("MensagemErro", "warning", "Falha ao cadastrar", $result);
+        }
+        if(isset($_GET['erroLogin'])){
+            if ($_GET['erroLogin'] == 0) {
+                echo displayMessage("mensagemErroLogin", "warning", "Falha ao fazer login: E-mail/Senha Incorreto(s) :(", "");
+            }else{
+                echo displayMessage("mensagemErroLoginIndef", "warning", "Falha ao fazer login", "");
             }
-            $_SESSION["login"] = $_POST['cpf'];
-
         }
-        if($result == 1){
-            echo displayMessage("MensagemSucesso", "success", "Cadastrado com Sucesso!", "");
-        }else echo displayMessage("MensagemErro", "warning", "Falha ao cadastrar", $result);
-    }
-    if(isset($_GET['erroLogin'])){
-        if ($_GET['erroLogin'] == 0) {
-            echo displayMessage("mensagemErroLogin", "warning", "Falha ao fazer login: E-mail/Senha Incorreto(s) :(", "");
-        }else{
-            echo displayMessage("mensagemErroLoginIndef", "warning", "Falha ao fazer login", "");
-        }
-    }
 
-    ?>
+        ?>
         <div class="row mt-5 align-items-center justify-content-center">
             <div class="col-lg-6 col-md-8 col-sm-12 bg-dark border border-dark rounded" style="padding: 5%;">
                 <h1 class="text-center text-light mb-5">Login</h1>
@@ -103,6 +103,7 @@
         </div>
         
     </div>
+    <div class="footer-copyright text-center align-self-end p-3 w-100 text-light bg-dark">Desenvolvido por João Vitor Couto e Rafael Correia</div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
