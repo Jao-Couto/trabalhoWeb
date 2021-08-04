@@ -213,17 +213,13 @@
                     </script>';
             }
         ?>
-        <div class="container-fluid mt-5">
+        <div class="container-fluid pt-2">
             <div class="row p-3 justify-content-center"  id="itens">
             </div>
-        </div>
-        </div>
-            <ul class="pagination justify-content-center m-5 align-self-end" id="pageSelect">
-            </ul>
-        </div>
+        </div>          
+        <ul class="pagination justify-content-center m-5 align-self-end" id="pageSelect"></ul>
         
-        <div class="footer-copyright text-center bg-secondary pt-3">Desenvolvido por João Vitor Couto e Rafael Correia
-        </div>
+        <div class="footer-copyright text-center text-light bg-dark pt-3">Desenvolvido por João Vitor Couto e Rafael Correia</div>
     </div>
 </body>
 </html>
